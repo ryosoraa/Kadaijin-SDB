@@ -25,6 +25,8 @@ import com.kadaijin.kadaijin.service.LoginService;
 import com.kadaijin.kadaijin.service.RegisterService;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
 @RestController
 @RequestMapping("/API/V1")
@@ -55,9 +57,15 @@ public class Control {
 
     }
 
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Successfully retrieved"),
+            @ApiResponse(responseCode = "404", description = "Not found - id exceeds limit")
+    })
     @Operation(summary = "Restore data", description = "returns data by id")
     @GetMapping("/get")
-    private Optional<KadaijinModel> getDataOne(@RequestParam Integer id) {
+    private Optional<KadaijinModel> getDataOne(@RequestParam(defaultValue = "1") Integer id) {
+
+        
         return this.getService.getOne(id);
 
     }
