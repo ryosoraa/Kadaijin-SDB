@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kadaijin.kadaijin.model.LogModel;
+import com.kadaijin.kadaijin.model.LogMain;
 import com.kadaijin.kadaijin.service.LogService;
 
 @RestController
@@ -19,12 +19,12 @@ public class LogControl {
     private LogService logService;
 
     @PostMapping
-    private void postModel(LogModel logModel) {
+    private void postModel(LogMain logModel) {
         this.logService.logInsert(logModel);
     }
 
     @GetMapping
-    private List<LogModel> getDataLog() {
+    private List<LogMain> getDataLog() {
         return this.logService.getLog();
     }
 

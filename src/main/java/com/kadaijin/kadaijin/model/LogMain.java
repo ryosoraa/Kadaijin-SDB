@@ -10,13 +10,12 @@ import lombok.Data;
 @Entity
 @Table(name = "usagi")
 @Data
-public class LogModel {
+public class LogMain {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer userID;
 
-    private String username;
-    private String login_result;
-    private String timestamp;
+    private String user;
 }
+

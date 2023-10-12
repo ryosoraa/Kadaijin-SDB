@@ -64,8 +64,6 @@ public class Control {
     @Operation(summary = "Restore data", description = "returns data by id")
     @GetMapping("/get")
     private Optional<KadaijinModel> getDataOne(@RequestParam(defaultValue = "1") Integer id) {
-
-        
         return this.getService.getOne(id);
 
     }

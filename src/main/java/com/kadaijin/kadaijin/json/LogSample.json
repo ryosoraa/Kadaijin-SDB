@@ -1,0 +1,25 @@
+[
+  {
+    "user": {
+      "userName": "Elda@gmail.com",
+      "log": [
+        { "logID": 1, "timestamp": "2023-10-15 00:00:00" },
+        { "logID": 2, "timestamp": "2023-10-15 00:00:00" },
+        { "logID": 3, "timestamp": "2023-10-15 00:00:00" }
+      ],
+      "totalLogin": 3
+    }
+  },
+  {
+    "user": {
+      "userName": "Ryo@gmail.com",
+      "log": [
+        { "logID": 1, "timestamp": "2023-10-15 00:00:00" },
+        { "logID": 2, "timestamp": "2023-10-15 00:00:00" },
+        { "logID": 3, "timestamp": "2023-10-15 00:00:00" },
+        { "logID": 4, "timestamp": "2023-10-15 00:00:00" }
+      ],
+      "totalLogin": 4
+    }
+  }
+]
