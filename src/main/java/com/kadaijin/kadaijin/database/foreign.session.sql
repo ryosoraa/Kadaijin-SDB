@@ -1,17 +1,17 @@
 USE kadaijin;
 
-CREATE TABLE customer (
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    email VARCHAR(50),
-    password VARCHAR(50)
+CREATE TABLE user(
+    userID INT NOT NULL AUTO_INCREMENT,
+    userName VARCHAR(50),
+    totalLogin INT,
+    PRIMARY KEY(userID)
 );
 
 
-CREATE TABLE log (
-    user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-    username VARCHAR (50) NOT NULL,
-    login_result VARCHAR (50) NOT NULL,
-    timestamp TIMESTAMP,
-    customer_id INT,
-    FOREIGN KEY (customer_id) REFERENCES customer(id)
+CREATE TABLE logs (
+    logID INT NOT NULL AUTO_INCREMENT,
+    timestamp VARCHAR(100),
+    userID INT,
+    PRIMARY KEY(logID),
+    FOREIGN KEY (userID) REFERENCES user(userID)
 );

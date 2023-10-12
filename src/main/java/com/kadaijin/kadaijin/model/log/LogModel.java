@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Data
 @Embeddable
-public class Log {
+public class LogModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

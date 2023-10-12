@@ -2,19 +2,27 @@ package com.kadaijin.kadaijin.model.log;
 
 import java.util.List;
 
-import jakarta.persistence.Embeddable;
 import jakarta.persistence.Embedded;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Data;
 
+// @Entity
+// @Table(name = "user")
 @Data
-@Embeddable
 public class UserModel {
 
-    private String username;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer userID;
+
+    private String userName;
 
     @Embedded
-    private List<Log> logs;
+    private List<LogModel> log;
 
-    private String totalLogin;
-
+    private Integer totalLogin;
 }

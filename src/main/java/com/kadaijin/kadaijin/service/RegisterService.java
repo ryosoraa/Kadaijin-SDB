@@ -13,7 +13,7 @@ public class RegisterService {
     KadaijinRepository kadaijinRepository;
 
     public void insert(KadaijinModel kadaijinModel) {
-        // this.kadaijinRepository.save(kadaijinModel);
+
         /**
          * menyimpan data yang di ambil lalu di masukan di dalam model
          * setelah di masukan kedalam model lalu di save kedalam repository yang
