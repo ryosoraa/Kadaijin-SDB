@@ -1,25 +1,25 @@
-// package com.kadaijin.kadaijin.service;
+package com.kadaijin.kadaijin.service;
 
-// import java.util.List;
+import java.util.List;
 
-// import org.springframework.beans.factory.annotation.Autowired;
-// import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-// import com.kadaijin.kadaijin.model.log.LogMain;
-// import com.kadaijin.kadaijin.repository.LogRepository;
+import com.kadaijin.kadaijin.model.log.UserModel;
+import com.kadaijin.kadaijin.repository.LogRepository;
 
-// @Service
-// public class LogService {
+@Service
+public class LogService {
 
-//     @Autowired
-//     private LogRepository logRepository;
+    @Autowired
+    private LogRepository logRepository;
 
-//     public void logInsert(LogMain logMain) {
-//         this.logRepository.save(logMain);
-//     }
+    public void logInsert(UserModel userModel) {
+        this.logRepository.save(userModel);
+    }
 
-//     public List<LogMain> getLog() {
-//         return this.logRepository.findAll();
-//     }
+    public List<UserModel> getLog() {
+        return this.logRepository.findAll();
+    }
 
-// }
+}
