@@ -1,5 +1,6 @@
-package com.kadaijin.kadaijin.model;
+package com.kadaijin.kadaijin.model.log;
 
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,6 +17,6 @@ public class LogMain {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer userID;
 
-    private String user;
+    @Embedded
+    private user user;
 }
-

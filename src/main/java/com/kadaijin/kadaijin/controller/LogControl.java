@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kadaijin.kadaijin.model.LogMain;
+import com.kadaijin.kadaijin.model.log.LogMain;
 import com.kadaijin.kadaijin.service.LogService;
 
 @RestController

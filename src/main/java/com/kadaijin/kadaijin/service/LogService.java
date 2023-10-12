@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.kadaijin.kadaijin.model.LogMain;
+import com.kadaijin.kadaijin.model.log.LogMain;
 import com.kadaijin.kadaijin.repository.LogRepository;
 
 @Service
