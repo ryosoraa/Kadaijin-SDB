@@ -1,7 +1,5 @@
 package com.kadaijin.kadaijin.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,8 +16,8 @@ public class LogService {
         this.logRepository.save(userModel);
     }
 
-    public List<UserModel> getLog() {
-        return this.logRepository.findAll();
-    }
+    // public List<UserModel> getLog() {
+    // return this.logRepository.findAll();
+    // }
 
 }

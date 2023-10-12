@@ -10,7 +10,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "users")
+@Table(name = "account")
 public class KadaijinModel {
 
     /** model mewakili tabel yang ada di dalam database */
@@ -20,9 +20,9 @@ public class KadaijinModel {
     @Schema(name = "ID", example = "1", required = true)
     private Integer Id;
 
-    @Schema(name = "User Email", example = "elda@gmail.com", required = true)
+    @Schema(name = "username", example = "elda@gmail.com", required = true)
     private String username;
 
-    @Schema(name = "Password Email", example = "elda", required = true)
+    @Schema(name = "password", example = "elda", required = true)
     private String password;
 }
