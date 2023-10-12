@@ -18,5 +18,5 @@ public class LogMain {
     private Integer userID;
 
     @Embedded
-    private user user;
+    private UserModel usermModel;
 }
