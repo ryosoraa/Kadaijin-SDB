@@ -25,9 +25,9 @@ public class LogControl {
         System.out.println(userModel.toString());
     }
 
-    @GetMapping
-    private List<UserModel> getDataLog() {
-        return this.logService.getLog();
-    }
+    // @GetMapping
+    // private List<UserModel> getDataLog() {
+    // return this.logService.getLog();
+    // }
 
 }

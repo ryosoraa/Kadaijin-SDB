@@ -4,8 +4,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.kadaijin.kadaijin.model.log.LogModel;
 
-public interface LogRepository extends JpaRepository<LogModel, Integer> {
+public interface LogRepository extends JpaRepository<LogModel, Long> {
 
-    Integer count(Integer logID);
+    // Integer count(Integer logID);
 
 }

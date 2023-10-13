@@ -53,7 +53,7 @@ public class Control {
 
     @PostMapping("/login")
     public void login(@RequestBody KadaijinModel kadaijinModel) {
-        this.loginService.logLogin(kadaijinModel);
+        this.loginService.cekLogin(kadaijinModel);
 
     }
 

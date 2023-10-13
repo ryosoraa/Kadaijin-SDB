@@ -1,5 +1,6 @@
 package com.kadaijin.kadaijin.model.log;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,6 +10,8 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
+import java.sql.Timestamp;
+
 @Data
 @Table(name = "logs")
 @Entity
@@ -16,12 +19,13 @@ public class LogModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer logID;
+    private Long logID;
 
-    private String timestamp;
+    @Column(name = "timestamp")
+    private Timestamp timestamp;
 
     @ManyToOne
     @JoinColumn(name = "userID")
-    private UserModel userModel;
+    private int idUser;
 
 }

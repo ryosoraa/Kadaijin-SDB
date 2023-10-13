@@ -9,8 +9,8 @@ import com.kadaijin.kadaijin.model.KadaijinModel;
 import com.kadaijin.kadaijin.model.log.LogModel;
 import com.kadaijin.kadaijin.model.log.UserModel;
 import com.kadaijin.kadaijin.repository.KadaijinRepository;
-import com.kadaijin.kadaijin.repository.log.LogRepository;
-import com.kadaijin.kadaijin.repository.log.UserRepository;
+// import com.kadaijin.kadaijin.repository.log.LogRepository;
+// import com.kadaijin.kadaijin.repository.log.UserRepository;
 
 @Service
 public class LoginService {
@@ -18,14 +18,14 @@ public class LoginService {
     @Autowired
     KadaijinRepository kadaijinRepository;
 
-    @Autowired
-    UserRepository userRepository;
+    // @Autowired
+    // UserRepository userRepository;
 
-    @Autowired
-    LogRepository logRepository;
+    // @Autowired
+    // LogRepository logRepository;
 
-    @Autowired
-    UserModel userModel;
+    // @Autowired
+    // UserModel userModel;
 
     public void cekLogin(KadaijinModel kadaijinModel) {
 
@@ -40,25 +40,27 @@ public class LoginService {
 
     }
 
-    public void logLogin(KadaijinModel kadaijinModel) {
-        KadaijinModel username = kadaijinRepository.findByusername(kadaijinModel.getUsername());
-        KadaijinModel password = kadaijinRepository.findByPassword(kadaijinModel.getPassword());
+    // public void logLogin(KadaijinModel kadaijinModel) {
+    // KadaijinModel username =
+    // kadaijinRepository.findByusername(kadaijinModel.getUsername());
+    // KadaijinModel password =
+    // kadaijinRepository.findByPassword(kadaijinModel.getPassword());
 
-        // Mengecek Apakah Login benar atau tidak
-        if (username != null && password == null) {
+    // // Mengecek Apakah Login benar atau tidak
+    // if (username != null && password != null) {
 
-            if (userRepository.findUsername(kadaijinModel.getUsername()) != null) {
+    // if (userRepository.findUsername(kadaijinModel.getUsername()) == null) {
 
-                // Mengatur userName model dengan username yang di kirimkan
-                this.userModel.setUserName(kadaijinModel.getUsername());
+    // // Mengatur userName model dengan username yang di kirimkan
+    // this.userModel.setUserName(kadaijinModel.getUsername());
 
-                Integer noID = userRepository.findIDbyUsername(kadaijinModel.getUsername());
+    // Integer noID = userRepository.findIDbyUsername(kadaijinModel.getUsername());
 
-                // Mencari Tahu ada berapa banyak nama dari repository (Database)
-                this.userModel.setTotalLogin(logRepository.count(noID));
+    // // Mencari Tahu ada berapa banyak nama dari repository (Database)
+    // this.userModel.setTotalLogin(logRepository.count(noID));
 
-                this.userRepository.save(this.userModel);
-            }
-        }
-    }
+    // this.userRepository.save(this.userModel);
+    // }
+    // }
+    // }
 }
