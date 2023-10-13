@@ -8,18 +8,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kadaijin.kadaijin.model.log.UserModel;
-// import com.kadaijin.kadaijin.service.LogService;
+import com.kadaijin.kadaijin.service.LogService;
 
 @RestController
 @RequestMapping("/log")
 public class LogControl {
 
-    // @Autowired
-    // private LogService logService;
+    @Autowired
+    private LogService logService;
 
     @PostMapping
     private void postModel(@RequestBody UserModel userModel) {
-        // this.logService.logInsert(userModel);
+        this.logService.logInsert(userModel);
         System.out.println(userModel.toString());
     }
 

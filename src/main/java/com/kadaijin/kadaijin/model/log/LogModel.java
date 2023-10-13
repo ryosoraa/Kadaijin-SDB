@@ -1,19 +1,25 @@
 package com.kadaijin.kadaijin.model.log;
 
-import jakarta.persistence.Embeddable;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.Data;
 
 @Data
-@Embeddable
+@Table(name = "logs")
 public class LogModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer logID;
 
-    private String timestame;
+    private String timestamp;
+
+    @ManyToOne
+    @JoinColumn(name = "usersID")
+    private UserModel userModel;
 
 }
