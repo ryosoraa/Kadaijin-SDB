@@ -8,4 +8,6 @@ import com.kadaijin.kadaijin.model.log.UserModel;
 public interface UserRepository extends JpaRepository<UserModel, Integer> {
     KadaijinModel findUsername(String username);
 
+    Integer findIDbyUsername(String userName);
+
 }

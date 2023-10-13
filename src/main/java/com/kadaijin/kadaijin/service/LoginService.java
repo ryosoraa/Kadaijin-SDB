@@ -51,8 +51,10 @@ public class LoginService {
                 // Mengatur userName model dengan username yang di kirimkan
                 this.userModel.setUserName(kadaijinModel.getUsername());
 
+                Integer noID = userRepository.findIDbyUsername(kadaijinModel.getUsername());
+
                 // Mencari Tahu ada berapa banyak nama dari repository (Database)
-                this.userModel.setTotalLogin(logRepository.count(kadaijinModel.getUsername()));
+                this.userModel.setTotalLogin(logRepository.count(noID));
 
                 this.userRepository.save(this.userModel);
             }

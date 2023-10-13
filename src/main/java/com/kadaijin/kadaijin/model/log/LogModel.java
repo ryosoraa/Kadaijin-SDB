@@ -21,7 +21,7 @@ public class LogModel {
     private String timestamp;
 
     @ManyToOne
-    @JoinColumn(name = "usersID")
+    @JoinColumn(name = "userID")
     private UserModel userModel;
 
 }
