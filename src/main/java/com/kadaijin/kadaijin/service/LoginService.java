@@ -44,7 +44,8 @@ public class LoginService {
         KadaijinModel username = kadaijinRepository.findByusername(kadaijinModel.getUsername());
         KadaijinModel password = kadaijinRepository.findByPassword(kadaijinModel.getPassword());
 
-        if (username != null && password != null) {
+        // Mengecek Apakah Login benar atau tidak
+        if (username != null && password == null) {
 
             if (userRepository.findUsername(kadaijinModel.getUsername()) != null) {
 

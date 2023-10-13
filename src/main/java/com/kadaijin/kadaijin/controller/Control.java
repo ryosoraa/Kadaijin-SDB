@@ -52,7 +52,7 @@ public class Control {
     }
 
     @PostMapping("/login")
-    private void login(@RequestBody KadaijinModel kadaijinModel) {
+    public void login(@RequestBody KadaijinModel kadaijinModel) {
         this.loginService.logLogin(kadaijinModel);
 
     }

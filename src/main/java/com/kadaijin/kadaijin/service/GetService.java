@@ -33,6 +33,4 @@ public class GetService {
         return pageResult.getContent();
     }
 
-    // public void
-
 }
