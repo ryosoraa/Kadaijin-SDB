@@ -3,8 +3,7 @@ package com.kadaijin.kadaijin.model.log;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hibernate.annotations.CascadeType;
-
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,5 +26,6 @@ public class UserModel {
     @OneToMany(mappedBy = "userModel")
     private List<LogModel> log = new ArrayList<>();
 
+    @Column(name = "totalLogin")
     private Integer totalLogin;
 }

@@ -1,5 +1,7 @@
 package com.kadaijin.kadaijin.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,9 +25,9 @@ public class LogControl {
         System.out.println(userModel.toString());
     }
 
-    // @GetMapping
-    // private List<userModel> getDataLog() {
-    // return this.logService.getLog();
-    // }
+    @GetMapping
+    private List<UserModel> getDataLog() {
+        return this.logService.getLog();
+    }
 
 }
