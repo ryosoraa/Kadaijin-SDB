@@ -1,5 +1,7 @@
 USE kadaijin;
 
+DROP TABLE logs;
+DROP TABLE user;
 
 CREATE TABLE user (
     userID INT AUTO_INCREMENT PRIMARY KEY,
