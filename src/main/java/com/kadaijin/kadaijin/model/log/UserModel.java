@@ -25,7 +25,7 @@ public class UserModel {
     @Column(name = "userName")
     private String userName;
 
-    @OneToMany(mappedBy = "userModel", cascade = CascadeType.ALL) // foreign key yang ada di dalam TABLE logs
+    @OneToMany(mappedBy = "ID") // foreign key yang ada di dalam TABLE logs
     private List<LogModel> log = new ArrayList<>();
 
     @Column(name = "totalLogin")

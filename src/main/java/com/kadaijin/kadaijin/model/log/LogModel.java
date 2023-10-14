@@ -25,8 +25,7 @@ public class LogModel {
     @Column(name = "timestamp")
     private Timestamp timestamp;
 
-    @ManyToOne
-    @JoinColumn(name = "userID")
-    private UserModel userModel;
+    // @ManyToOne
+    private Long ID;
 
 }
