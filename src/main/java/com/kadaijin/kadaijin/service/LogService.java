@@ -27,11 +27,11 @@ public class LogService {
 
     public void logInsert(UserModel userModel) {
 
-        Long foreignKey = userRepository.findIdByUsername(userModel.getUserName());
-        this.userRepository.save(userModel);
+        Integer foreignKey = userRepository.findIdByUsername(userModel.getUserName());
+        userRepository.save(userModel);
 
-        this.logModel.setID(foreignKey);
-        this.logRepository.save(logModel);
+        logModel.setID(foreignKey);
+        logRepository.save(logModel);
 
         // Long modelUser = userRepository.findIDbyUsername(userModel.getUserName());
         // Optional<UserModel> foreignUser = userRepository.findById(modelUser);

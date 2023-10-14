@@ -20,12 +20,11 @@ public class LogModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long logID;
+    private Integer logID;
 
     @Column(name = "timestamp")
     private Timestamp timestamp;
 
-    // @ManyToOne
-    private Long ID;
+    private Integer ID;
 
 }

@@ -12,6 +12,6 @@ DROP TABLE user;
 -- CREATE TABLE logs (
 --     logID INT AUTO_INCREMENT PRIMARY KEY,
 --     timestamp TIMESTAMP,
---     userID INT,
---     FOREIGN KEY (userID) REFERENCES user(userID)
+--     ID INT,
+--     FOREIGN KEY (ID) REFERENCES user(userID)
 -- );
