@@ -22,37 +22,20 @@ public class LogService {
     @Autowired
     private LogRepository logRepository;
 
-    @Autowired
-    private LogModel logModel;
-
     public void logInsert(UserModel userModel) {
 
         Integer foreignKey = userRepository.findIdByUsername(userModel.getUserName());
         userRepository.save(userModel);
 
+        // Buat instance LogModel
+        LogModel logModel = new LogModel();
         logModel.setID(foreignKey);
-        logRepository.save(logModel);
 
-        // Long modelUser = userRepository.findIDbyUsername(userModel.getUserName());
-        // Optional<UserModel> foreignUser = userRepository.findById(modelUser);
-        // this.logModel.setUserModel(userModel);
-        // this.logRepository.save(foreignUser);
-        // this.userRepository.save(userModel);
+        // Simpan LogModel
+        logRepository.save(logModel);
     }
 
     public List<UserModel> getLog() {
         return this.userRepository.findAll();
     }
-
-    // public void tryInsert(UserModel userModel) {
-
-    // userRepository.save(userModel);
-    // List<LogModel> logModels = userModel.getLog();
-    // for (LogModel log : userModel.getLog()) {
-    // log.setUserModel(logModels); // Setel pengguna untuk setiap entitas Log
-    // logRepository.save(log); // Simpan Log ke database
-    // }
-    // userRepository.save(userModel);
-    // }
-
 }
