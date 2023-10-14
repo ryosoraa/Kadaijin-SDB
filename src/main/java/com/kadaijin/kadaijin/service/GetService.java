@@ -1,6 +1,5 @@
 package com.kadaijin.kadaijin.service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,16 +20,13 @@ public class GetService {
     @Autowired
     KadaijinRepository kadaijinRepository;
 
+    @Autowired
+    KadaijinDTO kadaijinDTO;
+
     public List<KadaijinDTO> getData() {
         List<KadaijinModel> findAll = kadaijinRepository.findAll();
-        List<KadaijinDTO> dataDTO = new ArrayList<>();
 
-        for (KadaijinModel kadaijinModel : findAll) {
-            KadaijinDTO dto = new KadaijinDTO();
-            dataDTO.add(dto.entityToDto(kadaijinModel));
-        }
-
-        return dataDTO;
+        return kadaijinDTO.listEntityToDto(findAll);
     }
 
     public KadaijinDTO getOne(Integer no) {
@@ -41,11 +37,10 @@ public class GetService {
     }
 
     public List<KadaijinDTO> getPages(Integer page, Integer size) {
-        KadaijinDTO kadaijinDTO = new KadaijinDTO();
         Pageable pageable = PageRequest.of(page, size); // sistem untuk membaut paging
         Page<KadaijinModel> pageResult = kadaijinRepository.findAll(pageable);
-        kadaijinDTO.entityToDto(pageResult);
-        return pageResult.getContent();
+
+        return kadaijinDTO.listEntityToDto(pageResult);
     }
 
 }
