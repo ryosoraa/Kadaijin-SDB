@@ -3,9 +3,9 @@
     "userID": 0,
     "userName": "Elda@gmail.com",
     "log": [
-      { "logID": 1, "timestamp": "2023-10-15 00:00:00" },
-      { "logID": 2, "timestamp": "2023-10-15 00:00:00" },
-      { "logID": 3, "timestamp": "2023-10-15 00:00:00" }
+      { "logID": 1, "timestamp": "2023-10-15 00:00:00", "user_id": 1 },
+      { "logID": 2, "timestamp": "2023-10-15 00:00:00", "user_id": 1 },
+      { "logID": 3, "timestamp": "2023-10-15 00:00:00", "user_id": 1 }
     ],
     "totalLogin": 3
   },

@@ -19,11 +19,11 @@ public class LogControl {
     @Autowired
     private LogService logService;
 
-    // @PostMapping
-    // private void postModel(@RequestBody UserModel userModel) {
-    // this.logService.logInsert(userModel);
-    // System.out.println(userModel.toString());
-    // }
+    @PostMapping
+    private void postModel(@RequestBody UserModel userModel) {
+        this.logService.logInsert(userModel);
+        System.out.println(userModel.toString());
+    }
 
     @GetMapping
     private List<UserModel> getDataLog() {
