@@ -1,5 +1,7 @@
 package com.kadaijin.kadaijin.model;
 
+import com.kadaijin.kadaijin.DTO.KadaijinDTO;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,4 +27,10 @@ public class KadaijinModel {
 
     @Schema(name = "password", example = "elda", required = true)
     private String password;
+
+    public void dtoVentity(KadaijinDTO kadaijinDTO) {
+        this.Id = kadaijinDTO.getId();
+        this.username = kadaijinDTO.getUsername();
+        this.password = kadaijinDTO.getPassword();
+    }
 }

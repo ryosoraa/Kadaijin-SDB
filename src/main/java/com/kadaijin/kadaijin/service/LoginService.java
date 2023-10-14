@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.kadaijin.kadaijin.DTO.KadaijinDTO;
 import com.kadaijin.kadaijin.model.KadaijinModel;
 import com.kadaijin.kadaijin.model.log.LogModel;
 import com.kadaijin.kadaijin.model.log.UserModel;
@@ -27,10 +28,10 @@ public class LoginService {
     // @Autowired
     // UserModel userModel;
 
-    public void cekLogin(KadaijinModel kadaijinModel) {
+    public void cekLogin(KadaijinDTO kadaijinDTO) {
 
-        KadaijinModel username = kadaijinRepository.findByusername(kadaijinModel.getUsername());
-        KadaijinModel password = kadaijinRepository.findByPassword(kadaijinModel.getPassword());
+        KadaijinModel username = kadaijinRepository.findByusername(kadaijinDTO.getUsername());
+        KadaijinModel password = kadaijinRepository.findByPassword(kadaijinDTO.getPassword());
 
         if (username != null && password != null) {
             System.out.println("Masuk bang!");

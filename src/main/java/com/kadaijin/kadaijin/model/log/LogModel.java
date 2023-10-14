@@ -11,6 +11,7 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 import java.sql.Timestamp;
+import java.util.Optional;
 
 @Data
 @Table(name = "logs")
@@ -26,6 +27,6 @@ public class LogModel {
 
     @ManyToOne
     @JoinColumn(name = "userID")
-    private int idUser;
+    private UserModel userModel;
 
 }

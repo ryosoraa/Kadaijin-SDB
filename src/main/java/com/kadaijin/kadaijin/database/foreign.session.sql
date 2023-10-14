@@ -3,15 +3,15 @@ USE kadaijin;
 DROP TABLE logs;
 DROP TABLE user;
 
-CREATE TABLE user (
-    userID INT AUTO_INCREMENT PRIMARY KEY,
-    userName VARCHAR(255),
-    totalLogin INT
-);
+-- CREATE TABLE user (
+--     userID INT AUTO_INCREMENT PRIMARY KEY,
+--     userName VARCHAR(255),
+--     totalLogin INT
+-- );
 
-CREATE TABLE logs (
-    logID INT AUTO_INCREMENT PRIMARY KEY,
-    timestamp TIMESTAMP,
-    userID INT,
-    FOREIGN KEY (userID) REFERENCES user(userID)
-);
+-- CREATE TABLE logs (
+--     logID INT AUTO_INCREMENT PRIMARY KEY,
+--     timestamp TIMESTAMP,
+--     userID INT,
+--     FOREIGN KEY (userID) REFERENCES user(userID)
+-- );
