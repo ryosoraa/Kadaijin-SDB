@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.kadaijin.kadaijin.DTO.log.UserDTO;
 import com.kadaijin.kadaijin.model.log.UserModel;
 import com.kadaijin.kadaijin.service.LogService;
 
@@ -27,7 +28,7 @@ public class LogControl {
     }
 
     @GetMapping
-    private List<UserModel> getDataLog() {
+    private List<UserDTO> getDataLog() {
         return this.logService.getLog();
     }
 

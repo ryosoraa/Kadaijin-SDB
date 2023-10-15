@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.kadaijin.kadaijin.DTO.log.UserDTO;
 import com.kadaijin.kadaijin.model.KadaijinModel;
 import com.kadaijin.kadaijin.model.log.LogModel;
 import com.kadaijin.kadaijin.model.log.UserModel;
@@ -47,7 +48,7 @@ public class LogService {
         logRepository.save(logModel);
     }
 
-    public List<UserModel> getLog() {
+    public List<UserDTO> getLog() {
         return this.userRepository.findAll();
     }
 }
