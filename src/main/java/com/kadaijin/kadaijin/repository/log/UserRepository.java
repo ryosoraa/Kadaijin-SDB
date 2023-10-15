@@ -23,4 +23,6 @@ public interface UserRepository extends JpaRepository<UserModel, Long> {
 
     // Boolean findUsername(String username);
 
+    UserModel findByUserName(String userName);
+
 }

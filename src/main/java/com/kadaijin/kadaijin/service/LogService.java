@@ -25,6 +25,9 @@ public class LogService {
     @Autowired
     private LogRepository logRepository;
 
+    // @Autowired
+    // private UserDTO userDTO;
+
     @Transactional
     public void logInsert(UserModel userModel) {
 
@@ -49,6 +52,15 @@ public class LogService {
     }
 
     public List<UserDTO> getLog() {
-        return this.userRepository.findAll();
+        UserDTO userDTO = new UserDTO();
+        List<UserModel> userModel = userRepository.findAll();
+        return userDTO.listModelToDTO(userModel);
+    }
+
+    public UserDTO getOneName(String request) {
+        UserDTO userDTO = new UserDTO();
+        UserModel userModel = userRepository.findByUserName(request);
+        return userDTO.userModelToDTO(userModel);
+
     }
 }
