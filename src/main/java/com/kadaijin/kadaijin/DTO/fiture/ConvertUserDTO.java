@@ -3,6 +3,7 @@ package com.kadaijin.kadaijin.DTO.fiture;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
 import com.kadaijin.kadaijin.DTO.log.LogDTO;
@@ -36,7 +37,7 @@ public class ConvertUserDTO {
         return dto;
     }
 
-    public List<UserDTO> listModelToDTO(List<UserModel> userModels) {
+    public List<UserDTO> listModelToDTO(Page<UserModel> userModels) {
         List<UserDTO> dto = new ArrayList<>();
         for (UserModel model : userModels) {
             UserDTO userDTO = userModelToDTO(model);
