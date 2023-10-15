@@ -6,9 +6,9 @@ import org.springframework.data.repository.query.Param;
 
 import com.kadaijin.kadaijin.model.log.LogModel;
 
-public interface LogRepository extends JpaRepository<LogModel, Long> {
+public interface LogRepository extends JpaRepository<LogModel, Integer> {
 
-    @Query("SELECT COUNT(e.id) FROM logs e WHERE e.id = :id")
-    Integer countOnesInMyColumn(@Param("id") Integer long1);
+    @Query("SELECT COUNT(e.id) FROM LogModel e WHERE e.id = :id")
+    Integer countOnesInMyColumn(@Param("id") Integer id);
 
 }

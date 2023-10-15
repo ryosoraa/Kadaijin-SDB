@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.kadaijin.kadaijin.model.KadaijinModel;
 import com.kadaijin.kadaijin.model.log.LogModel;
@@ -22,14 +23,16 @@ public class LogService {
     @Autowired
     private LogRepository logRepository;
 
+    @Transactional
     public void logInsert(UserModel userModel) {
 
+        System.out.println(logRepository.countOnesInMyColumn(1));
+        userRepository.updateTotalLogin(logRepository.countOnesInMyColumn(userModel.getUserID()),
+                userModel.getUserName());
         if (userRepository.findIdByUsername(userModel.getUserName()) == null) {
-            if (userRepository.findIdByUsername(userModel.getUserName()) != null) {
-                userModel.setTotalLogin(logRepository.countOnesInMyColumn(userModel.getUserID()));
-            }
             userRepository.save(userModel);
         }
+
         Integer foreignKey = userRepository.findIdByUsername(userModel.getUserName());
 
         // Buat instance LogModel
