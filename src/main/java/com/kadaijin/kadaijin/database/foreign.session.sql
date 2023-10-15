@@ -1,7 +1,11 @@
 USE kadaijin;
 
-DROP TABLE logs;
-DROP TABLE user;
+-- DROP TABLE logs;
+-- DROP TABLE user;
+
+ALTER TABLE logs
+MODIFY timestamp TIMESTAMP;
+
 
 -- CREATE TABLE user (
 --     userID INT AUTO_INCREMENT PRIMARY KEY,

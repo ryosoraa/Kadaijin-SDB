@@ -24,8 +24,13 @@ public class LogService {
 
     public void logInsert(UserModel userModel) {
 
+        if (userRepository.findIdByUsername(userModel.getUserName()) == null) {
+            if (userRepository.findIdByUsername(userModel.getUserName()) != null) {
+                userModel.setTotalLogin(logRepository.countOnesInMyColumn(userModel.getUserID()));
+            }
+            userRepository.save(userModel);
+        }
         Integer foreignKey = userRepository.findIdByUsername(userModel.getUserName());
-        userRepository.save(userModel);
 
         // Buat instance LogModel
         LogModel logModel = new LogModel();

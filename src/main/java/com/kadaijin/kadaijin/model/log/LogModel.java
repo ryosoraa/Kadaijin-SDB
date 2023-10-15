@@ -25,6 +25,7 @@ public class LogModel {
     @Column(name = "timestamp")
     private Timestamp timestamp;
 
+    @Column(name = "id")
     private Integer ID;
 
 }
