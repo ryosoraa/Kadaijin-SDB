@@ -8,7 +8,6 @@ import com.kadaijin.kadaijin.model.log.LogModel;
 
 public interface LogRepository extends JpaRepository<LogModel, Integer> {
 
-    @Query("SELECT COUNT(e.id) FROM LogModel e WHERE e.id = :id")
-    Integer countOnesInMyColumn(@Param("id") Integer id);
+    long countByID(Integer ID);
 
 }

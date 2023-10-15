@@ -13,6 +13,7 @@ import com.kadaijin.kadaijin.model.log.LogModel;
 import com.kadaijin.kadaijin.model.log.UserModel;
 import com.kadaijin.kadaijin.repository.log.LogRepository;
 import com.kadaijin.kadaijin.repository.log.UserRepository;
+import org.springframework.data.repository.CrudRepository;
 
 @Service
 public class LogService {
@@ -26,8 +27,9 @@ public class LogService {
     @Transactional
     public void logInsert(UserModel userModel) {
 
-        System.out.println(logRepository.countOnesInMyColumn(1));
-        userRepository.updateTotalLogin(logRepository.countOnesInMyColumn(userModel.getUserID()),
+        long count = logRepository.countByID(1);
+        System.out.println(count);
+        userRepository.updateTotalLogin(logRepository.countByID(userModel.getUserID()),
                 userModel.getUserName());
         if (userRepository.findIdByUsername(userModel.getUserName()) == null) {
             userRepository.save(userModel);

@@ -20,7 +20,7 @@ public class LogModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer logID;
+    private Integer no;
 
     @Column(name = "timestamp")
     private Timestamp timestamp;
