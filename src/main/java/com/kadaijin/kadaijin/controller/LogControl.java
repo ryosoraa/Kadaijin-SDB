@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.kadaijin.kadaijin.DTO.KadaijinDTO;
 import com.kadaijin.kadaijin.DTO.log.UserDTO;
-import com.kadaijin.kadaijin.model.KadaijinModel;
 import com.kadaijin.kadaijin.model.log.UserModel;
 import com.kadaijin.kadaijin.repository.KadaijinRepository;
 import com.kadaijin.kadaijin.service.LogService;
+import com.kadaijin.kadaijin.service.LoginService;
 
 import io.swagger.v3.oas.annotations.Operation;
 
@@ -27,6 +27,9 @@ public class LogControl {
 
     @Autowired
     private LogService logService;
+
+    @Autowired
+    private LoginService loginService;
 
     @Autowired
     KadaijinRepository kadaijinRepository;
@@ -40,10 +43,13 @@ public class LogControl {
 
     @Operation(summary = "Alternative login", description = "Insert UserName And Password")
     @PostMapping("/email")
-    private void postEmail(@RequestParam String email) {
-        UserModel userModel = new UserModel();
-        userModel.setUserName(email);
-        this.logService.logInsert(userModel);
+    private void postEmail(
+            @RequestParam String email,
+            @RequestParam String password) {
+        KadaijinDTO kadaijinDTO = new KadaijinDTO();
+        kadaijinDTO.setUsername(email);
+        kadaijinDTO.setPassword(password);
+        this.loginService.newLogin(kadaijinDTO);
     }
 
     @Operation(summary = "Restore All Data", description = "restore all saved data")

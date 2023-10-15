@@ -19,13 +19,10 @@ public class KadaijinModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // untuk menghasilkan nilai id
-    @Schema(name = "ID", example = "1", required = true)
     private Integer Id;
 
-    @Schema(name = "username", example = "elda@gmail.com", required = true)
     private String username;
 
-    @Schema(name = "password", example = "elda", required = true)
     private String password;
 
     public void dtoVentity(KadaijinDTO kadaijinDTO) {

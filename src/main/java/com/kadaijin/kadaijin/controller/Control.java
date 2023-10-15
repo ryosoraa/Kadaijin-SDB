@@ -49,7 +49,7 @@ public class Control {
 
     @PostMapping("/login")
     public void login(@RequestBody KadaijinDTO KadaijinDTO) {
-        this.loginService.cekLogin(KadaijinDTO);
+        this.loginService.newLogin(KadaijinDTO);
 
     }
 

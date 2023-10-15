@@ -22,7 +22,7 @@ public class LoginService {
     @Autowired
     LogService logService;
 
-    public void cekLogin(KadaijinDTO kadaijinDTO) {
+    public void newLogin(KadaijinDTO kadaijinDTO) {
 
         if (kadaijinRepository.existsByUsernameAndPassword(kadaijinDTO.getUsername(), kadaijinDTO.getPassword())) {
             UserModel userModel = new UserModel();

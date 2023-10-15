@@ -6,13 +6,22 @@ import java.util.List;
 import com.kadaijin.kadaijin.DTO.fiture.ConvertUserDTO;
 import com.kadaijin.kadaijin.model.log.LogModel;
 
+import io.swagger.v3.oas.annotations.Hidden;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
 public class UserDTO extends ConvertUserDTO {
 
+    @Schema(name = "id", example = "1", required = false)
     private Integer id;
+
+    @Schema(name = "Email", example = "example@gmail.com", required = true)
     private String userName;
+
+    @Hidden
     private int totalLogin;
+
+    @Hidden
     private List<LogDTO> log = new ArrayList<>();
 }
