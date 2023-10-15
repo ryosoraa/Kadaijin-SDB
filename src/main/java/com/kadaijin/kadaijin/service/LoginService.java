@@ -19,21 +19,15 @@ public class LoginService {
     @Autowired
     KadaijinRepository kadaijinRepository;
 
-    // @Autowired
-    // UserRepository userRepository;
-
-    // @Autowired
-    // LogRepository logRepository;
-
-    // @Autowired
-    // UserModel userModel;
+    @Autowired
+    LogService logService;
 
     public void cekLogin(KadaijinDTO kadaijinDTO) {
 
-        KadaijinModel username = kadaijinRepository.findByusername(kadaijinDTO.getUsername());
-        KadaijinModel password = kadaijinRepository.findByPassword(kadaijinDTO.getPassword());
-
-        if (username != null && password != null) {
+        if (kadaijinRepository.existsByUsernameAndPassword(kadaijinDTO.getUsername(), kadaijinDTO.getPassword())) {
+            UserModel userModel = new UserModel();
+            userModel.setUserName(kadaijinDTO.getUsername());
+            logService.logInsert(userModel);
             System.out.println("Masuk bang!");
         } else {
             System.out.println("ada yang salah bang!!");
@@ -41,27 +35,4 @@ public class LoginService {
 
     }
 
-    // public void logLogin(KadaijinModel kadaijinModel) {
-    // KadaijinModel username =
-    // kadaijinRepository.findByusername(kadaijinModel.getUsername());
-    // KadaijinModel password =
-    // kadaijinRepository.findByPassword(kadaijinModel.getPassword());
-
-    // // Mengecek Apakah Login benar atau tidak
-    // if (username != null && password != null) {
-
-    // if (userRepository.findUsername(kadaijinModel.getUsername()) == null) {
-
-    // // Mengatur userName model dengan username yang di kirimkan
-    // this.userModel.setUserName(kadaijinModel.getUsername());
-
-    // Integer noID = userRepository.findIDbyUsername(kadaijinModel.getUsername());
-
-    // // Mencari Tahu ada berapa banyak nama dari repository (Database)
-    // this.userModel.setTotalLogin(logRepository.count(noID));
-
-    // this.userRepository.save(this.userModel);
-    // }
-    // }
-    // }
 }

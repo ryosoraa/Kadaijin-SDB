@@ -10,6 +10,8 @@ public interface KadaijinRepository extends JpaRepository<KadaijinModel, Integer
 
     KadaijinModel findByPassword(String password);
 
+    boolean existsByUsernameAndPassword(String username, String password);
+
     // KadaijinModel findByPage(Integer limit, Integer offset);
 
 }

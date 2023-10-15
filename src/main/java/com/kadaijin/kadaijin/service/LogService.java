@@ -30,10 +30,6 @@ public class LogService {
 
     @Transactional
     public void logInsert(UserModel userModel) {
-
-        long count = logRepository.countByID(1);
-        System.out.println(count);
-        System.out.println(logRepository.countByID(userRepository.findIdByUsername(userModel.getUserName())));
         userRepository.updatetotalLogin(
                 logRepository.countByID(userRepository.findIdByUsername(userModel.getUserName())),
                 userModel.getUserName());

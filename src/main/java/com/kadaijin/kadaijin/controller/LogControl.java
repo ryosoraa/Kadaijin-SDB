@@ -11,8 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.kadaijin.kadaijin.DTO.KadaijinDTO;
 import com.kadaijin.kadaijin.DTO.log.UserDTO;
+import com.kadaijin.kadaijin.model.KadaijinModel;
 import com.kadaijin.kadaijin.model.log.UserModel;
+import com.kadaijin.kadaijin.repository.KadaijinRepository;
 import com.kadaijin.kadaijin.service.LogService;
 
 @RestController
@@ -21,6 +24,9 @@ public class LogControl {
 
     @Autowired
     private LogService logService;
+
+    @Autowired
+    KadaijinRepository kadaijinRepository;
 
     @PostMapping
     private void postModel(@RequestBody UserModel userModel) {
