@@ -19,7 +19,7 @@ public interface UserRepository extends JpaRepository<UserModel, Long> {
 
     @Modifying
     @Query("UPDATE UserModel u SET u.totalLogin = :newTotalLogin WHERE u.userName = :username")
-    int updateTotalLogin(@Param("newTotalLogin") long l, @Param("username") String username);
+    int updatetotalLogin(@Param("newTotalLogin") long l, @Param("username") String username);
 
     // Boolean findUsername(String username);
 

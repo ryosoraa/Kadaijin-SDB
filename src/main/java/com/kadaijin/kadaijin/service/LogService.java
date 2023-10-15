@@ -29,7 +29,8 @@ public class LogService {
 
         long count = logRepository.countByID(1);
         System.out.println(count);
-        userRepository.updateTotalLogin(logRepository.countByID(userModel.getUserID()),
+        System.out.println(logRepository.countByID(userRepository.findIdByUsername(userModel.getUserName())));
+        userRepository.updatetotalLogin(logRepository.countByID(userModel.getUserID()),
                 userModel.getUserName());
         if (userRepository.findIdByUsername(userModel.getUserName()) == null) {
             userRepository.save(userModel);
