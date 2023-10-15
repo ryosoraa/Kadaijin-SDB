@@ -63,8 +63,10 @@ public class LogService {
     }
 
     public List<UserDTO> getPage(Integer page, Integer size) {
+        UserDTO userDTO = new UserDTO();
         Pageable pageable = PageRequest.of(page, size);
         Page<UserModel> pageResult = userRepository.findAll(pageable);
-        return userRepository.findAll(pageable);
+
+        return userDTO.listModelToDTO(pageResult);
     }
 }

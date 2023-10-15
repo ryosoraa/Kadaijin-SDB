@@ -46,7 +46,7 @@ public class LogControl {
     }
 
     @GetMapping("/page")
-    private List<UserModel> getPage(
+    private List<UserDTO> getPage(
             @RequestParam(defaultValue = "0") Integer page,
             @RequestParam(defaultValue = "10") Integer size) {
         return logService.getPage(page, size);
