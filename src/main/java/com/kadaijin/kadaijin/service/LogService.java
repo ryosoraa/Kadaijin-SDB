@@ -14,6 +14,10 @@ import com.kadaijin.kadaijin.model.log.LogModel;
 import com.kadaijin.kadaijin.model.log.UserModel;
 import com.kadaijin.kadaijin.repository.log.LogRepository;
 import com.kadaijin.kadaijin.repository.log.UserRepository;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
 
 @Service
@@ -42,8 +46,6 @@ public class LogService {
         // Buat instance LogModel
         LogModel logModel = new LogModel();
         logModel.setID(foreignKey);
-
-        // Simpan LogModel
         logRepository.save(logModel);
     }
 
@@ -58,5 +60,11 @@ public class LogService {
         UserModel userModel = userRepository.findByUserName(request);
         return userDTO.userModelToDTO(userModel);
 
+    }
+
+    public List<UserDTO> getPage(Integer page, Integer size) {
+        Pageable pageable = PageRequest.of(page, size);
+        Page<UserModel> pageResult = userRepository.findAll(pageable);
+        return userRepository.findAll(pageable);
     }
 }

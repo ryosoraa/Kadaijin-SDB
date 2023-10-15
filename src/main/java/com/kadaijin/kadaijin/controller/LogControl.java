@@ -3,6 +3,7 @@ package com.kadaijin.kadaijin.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -42,6 +43,13 @@ public class LogControl {
     @GetMapping
     private UserDTO getOne(@RequestParam String request) {
         return this.logService.getOneName(request);
+    }
+
+    @GetMapping("/page")
+    private List<UserModel> getPage(
+            @RequestParam(defaultValue = "0") Integer page,
+            @RequestParam(defaultValue = "10") Integer size) {
+        return logService.getPage(page, size);
     }
 
 }

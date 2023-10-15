@@ -35,4 +35,13 @@ public class ConvertUserDTO {
         }
         return dto;
     }
+
+    public List<UserDTO> listModelToDTO(List<UserModel> userModels) {
+        List<UserDTO> dto = new ArrayList<>();
+        for (UserModel model : userModels) {
+            UserDTO userDTO = userModelToDTO(model);
+            dto.add(userDTO);
+        }
+        return dto;
+    }
 }
