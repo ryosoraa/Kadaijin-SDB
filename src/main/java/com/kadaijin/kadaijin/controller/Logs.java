@@ -22,7 +22,7 @@ import com.kadaijin.kadaijin.service.LoginService;
 import io.swagger.v3.oas.annotations.Operation;
 
 @RestController
-@RequestMapping("/log")
+@RequestMapping("/logs")
 public class Logs {
 
     @Autowired
@@ -53,7 +53,7 @@ public class Logs {
         return this.logService.getOneName(request);
     }
 
-    @Operation(summary = "Returns Email And Log", description = "restore email data and login logs with page")
+    @Operation(summary = "Returns data by page", description = "restore email data and login logs with page")
     @GetMapping("/page")
     private List<UserDTO> getPage(
             @RequestParam(defaultValue = "0") Integer page,

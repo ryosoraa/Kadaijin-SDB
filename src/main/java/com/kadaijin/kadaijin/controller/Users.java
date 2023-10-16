@@ -25,7 +25,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class Users {
 
     @Autowired // seperti saling terkoneksi dengan yang di path service
@@ -37,9 +37,6 @@ public class Users {
     @Autowired
     private GetService getService;
 
-    @Autowired
-    private KadaijinRepository kadaijinRepository;
-
     @Operation(summary = "Register", description = "Register new user")
     @PostMapping("/Register")
     private void apiTest(@RequestBody KadaijinDTO kadaijinDTO) {
@@ -48,6 +45,7 @@ public class Users {
 
     }
 
+    @Operation(summary = "Login", description = "Login user")
     @PostMapping("/Login")
     public void login(@RequestBody KadaijinDTO KadaijinDTO) {
         this.loginService.newLogin(KadaijinDTO);
@@ -58,7 +56,7 @@ public class Users {
             @ApiResponse(responseCode = "200", description = "Successfully retrieved"),
             @ApiResponse(responseCode = "404", description = "Not found - id exceeds limit")
     })
-    @Operation(summary = "Restore data", description = "returns data by id")
+    @Operation(summary = "Restore One Data", description = "returns data by id")
     @GetMapping("/get")
     private KadaijinDTO getDataOne(@RequestParam(defaultValue = "1") Integer id) {
         return this.getService.getOne(id);
