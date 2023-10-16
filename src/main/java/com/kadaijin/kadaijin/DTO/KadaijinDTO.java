@@ -3,7 +3,6 @@ package com.kadaijin.kadaijin.DTO;
 import org.springframework.stereotype.Component;
 
 import com.kadaijin.kadaijin.DTO.fiture.ConvertDTO;
-import com.kadaijin.kadaijin.model.KadaijinModel;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;

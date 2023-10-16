@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 import com.kadaijin.kadaijin.DTO.KadaijinDTO;
 import com.kadaijin.kadaijin.model.KadaijinModel;
 
-import lombok.Data;
 
 @Component
 public class ConvertDTO {

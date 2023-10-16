@@ -5,9 +5,6 @@ import java.sql.Timestamp;
 import com.kadaijin.kadaijin.DTO.fiture.ConvertLogDTO;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import lombok.Data;
 
 @Data

@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 
 import com.kadaijin.kadaijin.DTO.log.LogDTO;
 import com.kadaijin.kadaijin.DTO.log.UserDTO;
-import com.kadaijin.kadaijin.model.KadaijinModel;
 import com.kadaijin.kadaijin.model.log.UserModel;
 
 @Component

@@ -3,25 +3,17 @@ package com.kadaijin.kadaijin.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kadaijin.kadaijin.DTO.KadaijinDTO;
 import com.kadaijin.kadaijin.DTO.log.UserDTO;
-import com.kadaijin.kadaijin.model.log.UserModel;
 import com.kadaijin.kadaijin.repository.KadaijinRepository;
 import com.kadaijin.kadaijin.service.LogService;
-import com.kadaijin.kadaijin.service.LoginService;
 
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.Schema;
 
 @RestController
 @RequestMapping("/logs")
@@ -29,9 +21,6 @@ public class Logs {
 
     @Autowired
     private LogService logService;
-
-    @Autowired
-    private LoginService loginService;
 
     @Autowired
     KadaijinRepository kadaijinRepository;

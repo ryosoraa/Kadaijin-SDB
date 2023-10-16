@@ -1,10 +1,7 @@
 package com.kadaijin.kadaijin.controller;
 
 import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 
-import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,15 +11,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kadaijin.kadaijin.DTO.KadaijinDTO;
-import com.kadaijin.kadaijin.model.KadaijinModel;
-import com.kadaijin.kadaijin.repository.KadaijinRepository;
 import com.kadaijin.kadaijin.service.GetService;
 import com.kadaijin.kadaijin.service.LoginService;
 import com.kadaijin.kadaijin.service.RegisterService;
 
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
 @RestController
 @RequestMapping("/users")
@@ -52,10 +45,6 @@ public class Users {
 
     }
 
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Successfully retrieved"),
-            @ApiResponse(responseCode = "404", description = "Not found - id exceeds limit")
-    })
     @Operation(summary = "Restore One Data", description = "returns data by id")
     @GetMapping("/get")
     private KadaijinDTO getDataOne(@RequestParam(defaultValue = "1") Integer id) {
