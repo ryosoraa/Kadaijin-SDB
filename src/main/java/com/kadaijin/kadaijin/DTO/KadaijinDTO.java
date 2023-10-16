@@ -21,6 +21,7 @@ public class KadaijinDTO extends ConvertDTO {
     @Schema(name = "password", example = "elda", required = true)
     public String password;
 
+    @Schema(name = "dates", example = "2023-10-16T04:09:09", required = true)
     public String created;
 
 }

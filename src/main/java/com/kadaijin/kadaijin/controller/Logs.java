@@ -36,13 +36,6 @@ public class Logs {
     @Autowired
     KadaijinRepository kadaijinRepository;
 
-    @Operation(summary = "Post Data", description = "Post Data Json")
-    @PostMapping
-    private void postModel(@RequestBody UserModel userModel) {
-        this.logService.logInsert(userModel);
-        System.out.println(userModel.toString());
-    }
-
     @Operation(summary = "Restore All Data", description = "restore all saved data")
     @GetMapping("/all")
     private List<UserDTO> getDataLog() {
