@@ -25,8 +25,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
 @RestController
-@RequestMapping("/API/V1")
-public class Control {
+@RequestMapping("/user")
+public class User {
 
     @Autowired // seperti saling terkoneksi dengan yang di path service
     private RegisterService registerService;
@@ -40,14 +40,15 @@ public class Control {
     @Autowired
     private KadaijinRepository kadaijinRepository;
 
-    @PostMapping
+    @Operation(summary = "Register", description = "Register new user")
+    @PostMapping("/Register")
     private void apiTest(@RequestBody KadaijinDTO kadaijinDTO) {
         System.out.println("register : " + kadaijinDTO.toString());
         this.registerService.insert(kadaijinDTO);
 
     }
 
-    @PostMapping("/login")
+    @PostMapping("/Login")
     public void login(@RequestBody KadaijinDTO KadaijinDTO) {
         this.loginService.newLogin(KadaijinDTO);
 
