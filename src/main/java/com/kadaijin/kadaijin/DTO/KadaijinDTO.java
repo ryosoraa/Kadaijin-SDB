@@ -21,4 +21,6 @@ public class KadaijinDTO extends ConvertDTO {
     @Schema(name = "password", example = "elda", required = true)
     public String password;
 
+    public String created;
+
 }

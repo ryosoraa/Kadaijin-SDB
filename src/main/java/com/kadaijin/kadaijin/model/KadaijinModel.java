@@ -25,9 +25,12 @@ public class KadaijinModel {
 
     private String password;
 
+    private String dates;
+
     public void dtoVentity(KadaijinDTO kadaijinDTO) {
         this.Id = kadaijinDTO.getId();
         this.username = kadaijinDTO.getUsername();
         this.password = kadaijinDTO.getPassword();
+        this.dates = kadaijinDTO.getCreated();
     }
 }

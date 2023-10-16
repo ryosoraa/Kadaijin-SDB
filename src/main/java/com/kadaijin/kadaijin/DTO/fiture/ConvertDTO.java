@@ -19,6 +19,7 @@ public class ConvertDTO {
         model.Id = kadaijinModel.getId();
         model.username = kadaijinModel.getUsername();
         model.password = kadaijinModel.getPassword();
+        model.created = kadaijinModel.getDates();
         return model;
     }
 

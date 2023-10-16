@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +21,7 @@ import com.kadaijin.kadaijin.service.LogService;
 import com.kadaijin.kadaijin.service.LoginService;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 @RestController
 @RequestMapping("/logs")
@@ -47,10 +49,11 @@ public class Logs {
         return this.logService.getLog();
     }
 
-    @Operation(summary = "Get Data Log", description = "view login log via email name")
+    @Operation(summary = "Get Data Log", description = "Get login log via email name")
     @GetMapping
-    private UserDTO getOne(@RequestParam String request) {
-        return this.logService.getOneName(request);
+    @Query("example@gmail.com")
+    private UserDTO getOne(@RequestParam String email) {
+        return this.logService.getOneName(email);
     }
 
     @Operation(summary = "Returns data by page", description = "restore email data and login logs with page")

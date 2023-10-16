@@ -19,9 +19,9 @@ public class UserDTO extends ConvertUserDTO {
     @Schema(name = "Email", example = "example@gmail.com", required = true)
     private String userName;
 
-    @Hidden
+    @Schema(name = "TotalLogin")
     private int totalLogin;
 
-    @Hidden
+    @Schema(name = "Log")
     private List<LogDTO> log = new ArrayList<>();
 }
