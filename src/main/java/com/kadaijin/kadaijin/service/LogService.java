@@ -28,13 +28,14 @@ public class LogService {
     // @Autowired
     // private UserDTO userDTO;
 
-    @Transactional
+    @Transactional // merubah kolom dalam database
     public void logInsert(UserModel userModel) {
         userRepository.updatetotalLogin(
                 logRepository.countByID(userRepository.findIdByUsername(userModel.getUserName())),
                 userModel.getUserName());
         if (userRepository.findIdByUsername(userModel.getUserName()) == null) {
             userRepository.save(userModel);
+            userRepository.updatetotalLogin(1, userModel.getUserName());
         }
 
         Integer foreignKey = userRepository.findIdByUsername(userModel.getUserName());
