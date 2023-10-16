@@ -41,17 +41,6 @@ public class LogControl {
         System.out.println(userModel.toString());
     }
 
-    @Operation(summary = "Alternative login", description = "Insert UserName And Password")
-    @PostMapping("/email")
-    private void postEmail(
-            @RequestParam String email,
-            @RequestParam String password) {
-        KadaijinDTO kadaijinDTO = new KadaijinDTO();
-        kadaijinDTO.setUsername(email);
-        kadaijinDTO.setPassword(password);
-        this.loginService.newLogin(kadaijinDTO);
-    }
-
     @Operation(summary = "Restore All Data", description = "restore all saved data")
     @GetMapping("/all")
     private List<UserDTO> getDataLog() {
