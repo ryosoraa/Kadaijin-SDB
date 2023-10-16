@@ -28,7 +28,8 @@ public class LogService {
     // @Autowired
     // private UserDTO userDTO;
 
-    @Transactional // merubah kolom dalam database
+    @Transactional // merubah kolom dalam database dan karena melakukan banyak operasi secara
+                   // bersamaan
     public void logInsert(UserModel userModel) {
         userRepository.updatetotalLogin(
                 logRepository.countByID(userRepository.findIdByUsername(userModel.getUserName())),
