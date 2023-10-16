@@ -23,7 +23,7 @@ import io.swagger.v3.oas.annotations.Operation;
 
 @RestController
 @RequestMapping("/log")
-public class LogControl {
+public class Logs {
 
     @Autowired
     private LogService logService;

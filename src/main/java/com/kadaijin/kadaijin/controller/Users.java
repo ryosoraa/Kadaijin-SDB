@@ -26,7 +26,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
 @RestController
 @RequestMapping("/user")
-public class User {
+public class Users {
 
     @Autowired // seperti saling terkoneksi dengan yang di path service
     private RegisterService registerService;
