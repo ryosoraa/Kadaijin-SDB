@@ -22,6 +22,6 @@ public class LogModel {
     private Timestamp timestamp;
 
     @Column(name = "user_id")
-    private Integer ID;
+    private Integer userId;
 
 }

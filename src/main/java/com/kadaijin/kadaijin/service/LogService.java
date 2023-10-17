@@ -43,8 +43,9 @@ public class LogService {
 
         // Buat instance LogModel
         LogModel logModel = new LogModel();
-        logModel.setId(foreignKey);
+        logModel.setUserId(foreignKey);
         logRepository.save(logModel);
+        System.out.println(foreignKey);
     }
 
     public List<UserDTO> getLog() {

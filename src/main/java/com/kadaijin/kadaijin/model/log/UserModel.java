@@ -25,7 +25,7 @@ public class UserModel {
     @Column(name = "user_name")
     private String userName;
 
-    @OneToMany(mappedBy = "ID") // foreign key yang ada di dalam TABLE logs
+    @OneToMany(mappedBy = "userId") // foreign key yang ada di dalam TABLE logs
     private List<LogModel> log = new ArrayList<>();
 
     @Column(name = "total_login")
