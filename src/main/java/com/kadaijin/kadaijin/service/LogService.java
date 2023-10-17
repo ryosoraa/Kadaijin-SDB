@@ -30,23 +30,33 @@ public class LogService {
 
     @Transactional // merubah kolom dalam database dan karena melakukan banyak operasi secara
                    // bersamaan
-    public void logInsert(UserModel userModel) {
+    public void logInsert(String username) {
 
-        userRepository.updateTotalLogin(
-                logRepository.countByUserId(userRepository.findIdByUsername(userModel.getUserName())),
-                userModel.getUserName());
-        if (userRepository.findIdByUsername(userModel.getUserName()) == null) {
-            userRepository.save(userModel);
-            userRepository.updateTotalLogin(1, userModel.getUserName());
+        UserModel name = userRepository.findByUserName(username);
+        Integer id = userRepository.findIdByUsername(username);
+        if (name == null) {
+            name = new UserModel();
+            name.setUserName(username);
+            userRepository.save(name);
         }
 
-        // Buat instance LogModel
-
-        Integer foreignKey = userRepository.findIdByUsername(userModel.getUserName());
-        System.out.println(foreignKey);
         LogModel logModel = new LogModel();
-        logModel.setUserId(foreignKey);
+        logModel.setUserId(name);
         logRepository.save(logModel);
+
+        // System.out.println(name.toString());
+
+        // Integer foreignKey =
+        // userRepository.findIdByUsername(userModel.getUserName());
+        // System.out.println(foreignKey);
+
+        // { // SET ID
+        // UserModel model = new UserModel();
+        // model.setId(foreignKey);
+        // LogModel logModel = new LogModel();
+        // logModel.setUserId(userModel);
+        // logRepository.save(logModel);
+        // }
 
     }
 

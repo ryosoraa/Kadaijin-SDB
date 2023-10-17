@@ -2,6 +2,7 @@ package com.kadaijin.kadaijin.model.log;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -26,8 +27,6 @@ public class UserModel {
     private String userName;
 
     @OneToMany(mappedBy = "userId") // foreign key yang ada di dalam TABLE logs
-    private List<LogModel> log = new ArrayList<>();
+    private Set<LogModel> log;
 
-    @Column(name = "total_login")
-    private int totalLogin;
 }

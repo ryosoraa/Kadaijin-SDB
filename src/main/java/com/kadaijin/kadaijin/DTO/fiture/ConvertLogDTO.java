@@ -2,6 +2,7 @@ package com.kadaijin.kadaijin.DTO.fiture;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.stereotype.Component;
 
@@ -18,9 +19,9 @@ public class ConvertLogDTO {
         return logDTO;
     }
 
-    public List<LogDTO> ListLogToDTO(List<LogModel> logModel) {
+    public List<LogDTO> ListLogToDTO(Set<LogModel> set) {
         List<LogDTO> log = new ArrayList<>();
-        for (LogModel model : logModel) {
+        for (LogModel model : set) {
             LogDTO dto = new LogDTO();
             log.add(dto.logDTO(model));
         }

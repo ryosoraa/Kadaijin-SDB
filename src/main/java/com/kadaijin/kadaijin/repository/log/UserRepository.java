@@ -14,10 +14,6 @@ public interface UserRepository extends JpaRepository<UserModel, Long> {
     @Query("SELECT u.id FROM UserModel u WHERE u.userName = :username")
     Integer findIdByUsername(@Param("username") String username);
 
-    @Modifying
-    @Query("UPDATE UserModel u SET u.totalLogin = :newTotalLogin WHERE u.userName = :username")
-    int updateTotalLogin(@Param("newTotalLogin") long l, @Param("username") String username);
-
     UserModel findByUserName(String username);
 
 }

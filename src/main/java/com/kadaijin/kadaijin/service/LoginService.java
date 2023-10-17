@@ -7,7 +7,6 @@ import com.kadaijin.kadaijin.DTO.KadaijinDTO;
 import com.kadaijin.kadaijin.model.log.UserModel;
 import com.kadaijin.kadaijin.repository.KadaijinRepository;
 
-
 @Service
 public class LoginService {
 
@@ -22,7 +21,7 @@ public class LoginService {
         if (kadaijinRepository.existsByUsernameAndPassword(kadaijinDTO.getUsername(), kadaijinDTO.getPassword())) {
             UserModel userModel = new UserModel();
             userModel.setUserName(kadaijinDTO.getUsername());
-            logService.logInsert(userModel);
+            logService.logInsert(userModel.getUserName());
             System.out.println("Masuk bang!");
         } else {
             System.out.println("ada yang salah bang!!");
