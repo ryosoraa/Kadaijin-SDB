@@ -19,14 +19,15 @@ public class UserModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer userID;
+    @Column(name = "id")
+    private Integer id;
 
-    @Column(name = "userName")
+    @Column(name = "user_name")
     private String userName;
 
     @OneToMany(mappedBy = "ID") // foreign key yang ada di dalam TABLE logs
     private List<LogModel> log = new ArrayList<>();
 
-    @Column(name = "totalLogin")
+    @Column(name = "total_login")
     private int totalLogin;
 }

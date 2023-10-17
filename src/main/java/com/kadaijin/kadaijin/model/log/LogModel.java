@@ -16,13 +16,12 @@ import java.sql.Timestamp;
 public class LogModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer no;
+    private Integer id;
 
     @Column(name = "timestamp")
     private Timestamp timestamp;
 
-    @Column(name = "id")
+    @Column(name = "user_id")
     private Integer ID;
 
 }

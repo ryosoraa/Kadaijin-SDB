@@ -1,20 +1,27 @@
 USE kadaijin;
 
--- DROP TABLE logs;
--- DROP TABLE user;
+DROP TABLE logs;
+DROP TABLE user;
 
-ALTER TABLE logs MODIFY timestamp TIMESTAMP;
+-- ALTER TABLE logs MODIFY timestamp TIMESTAMP;
 
 
--- CREATE TABLE user (
---     userID INT AUTO_INCREMENT PRIMARY KEY,
---     userName VARCHAR(255),
---     totalLogin INT
--- );
+CREATE TABLE user (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_name VARCHAR(255),
+    total_login INT
+);
 
--- CREATE TABLE logs (
---     logID INT AUTO_INCREMENT PRIMARY KEY,
---     timestamp TIMESTAMP,
---     ID INT,
---     FOREIGN KEY (ID) REFERENCES user(userID)
--- );
+CREATE TABLE logs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    timestamp TIMESTAMP,
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES user(id)
+);
+
+-- ALTER TABLE logs
+-- ADD CONSTRAINT login_cascade
+-- FOREIGN KEY (id)
+-- REFERENCES user(userid)
+-- ON DELETE CASCADE;
+

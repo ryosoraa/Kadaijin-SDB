@@ -12,12 +12,12 @@ import com.kadaijin.kadaijin.model.log.UserModel;
 public interface UserRepository extends JpaRepository<UserModel, Long> {
 
     @Query("SELECT u.userID FROM UserModel u WHERE u.userName = :username")
-    Integer findIdByUsername(@Param("username") String username);
+    Integer findIdByuserName(@Param("username") String username);
 
     @Modifying
     @Query("UPDATE UserModel u SET u.totalLogin = :newTotalLogin WHERE u.userName = :username")
     int updatetotalLogin(@Param("newTotalLogin") long l, @Param("username") String username);
 
-    UserModel findByUserName(String userName);
+    UserModel findByuserName(String userName);
 
 }
