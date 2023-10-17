@@ -31,12 +31,12 @@ public class LogService {
     @Transactional // merubah kolom dalam database dan karena melakukan banyak operasi secara
                    // bersamaan
     public void logInsert(UserModel userModel) {
-        userRepository.updatetotalLogin(
+        userRepository.updateTotalLogin(
                 logRepository.countByID(userRepository.findIdByUsername(userModel.getUserName())),
                 userModel.getUserName());
         if (userRepository.findIdByUsername(userModel.getUserName()) == null) {
             userRepository.save(userModel);
-            userRepository.updatetotalLogin(1, userModel.getUserName());
+            userRepository.updateTotalLogin(1, userModel.getUserName());
         }
 
         Integer foreignKey = userRepository.findIdByUsername(userModel.getUserName());
@@ -55,7 +55,7 @@ public class LogService {
 
     public UserDTO getOneName(String request) {
         UserDTO userDTO = new UserDTO();
-        UserModel userModel = userRepository.findByUsername(request);
+        UserModel userModel = userRepository.findByUserName(request);
         return userDTO.userModelToDTO(userModel);
 
     }
