@@ -5,6 +5,6 @@ import com.kadaijin.kadaijin.model.log.LogModel;
 
 public interface LogRepository extends JpaRepository<LogModel, Integer> {
 
-    long countByID(Integer ID);
+    long countByUserId(Integer userId);
 
 }

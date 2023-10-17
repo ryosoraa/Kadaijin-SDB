@@ -32,7 +32,7 @@ public class LogService {
                    // bersamaan
     public void logInsert(UserModel userModel) {
         userRepository.updateTotalLogin(
-                logRepository.countByID(userRepository.findIdByUsername(userModel.getUserName())),
+                logRepository.countByUserId(userRepository.findIdByUsername(userModel.getUserName())),
                 userModel.getUserName());
         if (userRepository.findIdByUsername(userModel.getUserName()) == null) {
             userRepository.save(userModel);
