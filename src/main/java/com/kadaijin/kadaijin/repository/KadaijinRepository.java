@@ -6,7 +6,7 @@ import com.kadaijin.kadaijin.model.KadaijinModel;
 
 public interface KadaijinRepository extends JpaRepository<KadaijinModel, Integer> {
 
-    KadaijinModel findByusername(String username);
+    KadaijinModel findByUsername(String username);
 
     KadaijinModel findByPassword(String password);
 

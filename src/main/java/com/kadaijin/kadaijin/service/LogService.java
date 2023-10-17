@@ -32,18 +32,18 @@ public class LogService {
                    // bersamaan
     public void logInsert(UserModel userModel) {
         userRepository.updatetotalLogin(
-                logRepository.countByID(userRepository.findIdByuserName(userModel.getUserName())),
+                logRepository.countByID(userRepository.findIdByUsername(userModel.getUserName())),
                 userModel.getUserName());
-        if (userRepository.findIdByuserName(userModel.getUserName()) == null) {
+        if (userRepository.findIdByUsername(userModel.getUserName()) == null) {
             userRepository.save(userModel);
             userRepository.updatetotalLogin(1, userModel.getUserName());
         }
 
-        Integer foreignKey = userRepository.findIdByuserName(userModel.getUserName());
+        Integer foreignKey = userRepository.findIdByUsername(userModel.getUserName());
 
         // Buat instance LogModel
         LogModel logModel = new LogModel();
-        logModel.setID(foreignKey);
+        logModel.setId(foreignKey);
         logRepository.save(logModel);
     }
 
@@ -55,7 +55,7 @@ public class LogService {
 
     public UserDTO getOneName(String request) {
         UserDTO userDTO = new UserDTO();
-        UserModel userModel = userRepository.findByuserName(request);
+        UserModel userModel = userRepository.findByUsername(request);
         return userDTO.userModelToDTO(userModel);
 
     }

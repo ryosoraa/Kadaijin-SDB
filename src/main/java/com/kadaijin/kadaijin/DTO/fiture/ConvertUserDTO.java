@@ -17,7 +17,7 @@ public class ConvertUserDTO {
 
         LogDTO logDTO = new LogDTO();
         UserDTO userDTO = new UserDTO();
-        userDTO.setId(userModel.getUserID());
+        userDTO.setId(userModel.getId());
         userDTO.setUserName(userModel.getUserName());
         userDTO.setTotalLogin(userModel.getTotalLogin());
 

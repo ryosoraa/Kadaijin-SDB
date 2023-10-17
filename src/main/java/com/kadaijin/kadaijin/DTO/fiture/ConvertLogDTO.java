@@ -13,7 +13,7 @@ public class ConvertLogDTO {
 
     public LogDTO logDTO(LogModel logModel) {
         LogDTO logDTO = new LogDTO();
-        logDTO.setID(logModel.getID());
+        logDTO.setID(logModel.getId());
         logDTO.setTimestamp(logModel.getTimestamp());
         return logDTO;
     }
