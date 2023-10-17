@@ -31,6 +31,7 @@ public class LogService {
     @Transactional // merubah kolom dalam database dan karena melakukan banyak operasi secara
                    // bersamaan
     public void logInsert(UserModel userModel) {
+
         userRepository.updateTotalLogin(
                 logRepository.countByUserId(userRepository.findIdByUsername(userModel.getUserName())),
                 userModel.getUserName());
@@ -39,13 +40,14 @@ public class LogService {
             userRepository.updateTotalLogin(1, userModel.getUserName());
         }
 
-        Integer foreignKey = userRepository.findIdByUsername(userModel.getUserName());
-
         // Buat instance LogModel
+
+        Integer foreignKey = userRepository.findIdByUsername(userModel.getUserName());
+        System.out.println(foreignKey);
         LogModel logModel = new LogModel();
         logModel.setUserId(foreignKey);
         logRepository.save(logModel);
-        System.out.println(foreignKey);
+
     }
 
     public List<UserDTO> getLog() {

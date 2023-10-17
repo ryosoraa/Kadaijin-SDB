@@ -16,6 +16,7 @@ import java.sql.Timestamp;
 public class LogModel {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "timestamp")
