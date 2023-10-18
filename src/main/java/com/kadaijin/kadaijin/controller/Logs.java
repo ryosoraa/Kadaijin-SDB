@@ -25,17 +25,17 @@ public class Logs {
     @Autowired
     KadaijinRepository kadaijinRepository;
 
-    @Operation(summary = "Restore All Data", description = "restore all saved data")
-    @GetMapping("/all")
-    private List<UserDTO> getDataLog() {
-        return this.logService.getLog();
-    }
-
     @Operation(summary = "Get Data Log", description = "Get login log via email name")
     @GetMapping
     @Query("example@gmail.com")
     private UserDTO getOne(@RequestParam String email) {
         return this.logService.getOneName(email);
+    }
+
+    @Operation(summary = "Restore All Data", description = "restore all saved data")
+    @GetMapping("/all")
+    private List<UserDTO> getDataLog() {
+        return this.logService.getLog();
     }
 
     @Operation(summary = "Returns data by page", description = "restore email data and login logs with page")

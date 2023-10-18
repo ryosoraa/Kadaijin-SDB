@@ -30,9 +30,9 @@ public class ConvertDTO {
     public List<KadaijinDTO> listEntityToDto(Page<KadaijinModel> kadaijinModel) {
         List<KadaijinDTO> dataDTO = new ArrayList<>();
 
-        for (KadaijinModel model : kadaijinModel) {
-            /** KadaijinDTO dto = modelMapper.map(model, KadaijinDTO.class); */
-            dataDTO.add(modelMapper.map(model, KadaijinDTO.class));
+        for (KadaijinModel model : kadaijinModel.getContent()) {
+            KadaijinDTO dto = modelMapper.map(model, KadaijinDTO.class);
+            dataDTO.add(dto);
         }
         return dataDTO;
     }

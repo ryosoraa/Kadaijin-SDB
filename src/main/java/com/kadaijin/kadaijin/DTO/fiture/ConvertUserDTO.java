@@ -21,16 +21,19 @@ public class ConvertUserDTO {
 
     public List<UserDTO> listModelToDTO(List<UserModel> userModels) {
         List<UserDTO> dto = new ArrayList<>();
+        ModelMapper mapper = new ModelMapper();
         for (UserModel model : userModels) {
-            dto.add(modelMapper.map(model, UserDTO.class));
+            System.out.println(mapper.map(model, UserDTO.class));
+            dto.add(mapper.map(model, UserDTO.class));
         }
         return dto;
     }
 
     public List<UserDTO> listModelToDTO(Page<UserModel> userModels) {
+        ModelMapper mapper = new ModelMapper();
         List<UserDTO> dto = new ArrayList<>();
         for (UserModel model : userModels) {
-            dto.add(modelMapper.map(model, UserDTO.class));
+            dto.add(mapper.map(model, UserDTO.class));
         }
         return dto;
     }

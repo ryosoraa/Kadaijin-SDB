@@ -41,19 +41,16 @@ public class LogService {
     // bersamaan
     public void logInsert(String username) {
 
-        {
-
-            if (userRepository.findByUserName(username) == null) {
-                UserModel userModel = new UserModel();
-                userModel.setUserName(username);
-                userRepository.save(userModel);
-            }
-            // System.out.println(name.toString());
-
-            Integer id = userRepository.findIdByUsername(username);
-            LogModel logModel = new LogModel(id);
-            logRepository.save(logModel);
+        if (userRepository.findByUserName(username) == null) {
+            UserModel userModel = new UserModel();
+            userModel.setUserName(username);
+            userRepository.save(userModel);
         }
+        // System.out.println(name.toString());
+
+        Integer id = userRepository.findIdByUsername(username);
+        LogModel logModel = new LogModel(id);
+        logRepository.save(logModel);
 
         // System.out.println(name.toString());
 

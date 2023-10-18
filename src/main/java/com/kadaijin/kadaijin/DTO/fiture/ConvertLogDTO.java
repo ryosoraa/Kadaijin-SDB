@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import com.kadaijin.kadaijin.DTO.log.LogDTO;
 import com.kadaijin.kadaijin.model.log.LogModel;
 
-@Component
+// @Component
 public class ConvertLogDTO {
 
     // @Autowired
