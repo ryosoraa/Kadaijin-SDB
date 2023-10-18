@@ -20,22 +20,10 @@ public class RangeService {
     ConvertUserDTO convertUserDTO;
 
     @Autowired
-    ModelMapper modelMapper;
-
-    // @Autowired
-    // RangeDTO rangeDTO;
-
-    @Autowired
-    LogDTO logDTO;
-
-    @Autowired
     LogRepository logRepository;
 
     @Autowired
     UserRepository userRepository;
-
-    @Autowired
-    LogModel logModel;
 
     public RangeDTO restoreAll(String email) {
         Integer id = userRepository.findIdByUsername(email);
