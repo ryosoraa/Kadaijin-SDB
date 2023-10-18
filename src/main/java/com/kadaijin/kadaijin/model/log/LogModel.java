@@ -28,4 +28,12 @@ public class LogModel {
     @JoinColumn(name = "userId", nullable = false)
     private UserModel userId;
 
+    public LogModel() {
+
+    }
+
+    public LogModel(Integer no) {
+        this.userId = new UserModel(no);
+    }
+
 }

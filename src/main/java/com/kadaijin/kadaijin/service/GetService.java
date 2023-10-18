@@ -3,6 +3,7 @@ package com.kadaijin.kadaijin.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 
@@ -23,6 +24,9 @@ public class GetService {
     @Autowired
     KadaijinDTO kadaijinDTO;
 
+    @Autowired
+    ModelMapper modelMapper;
+
     public List<KadaijinDTO> getData() {
         List<KadaijinModel> findAll = kadaijinRepository.findAll();
 
@@ -32,8 +36,10 @@ public class GetService {
     public KadaijinDTO getOne(Integer no) {
         KadaijinDTO kadaijinDTO = new KadaijinDTO();
         Optional<KadaijinModel> optional = kadaijinRepository.findById(no);
+        KadaijinDTO dto = modelMapper.map(optional, KadaijinDTO.class);
         KadaijinModel kadaijinModel = optional.get();
-        return kadaijinDTO.entityToDto(kadaijinModel);
+        return dto;
+
     }
 
     public List<KadaijinDTO> getPages(Integer page, Integer size) {

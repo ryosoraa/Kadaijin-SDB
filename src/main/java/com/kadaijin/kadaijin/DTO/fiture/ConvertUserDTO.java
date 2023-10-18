@@ -22,7 +22,7 @@ public class ConvertUserDTO {
         userDTO.setUserName(userModel.getUserName());
 
         // Diarahkan ke Mesin logDTO.ListLogToDTO untuk di proses di jadikan ListDTO
-        userDTO.setLog(logDTO.ListLogToDTO(userModel.getLog()));
+        // userDTO.setLog(logDTO.ListLogToDTO(userModel.getLog()));
 
         return userDTO;
     }

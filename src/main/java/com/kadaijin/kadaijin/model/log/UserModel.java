@@ -27,6 +27,14 @@ public class UserModel {
     private String userName;
 
     @OneToMany(mappedBy = "userId") // foreign key yang ada di dalam TABLE logs
-    private Set<LogModel> log;
+    private List<LogModel> log;
+
+    public UserModel(Integer no) {
+        this.id = no;
+    }
+
+    public UserModel() {
+
+    }
 
 }

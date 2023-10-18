@@ -19,9 +19,9 @@ public class LoginService {
     public void newLogin(KadaijinDTO kadaijinDTO) {
 
         if (kadaijinRepository.existsByUsernameAndPassword(kadaijinDTO.getUsername(), kadaijinDTO.getPassword())) {
-            UserModel userModel = new UserModel();
-            userModel.setUserName(kadaijinDTO.getUsername());
-            logService.logInsert(userModel.getUserName());
+            // UserModel userModel = new UserModel();
+            // userModel.setUserName(kadaijinDTO.getUsername());
+            logService.logInsert(kadaijinDTO.getUsername());
             System.out.println("Masuk bang!");
         } else {
             System.out.println("ada yang salah bang!!");

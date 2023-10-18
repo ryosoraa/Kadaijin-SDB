@@ -12,6 +12,9 @@ import com.kadaijin.kadaijin.model.log.UserModel;
 import com.kadaijin.kadaijin.repository.log.LogRepository;
 import com.kadaijin.kadaijin.repository.log.UserRepository;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.EntityManager;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -25,24 +28,28 @@ public class LogService {
     @Autowired
     private LogRepository logRepository;
 
-    // @Autowired
+    @Autowired
+    EntityManager entityManager;
     // private UserDTO userDTO;
 
-    @Transactional // merubah kolom dalam database dan karena melakukan banyak operasi secara
-                   // bersamaan
+    // @Transactional // merubah kolom dalam database dan karena melakukan banyak
+    // operasi secara
+    // bersamaan
     public void logInsert(String username) {
 
-        UserModel name = userRepository.findByUserName(username);
-        Integer id = userRepository.findIdByUsername(username);
-        if (name == null) {
-            name = new UserModel();
-            name.setUserName(username);
-            userRepository.save(name);
-        }
+        {
 
-        LogModel logModel = new LogModel();
-        logModel.setUserId(name);
-        logRepository.save(logModel);
+            if (userRepository.findByUserName(username) == null) {
+                UserModel userModel = new UserModel();
+                userModel.setUserName(username);
+                userRepository.save(userModel);
+            }
+            // System.out.println(name.toString());
+
+            Integer id = userRepository.findIdByUsername(username);
+            LogModel logModel = new LogModel(id);
+            logRepository.save(logModel);
+        }
 
         // System.out.println(name.toString());
 
