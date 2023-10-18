@@ -2,6 +2,7 @@ package com.kadaijin.kadaijin.service;
 
 import java.util.List;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,6 +31,9 @@ public class LogService {
 
     @Autowired
     EntityManager entityManager;
+
+    @Autowired
+    ModelMapper modelMapper;
     // private UserDTO userDTO;
 
     // @Transactional // merubah kolom dalam database dan karena melakukan banyak
@@ -74,9 +78,8 @@ public class LogService {
     }
 
     public UserDTO getOneName(String request) {
-        UserDTO userDTO = new UserDTO();
         UserModel userModel = userRepository.findByUserName(request);
-        return userDTO.userModelToDTO(userModel);
+        return modelMapper.map(userModel, UserDTO.class);
 
     }
 

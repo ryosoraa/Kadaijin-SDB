@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.kadaijin.kadaijin.DTO.log.LogDTO;
@@ -12,19 +14,14 @@ import com.kadaijin.kadaijin.model.log.LogModel;
 @Component
 public class ConvertLogDTO {
 
-    public LogDTO logDTO(LogModel logModel) {
-        LogDTO logDTO = new LogDTO();
-        logDTO.setID(logModel.getId());
-        logDTO.setTimestamp(logModel.getTimestamp());
-        return logDTO;
-    }
+    // @Autowired
+    // ModelMapper modelMapper;
 
-    public List<LogDTO> ListLogToDTO(Set<LogModel> set) {
-        List<LogDTO> log = new ArrayList<>();
-        for (LogModel model : set) {
-            LogDTO dto = new LogDTO();
-            log.add(dto.logDTO(model));
-        }
-        return log;
-    }
+    // public List<LogDTO> ListLogToDTO(Set<LogModel> set) {
+    // List<LogDTO> log = new ArrayList<>();
+    // for (LogModel model : set) {
+    // log.add(modelMapper.map(model, LogDTO.class));
+    // }
+    // return log;
+    // }
 }

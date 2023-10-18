@@ -1,5 +1,6 @@
 package com.kadaijin.kadaijin.service;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,9 @@ public class RegisterService {
     @Autowired
     KadaijinRepository kadaijinRepository;
 
+    @Autowired
+    ModelMapper modelMapper;
+
     public void insert(KadaijinDTO kadaijinDTO) {
 
         /**
@@ -25,9 +29,8 @@ public class RegisterService {
         if (kadaijinRepository.findByUsername(kadaijinDTO.getUsername()) != null) {
             System.out.println("Email udah ada bang!!");
         } else {
-            KadaijinModel kadaijinModel = new KadaijinModel();
-            kadaijinModel.dtoVentity(kadaijinDTO);
-            this.kadaijinRepository.save(kadaijinModel);
+            KadaijinModel model = modelMapper.map(kadaijinDTO, KadaijinModel.class);
+            this.kadaijinRepository.save(model);
         }
     }
 
