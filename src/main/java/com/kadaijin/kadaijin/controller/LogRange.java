@@ -32,21 +32,21 @@ public class LogRange {
     }
 
     @PostMapping("/month")
-    public List<UserDTO> month(
+    public UserDTO month(
             @RequestParam String email,
             @RequestParam String month) {
         return null;
     }
 
     @PostMapping("/years")
-    public List<UserDTO> years(
+    public UserDTO years(
             @RequestParam String email,
             @RequestParam String years) {
         return null;
     }
 
     @PostMapping("/customs")
-    public List<UserDTO> customs(
+    public UserDTO customs(
             @RequestParam String email,
             @RequestParam String start,
             @RequestParam String end) {

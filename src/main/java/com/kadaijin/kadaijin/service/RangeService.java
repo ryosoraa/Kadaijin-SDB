@@ -32,7 +32,7 @@ public class RangeService {
     UserRepository userRepository;
 
     @Transactional
-    public UserDTO restoreAll(String email) {
+    public UserDTO customize(String email) {
 
         Integer id = userRepository.findIdByUsername(email);
         Timestamp starTimestamp = Timestamp.valueOf("2023-10-18 10:44:01");
@@ -47,6 +47,16 @@ public class RangeService {
                         endTimestamp,
                         userModel);
         System.out.println("jalan 2");
+
+        userDTO.setUserName(email);
+        userDTO.setLog(convertUserDTO.listModelToLogDTO(logModel));
+        return userDTO;
+    }
+
+    public UserDTO restoreAll(String email) {
+        UserDTO userDTO = new UserDTO();
+        UserModel userModel = new UserModel(userRepository.findIdByUsername(email));
+        List<LogModel> logModel = logRepository.findAllByuserId(userModel);
 
         userDTO.setUserName(email);
         userDTO.setLog(convertUserDTO.listModelToLogDTO(logModel));

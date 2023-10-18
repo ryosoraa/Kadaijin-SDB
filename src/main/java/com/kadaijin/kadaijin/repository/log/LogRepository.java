@@ -17,6 +17,8 @@ public interface LogRepository extends JpaRepository<LogModel, Integer> {
             @Param("endTime") Timestamp endTime,
             @Param("userIds") UserModel userModel);
 
+    List<LogModel> findAllByuserId(UserModel id);
+
 }
 
 /**
