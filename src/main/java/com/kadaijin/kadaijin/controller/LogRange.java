@@ -24,6 +24,33 @@ public class LogRange {
         return rangeModel.restoreAll(email);
     }
 
-    
+    @PostMapping("/date")
+    public UserDTO oneData(
+            @RequestParam String email,
+            @RequestParam String date) {
+        return null;
+    }
+
+    @PostMapping("/month")
+    public List<UserDTO> month(
+            @RequestParam String email,
+            @RequestParam String month) {
+        return null;
+    }
+
+    @PostMapping("/years")
+    public List<UserDTO> years(
+            @RequestParam String email,
+            @RequestParam String years) {
+        return null;
+    }
+
+    @PostMapping("/customs")
+    public List<UserDTO> customs(
+            @RequestParam String email,
+            @RequestParam String start,
+            @RequestParam String end) {
+        return null;
+    }
 
 }

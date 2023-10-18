@@ -51,25 +51,10 @@ public class LogService {
             userModel.setUserName(username);
             userRepository.save(userModel);
         }
-        // System.out.println(name.toString());
 
         Integer id = userRepository.findIdByUsername(username);
         LogModel logModel = new LogModel(id);
         logRepository.save(logModel);
-
-        // System.out.println(name.toString());
-
-        // Integer foreignKey =
-        // userRepository.findIdByUsername(userModel.getUserName());
-        // System.out.println(foreignKey);
-
-        // { // SET ID
-        // UserModel model = new UserModel();
-        // model.setId(foreignKey);
-        // LogModel logModel = new LogModel();
-        // logModel.setUserId(userModel);
-        // logRepository.save(logModel);
-        // }
 
     }
 
