@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kadaijin.kadaijin.DTO.log.RangeDTO;
-import com.kadaijin.kadaijin.service.RangeModel;
+import com.kadaijin.kadaijin.service.RangeService;
 
 @RestController
 @RequestMapping("/Range")
 public class LogRange {
 
     @Autowired
-    RangeModel rangeModel;
+    RangeService rangeModel;
 
     @PostMapping("/all")
     public RangeDTO allData(@RequestParam String email) {

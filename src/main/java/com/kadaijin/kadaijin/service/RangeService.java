@@ -14,7 +14,7 @@ import com.kadaijin.kadaijin.repository.log.LogRepository;
 import com.kadaijin.kadaijin.repository.log.UserRepository;
 
 @Service
-public class RangeModel {
+public class RangeService {
 
     @Autowired
     ConvertUserDTO convertUserDTO;
