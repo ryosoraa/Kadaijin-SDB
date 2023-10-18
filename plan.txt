@@ -6,3 +6,4 @@ v1.3-beta.1 : pengoptimalan converter
 v1.4-beta.1 : pengoptimalan RangeDTO dan UserDTO
 v1.5-beta.1 : menambah keterangan total login
 v1.6-beta.1 : penghapusan table database account
+v1.7-beta.1 : jika paramater email di reques di kosongi maka akan memeunculkan semua email
