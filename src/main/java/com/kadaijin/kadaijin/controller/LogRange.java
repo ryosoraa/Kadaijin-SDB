@@ -24,4 +24,6 @@ public class LogRange {
         return rangeModel.restoreAll(email);
     }
 
+    
+
 }
