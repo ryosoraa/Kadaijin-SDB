@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kadaijin.kadaijin.DTO.log.RangeDTO;
-import com.kadaijin.kadaijin.model.log.RangeModel;
+import com.kadaijin.kadaijin.service.RangeModel;
 
 @RestController
 @RequestMapping("/Range")

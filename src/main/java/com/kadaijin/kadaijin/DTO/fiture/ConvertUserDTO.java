@@ -10,7 +10,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
 import com.kadaijin.kadaijin.DTO.log.LogDTO;
+import com.kadaijin.kadaijin.DTO.log.RangeDTO;
 import com.kadaijin.kadaijin.DTO.log.UserDTO;
+import com.kadaijin.kadaijin.model.log.LogModel;
 import com.kadaijin.kadaijin.model.log.UserModel;
 
 @Component
@@ -34,6 +36,16 @@ public class ConvertUserDTO {
         List<UserDTO> dto = new ArrayList<>();
         for (UserModel model : userModels) {
             dto.add(mapper.map(model, UserDTO.class));
+        }
+        return dto;
+    }
+
+    public List<LogDTO> listModelToLogDTO(List<LogModel> logModels) {
+        List<LogDTO> dto = new ArrayList<>();
+        ModelMapper mapper = new ModelMapper();
+        for (LogModel model : logModels) {
+            System.out.println(mapper.map(model, LogDTO.class));
+            dto.add(mapper.map(model, LogDTO.class));
         }
         return dto;
     }
