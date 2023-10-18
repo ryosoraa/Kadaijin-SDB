@@ -28,7 +28,7 @@ public class LogRange {
     public UserDTO oneData(
             @RequestParam String email,
             @RequestParam String date) {
-        return null;
+        return rangeModel.dates(email, date);
     }
 
     @PostMapping("/month")

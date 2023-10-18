@@ -19,6 +19,8 @@ public interface LogRepository extends JpaRepository<LogModel, Integer> {
 
     List<LogModel> findAllByuserId(UserModel id);
 
+    List<LogModel> findAllByTimestamp(Timestamp timestamp);
+
 }
 
 /**

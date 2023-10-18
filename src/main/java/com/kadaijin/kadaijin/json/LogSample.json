@@ -19,5 +19,15 @@
       { "logID": 4, "timestamp": "2023-10-15 00:00:00" }
     ],
     "totalLogin": 4
+  },
+  {
+    "Email": "example@gmail.com",
+    "Log": [
+      {
+        "times": "2023-10-18T18:18:35.369Z",
+        "id": 0
+      }
+    ],
+    "id": 1
   }
 ]

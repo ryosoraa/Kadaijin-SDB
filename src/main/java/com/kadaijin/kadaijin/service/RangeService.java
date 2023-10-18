@@ -63,4 +63,19 @@ public class RangeService {
         return userDTO;
     }
 
+    public UserDTO dates(String email, String dates) {
+        UserDTO userDTO = new UserDTO();
+
+        UserModel userModel = new UserModel(userRepository.findIdByUsername(email));
+        Timestamp start = Timestamp.valueOf(dates.concat(" 00:00:00"));
+        Timestamp end = Timestamp.valueOf(dates.concat(" 23:59:59"));
+        List<LogModel> logModels = logRepository
+                .findLogsBetweenTimestampsForUsers(start, end, userModel);
+
+        userDTO.setUserName(email);
+        userDTO.setLog(convertUserDTO.listModelToLogDTO(logModels));
+
+        return userDTO;
+    }
+
 }
