@@ -18,3 +18,9 @@ public interface LogRepository extends JpaRepository<LogModel, Integer> {
             @Param("userIds") UserModel userModel);
 
 }
+
+/**
+ * SELECT * FROM logs
+ * WHERE timestamp BETWEEN "2023-10-18 10:44:01" AND "2023-10-18 14:34:35"
+ * AND user_id IN (1);
+ */

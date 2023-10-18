@@ -8,15 +8,14 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
-public class UserDTO extends ConvertUserDTO {
+public class UserDTO extends RangeDTO {
 
     @Schema(name = "id", example = "1", required = false)
     private Integer id;
 
-    @Schema(name = "Email", example = "example@gmail.com", required = true)
-    private String userName;
+    // @Schema(name = "Email", example = "example@gmail.com", required = true)
+    // private String userName;
 
-
-    @Schema(name = "Log")
-    private List<LogDTO> log = new ArrayList<>();
+    // @Schema(name = "Log")
+    // private List<LogDTO> log = new ArrayList<>();
 }

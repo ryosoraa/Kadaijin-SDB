@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kadaijin.kadaijin.DTO.log.RangeDTO;
+import com.kadaijin.kadaijin.DTO.log.UserDTO;
 import com.kadaijin.kadaijin.service.RangeService;
 
 @RestController
@@ -19,7 +20,7 @@ public class LogRange {
     RangeService rangeModel;
 
     @PostMapping("/all")
-    public RangeDTO allData(@RequestParam String email) {
+    public UserDTO allData(@RequestParam String email) {
         return rangeModel.restoreAll(email);
     }
 
