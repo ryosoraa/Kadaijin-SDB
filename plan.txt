@@ -1,1 +1,6 @@
-update dto converter to mapper
+1.0 : first launching
+1.2 : update dto converter to mapper
+1.3 : data yang di terima tidak langsung di terima oleh model tpi ke dto dulu
+1.3 : pengoptimalan converter
+1.4 : pengoptimalan RangeDTO dan UserDTO
+1.5 : penghapusan table database account

@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.kadaijin.kadaijin.DTO.fiture.ConvertDTO;
+import com.kadaijin.kadaijin.DTO.fiture.ConvertUserDTO;
 import com.kadaijin.kadaijin.DTO.log.UserDTO;
 import com.kadaijin.kadaijin.model.log.LogModel;
 import com.kadaijin.kadaijin.model.log.UserModel;
@@ -34,6 +36,9 @@ public class LogService {
 
     @Autowired
     ModelMapper modelMapper;
+
+    @Autowired
+    ConvertUserDTO convertUserDTO;
     // private UserDTO userDTO;
 
     // @Transactional // merubah kolom dalam database dan karena melakukan banyak
@@ -71,7 +76,7 @@ public class LogService {
     public List<UserDTO> getLog() {
         UserDTO userDTO = new UserDTO();
         List<UserModel> userModel = userRepository.findAll();
-        return userDTO.listModelToDTO(userModel);
+        return convertUserDTO.listModelToDTO(userModel);
     }
 
     public UserDTO getOneName(String request) {
@@ -85,6 +90,6 @@ public class LogService {
         Pageable pageable = PageRequest.of(page, size);
         Page<UserModel> pageResult = userRepository.findAll(pageable);
 
-        return userDTO.listModelToDTO(pageResult);
+        return convertUserDTO.listModelToDTO(pageResult);
     }
 }
