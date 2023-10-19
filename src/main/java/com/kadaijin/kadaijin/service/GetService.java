@@ -34,10 +34,9 @@ public class GetService {
     }
 
     public KadaijinDTO getOne(Integer no) {
-        KadaijinDTO kadaijinDTO = new KadaijinDTO();
         Optional<KadaijinModel> optional = kadaijinRepository.findById(no);
         KadaijinDTO dto = modelMapper.map(optional, KadaijinDTO.class);
-        KadaijinModel kadaijinModel = optional.get();
+
         return dto;
 
     }

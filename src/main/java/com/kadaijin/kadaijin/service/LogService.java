@@ -5,9 +5,7 @@ import java.util.List;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import com.kadaijin.kadaijin.DTO.fiture.ConvertDTO;
 import com.kadaijin.kadaijin.DTO.fiture.ConvertUserDTO;
 import com.kadaijin.kadaijin.DTO.log.UserDTO;
 import com.kadaijin.kadaijin.model.log.LogModel;
@@ -15,7 +13,6 @@ import com.kadaijin.kadaijin.model.log.UserModel;
 import com.kadaijin.kadaijin.repository.log.LogRepository;
 import com.kadaijin.kadaijin.repository.log.UserRepository;
 
-import jakarta.persistence.Entity;
 import jakarta.persistence.EntityManager;
 
 import org.springframework.data.domain.Page;
@@ -59,7 +56,6 @@ public class LogService {
     }
 
     public List<UserDTO> getLog() {
-        UserDTO userDTO = new UserDTO();
         List<UserModel> userModel = userRepository.findAll();
         return convertUserDTO.listModelToDTO(userModel);
     }
@@ -71,7 +67,6 @@ public class LogService {
     }
 
     public List<UserDTO> getPage(Integer page, Integer size) {
-        UserDTO userDTO = new UserDTO();
         Pageable pageable = PageRequest.of(page, size);
         Page<UserModel> pageResult = userRepository.findAll(pageable);
 

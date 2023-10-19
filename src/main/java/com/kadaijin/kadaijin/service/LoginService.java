@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kadaijin.kadaijin.DTO.KadaijinDTO;
-import com.kadaijin.kadaijin.model.log.UserModel;
 import com.kadaijin.kadaijin.repository.KadaijinRepository;
 
 @Service
@@ -19,8 +18,6 @@ public class LoginService {
     public void newLogin(KadaijinDTO kadaijinDTO) {
 
         if (kadaijinRepository.existsByUsernameAndPassword(kadaijinDTO.getUsername(), kadaijinDTO.getPassword())) {
-            // UserModel userModel = new UserModel();
-            // userModel.setUserName(kadaijinDTO.getUsername());
             logService.logInsert(kadaijinDTO.getUsername());
             System.out.println("Masuk bang!");
         } else {

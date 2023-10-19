@@ -3,21 +3,15 @@ package com.kadaijin.kadaijin.service;
 import java.sql.Timestamp;
 import java.util.List;
 
-import org.hibernate.mapping.Value;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kadaijin.kadaijin.DTO.fiture.ConvertUserDTO;
-import com.kadaijin.kadaijin.DTO.log.LogDTO;
-import com.kadaijin.kadaijin.DTO.log.RangeDTO;
 import com.kadaijin.kadaijin.DTO.log.UserDTO;
 import com.kadaijin.kadaijin.model.log.LogModel;
 import com.kadaijin.kadaijin.model.log.UserModel;
 import com.kadaijin.kadaijin.repository.log.LogRepository;
 import com.kadaijin.kadaijin.repository.log.UserRepository;
-
-import jakarta.transaction.Transactional;
 
 @Service
 public class RangeService {
