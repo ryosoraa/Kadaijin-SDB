@@ -31,25 +31,18 @@ public class RangeService {
     @Autowired
     UserRepository userRepository;
 
-    @Transactional
-    public UserDTO customize(String email) {
-
-        Integer id = userRepository.findIdByUsername(email);
-        Timestamp starTimestamp = Timestamp.valueOf("2023-10-18 10:44:01");
-        Timestamp endTimestamp = Timestamp.valueOf("2023-10-18 14:34:35");
-        UserModel userModel = new UserModel(id);
+    public UserDTO customize(String email, String starts, String finish) {
         UserDTO userDTO = new UserDTO();
-        // RangeDTO rangeDTO = new RangeDTO();
-        System.out.println("jalan 1");
-        List<LogModel> logModel = logRepository
-                .findLogsBetweenTimestampsForUsers(
-                        starTimestamp,
-                        endTimestamp,
-                        userModel);
-        System.out.println("jalan 2");
+
+        UserModel userModel = new UserModel(userRepository.findIdByUsername(email));
+        Timestamp start = Timestamp.valueOf(starts.concat(" 00:00:00"));
+        Timestamp end = Timestamp.valueOf(finish.concat(" 23:59:59"));
+        List<LogModel> logModels = logRepository
+                .findLogsBetweenTimestampsForUsers(start, end, userModel);
 
         userDTO.setUserName(email);
-        userDTO.setLog(convertUserDTO.listModelToLogDTO(logModel));
+        userDTO.setLog(convertUserDTO.listModelToLogDTO(logModels));
+
         return userDTO;
     }
 

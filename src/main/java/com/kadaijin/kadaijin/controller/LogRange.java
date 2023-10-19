@@ -51,7 +51,7 @@ public class LogRange {
             @RequestParam String email,
             @RequestParam String start,
             @RequestParam String end) {
-        return null;
+        return rangeModel.customize(email, start, end);
     }
 
 }
