@@ -30,17 +30,14 @@ public class RangeService {
     UserRepository userRepository;
 
     public UserDTO customize(String email, String starts, String finish) {
-        UserDTO userDTO = new UserDTO();
 
         UserModel userModel = new UserModel(userRepository.findIdByUsername(email));
         Timestamp start = Timestamp.valueOf(starts.concat(" 00:00:00"));
         Timestamp end = Timestamp.valueOf(finish.concat(" 23:59:59"));
         List<LogModel> logModels = logRepository
                 .findLogsBetweenTimestampsForUsers(start, end, userModel);
-        userDTO.setUserName(email);
-        userDTO.setTotalLogin(logRepository.countByCustomValue(userRepository.findIdByUsername(email)));
-        userDTO.setLog(convertUserDTO.listModelToLogDTO(logModels));
 
+        UserDTO userDTO = setUserDTO.setUserDTO(email, logModels);
         return userDTO;
     }
 
