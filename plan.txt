@@ -1,4 +1,4 @@
-🌟KADAIJIN RELEASE v1.4-beta.1💫
+KADAIJIN RELEASE v1.5-beta.1💫
 v1.0-beta.1 : first launching
 v1.2-beta.1 : update dto converter to mapper
 v1.3-beta.1 : data yang di terima tidak langsung di terima oleh model tpi ke dto dulu
