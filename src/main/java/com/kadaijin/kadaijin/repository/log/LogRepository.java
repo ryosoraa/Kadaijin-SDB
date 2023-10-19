@@ -12,6 +12,9 @@ import com.kadaijin.kadaijin.model.log.UserModel;
 
 public interface LogRepository extends JpaRepository<LogModel, Integer> {
 
+    @Query("SELECT COUNT(l) FROM LogModel l WHERE l.userId.id = :customValue")
+    Integer countByCustomValue(@Param("customValue") Integer customValue);
+
     @Query("SELECT l FROM LogModel l WHERE l.timestamp BETWEEN :startTime AND :endTime AND l.userId IN :userIds")
     List<LogModel> findLogsBetweenTimestampsForUsers(@Param("startTime") Timestamp startTime,
             @Param("endTime") Timestamp endTime,

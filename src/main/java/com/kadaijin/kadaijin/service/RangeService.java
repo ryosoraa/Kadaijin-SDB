@@ -33,8 +33,8 @@ public class RangeService {
         Timestamp end = Timestamp.valueOf(finish.concat(" 23:59:59"));
         List<LogModel> logModels = logRepository
                 .findLogsBetweenTimestampsForUsers(start, end, userModel);
-
         userDTO.setUserName(email);
+        userDTO.setTotalLogin(logRepository.countByCustomValue(userRepository.findIdByUsername(email)));
         userDTO.setLog(convertUserDTO.listModelToLogDTO(logModels));
 
         return userDTO;

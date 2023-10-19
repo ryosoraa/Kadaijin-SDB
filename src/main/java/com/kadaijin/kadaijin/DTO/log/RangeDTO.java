@@ -9,10 +9,13 @@ import lombok.Data;
 @Data
 public class RangeDTO {
 
-    @Schema(name = "Email", example = "example@gmail.com", required = true)
-    private String userName;
+    // @Schema(name = "Email", example = "example@gmail.com", required = true)
+    // private String userName;
 
-    @Schema(name = "Log")
-    private List<LogDTO> log = new ArrayList<>();
+    @Schema(name = "totalLogin")
+    private Integer totalLogin;
+
+    // @Schema(name = "Log")
+    // private List<LogDTO> log = new ArrayList<>();
 
 }
