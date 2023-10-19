@@ -1,8 +1,5 @@
 package com.kadaijin.kadaijin.DTO.log;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
