@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.kadaijin.kadaijin.DTO.fiture.ConvertUserDTO;
 import com.kadaijin.kadaijin.DTO.log.UserDTO;
+import com.kadaijin.kadaijin.configuration.SetUserDTO;
 import com.kadaijin.kadaijin.model.log.LogModel;
 import com.kadaijin.kadaijin.model.log.UserModel;
 import com.kadaijin.kadaijin.repository.log.LogRepository;
@@ -15,6 +16,9 @@ import com.kadaijin.kadaijin.repository.log.UserRepository;
 
 @Service
 public class RangeService {
+
+    @Autowired
+    SetUserDTO setUserDTO;
 
     @Autowired
     ConvertUserDTO convertUserDTO;
@@ -51,7 +55,6 @@ public class RangeService {
     }
 
     public UserDTO range(String email, String dates) {
-        UserDTO userDTO = new UserDTO();
 
         UserModel userModel = new UserModel(userRepository.findIdByUsername(email));
         Timestamp start = Timestamp.valueOf(dates.concat(" 00:00:00"));
@@ -59,14 +62,12 @@ public class RangeService {
         List<LogModel> logModels = logRepository
                 .findLogsBetweenTimestampsForUsers(start, end, userModel);
 
-        userDTO.setUserName(email);
-        userDTO.setLog(convertUserDTO.listModelToLogDTO(logModels));
+        UserDTO userDTO = setUserDTO.setUserDTO(email, logModels);
 
         return userDTO;
     }
 
     public UserDTO range(String email, String dates, String years) {
-        UserDTO userDTO = new UserDTO();
 
         UserModel userModel = new UserModel(userRepository.findIdByUsername(email));
         Timestamp start = Timestamp.valueOf(years + "-" + dates.concat("-01 00:00:00"));
@@ -74,14 +75,12 @@ public class RangeService {
         List<LogModel> logModels = logRepository
                 .findLogsBetweenTimestampsForUsers(start, end, userModel);
 
-        userDTO.setUserName(email);
-        userDTO.setLog(convertUserDTO.listModelToLogDTO(logModels));
+        UserDTO userDTO = setUserDTO.setUserDTO(email, logModels);
 
         return userDTO;
     }
 
     public UserDTO rangeYears(String email, String years) {
-        UserDTO userDTO = new UserDTO();
 
         UserModel userModel = new UserModel(userRepository.findIdByUsername(email));
         Timestamp start = Timestamp.valueOf(years + "-".concat("01-01 00:00:00"));
@@ -89,8 +88,7 @@ public class RangeService {
         List<LogModel> logModels = logRepository
                 .findLogsBetweenTimestampsForUsers(start, end, userModel);
 
-        userDTO.setUserName(email);
-        userDTO.setLog(convertUserDTO.listModelToLogDTO(logModels));
+        UserDTO userDTO = setUserDTO.setUserDTO(email, logModels);
 
         return userDTO;
     }
