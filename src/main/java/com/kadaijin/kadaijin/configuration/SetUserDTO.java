@@ -27,7 +27,7 @@ public class SetUserDTO {
         UserDTO userDTO = new UserDTO();
         userDTO.setId(userRepository.findIdByUsername(email));
         userDTO.setUserName(email);
-        userDTO.setTotalLogin(logRepository.countByCustomValue(userRepository.findIdByUsername(email)));
+        userDTO.setTotalLogin(logModel.size());
         userDTO.setLog(convertUserDTO.listModelToLogDTO(logModel));
         return userDTO;
     }
