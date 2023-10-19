@@ -43,7 +43,7 @@ public class LogRange {
     public UserDTO years(
             @RequestParam String email,
             @RequestParam String years) {
-        return null;
+        return rangeModel.rangeYears(email, years);
     }
 
     @PostMapping("/customs")
