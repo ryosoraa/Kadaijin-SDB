@@ -48,6 +48,7 @@ public class RangeService {
 
         userDTO.setUserName(email);
         userDTO.setLog(convertUserDTO.listModelToLogDTO(logModel));
+        userDTO.setTotalLogin(logRepository.countByCustomValue(userRepository.findIdByUsername(email)));
         return userDTO;
     }
 

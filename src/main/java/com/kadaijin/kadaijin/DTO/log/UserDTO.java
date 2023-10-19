@@ -11,6 +11,7 @@ import lombok.Data;
 @Data
 public class UserDTO {
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     @Schema(name = "id", example = "1", required = false)
     private Integer id;
 
