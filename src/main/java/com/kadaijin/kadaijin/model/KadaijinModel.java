@@ -14,7 +14,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "account")
+@Table(name = "accounts")
 public class KadaijinModel {
 
     /** model mewakili tabel yang ada di dalam database */
@@ -27,8 +27,8 @@ public class KadaijinModel {
 
     private String password;
 
-    @Column(name = "created", columnDefinition = "TIMESTAMP")
+    @Column(name = "register", columnDefinition = "TIMESTAMP")
     @CreationTimestamp
-    private Timestamp created;
+    private Timestamp register;
 
 }

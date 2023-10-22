@@ -16,20 +16,21 @@ import io.swagger.v3.oas.annotations.Operation;
 public class LogRange {
 
     @Autowired
-    RangeService rangeModel;
+    RangeService rangeService;
 
     @Operation(summary = "Restore All Data", description = "restore all saved data")
     @PostMapping("/all")
     public UserDTO allData(@RequestParam String email) {
-        return rangeModel.restoreAll(email);
+        return rangeService.restoreAll(email);
     }
 
     @Operation(summary = "Restore One Data", description = "returns data by email and Date")
     @PostMapping("/date")
     public UserDTO oneData(
-            @RequestParam String email,
+            @RequestParam(required = false) String email,
             @RequestParam String date) {
-        return rangeModel.range(email, date);
+
+        return rangeService.range(email, date);
     }
 
     @Operation(summary = "Restore Data via month", description = "returns data by email and month")
@@ -38,7 +39,7 @@ public class LogRange {
             @RequestParam String email,
             @RequestParam String month,
             @RequestParam String years) {
-        return rangeModel.range(email, month, years);
+        return rangeService.range(email, month, years);
     }
 
     @Operation(summary = "Restore Data via Years", description = "returns data by email and Years")
@@ -46,7 +47,7 @@ public class LogRange {
     public UserDTO years(
             @RequestParam String email,
             @RequestParam String years) {
-        return rangeModel.rangeYears(email, years);
+        return rangeService.rangeYears(email, years);
     }
 
     @Operation(summary = "Restore Data Customize", description = "returns data by Customize date")
@@ -55,7 +56,7 @@ public class LogRange {
             @RequestParam String email,
             @RequestParam String start,
             @RequestParam String end) {
-        return rangeModel.customize(email, start, end);
+        return rangeService.customize(email, start, end);
     }
 
 }

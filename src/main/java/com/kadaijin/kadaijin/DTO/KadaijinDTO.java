@@ -11,7 +11,7 @@ import lombok.Data;
 @Component
 public class KadaijinDTO extends ConvertDTO {
 
-    @Schema(name = "ID", example = "1", required = true)
+    @Schema(name = "ID", example = "1", required = false)
     public Integer Id;
 
     @Schema(name = "username", example = "elda@gmail.com", required = true)
@@ -20,7 +20,7 @@ public class KadaijinDTO extends ConvertDTO {
     @Schema(name = "password", example = "elda", required = true)
     public String password;
 
-    @Schema(name = "created", example = "2023-10-16T04:09:09", required = true)
-    public String created;
+    @Schema(name = "register", example = "2023-10-16T04:09:09", required = false)
+    public String register;
 
 }

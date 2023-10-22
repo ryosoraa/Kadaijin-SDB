@@ -32,4 +32,11 @@ public class SetUserDTO {
         return userDTO;
     }
 
+    public UserDTO setUserDTO(List<LogModel> logModel) {
+        UserDTO userDTO = new UserDTO();
+        userDTO.setTotalLogin(logModel.size());
+        userDTO.setLog(convertUserDTO.listModelToLogDTO(logModel));
+        return userDTO;
+    }
+
 }

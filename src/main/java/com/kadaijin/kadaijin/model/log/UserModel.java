@@ -24,6 +24,9 @@ public class UserModel {
     @Column(name = "user_name")
     private String userName;
 
+    // @Column(name = "password")
+    // private String password;
+
     @OneToMany(mappedBy = "userId") // foreign key yang ada di dalam TABLE logs
     private List<LogModel> log;
 

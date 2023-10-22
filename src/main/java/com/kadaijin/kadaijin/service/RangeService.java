@@ -3,6 +3,7 @@ package com.kadaijin.kadaijin.service;
 import java.sql.Timestamp;
 import java.util.List;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,9 @@ public class RangeService {
 
     @Autowired
     LogRepository logRepository;
+
+    @Autowired
+    ModelMapper modelMapper;
 
     @Autowired
     UserRepository userRepository;
@@ -63,6 +67,7 @@ public class RangeService {
         UserDTO userDTO = setUserDTO.setUserDTO(email, logModels);
 
         return userDTO;
+
     }
 
     public UserDTO range(String email, String dates, String years) {
