@@ -25,7 +25,7 @@ public class SetAccountsDTO {
 
     public AccountsDTO setAccountsDTO(String email, List<LogModel> logModel) {
         AccountsDTO AccountsDTO = new AccountsDTO();
-        AccountsDTO.setId(AccountsRepository.findIdByUsername(email));
+        AccountsDTO.setId(AccountsRepository.findIdByEmail(email));
         AccountsDTO.setUsername(email);
         AccountsDTO.setTotalLogin(logModel.size());
         AccountsDTO.setLog(convertAccountsDTO.listModelToLogDTO(logModel));

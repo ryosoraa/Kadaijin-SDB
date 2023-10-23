@@ -17,7 +17,7 @@ public class LoginService {
 
     public void newLogin(AccountsDTO accountsDTO) {
 
-        if (AccountsRepository.existsByUsernameAndPassword(accountsDTO.getUsername(), accountsDTO.getPassword())) {
+        if (AccountsRepository.existsByEmailAndPassword(accountsDTO.getUsername(), accountsDTO.getPassword())) {
             logService.logInsert(accountsDTO.getUsername());
             System.out.println("Masuk bang!");
         } else {

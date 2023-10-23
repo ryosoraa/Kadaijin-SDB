@@ -39,13 +39,13 @@ public class LogService {
 
     public void logInsert(String username) {
 
-        if (AccountsRepository.findByUsername(username) == null) {
+        if (AccountsRepository.findByEmail(username) == null) {
             AccountsModel AccountsModel = new AccountsModel();
             AccountsModel.setEmail(username);
             AccountsRepository.save(AccountsModel);
         }
 
-        Integer id = AccountsRepository.findIdByUsername(username);
+        Integer id = AccountsRepository.findIdByEmail(username);
         LogModel logModel = new LogModel(id);
         logRepository.save(logModel);
 
@@ -57,7 +57,7 @@ public class LogService {
     }
 
     public AccountsDTO getOneName(String request) {
-        AccountsModel AccountsModel = AccountsRepository.findByUsername(request);
+        AccountsModel AccountsModel = AccountsRepository.findByEmail(request);
         return modelMapper.map(AccountsModel, AccountsDTO.class);
 
     }

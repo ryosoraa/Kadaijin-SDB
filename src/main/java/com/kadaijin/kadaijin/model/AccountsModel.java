@@ -35,7 +35,7 @@ public class AccountsModel {
     @CreationTimestamp
     private Timestamp register;
 
-    @OneToMany(mappedBy = "account_id")
+    @OneToMany(mappedBy = "account")
     private List<LogModel> logs;
 
     public AccountsModel(Integer no) {

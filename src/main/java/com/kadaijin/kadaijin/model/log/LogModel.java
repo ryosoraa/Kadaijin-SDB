@@ -27,15 +27,15 @@ public class LogModel {
     private Timestamp login;
 
     @ManyToOne
-    @JoinColumn(name = "accountId", nullable = false)
-    private AccountsModel account_id;
+    @JoinColumn(name = "account_id", nullable = false)
+    private AccountsModel account;
 
     public LogModel() {
 
     }
 
     public LogModel(Integer no) {
-        this.account_id = new AccountsModel(no);
+        this.account = new AccountsModel(no);
     }
 
 }
