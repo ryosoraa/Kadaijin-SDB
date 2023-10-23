@@ -6,7 +6,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.kadaijin.kadaijin.DTO.fiture.ConvertAccountsDTO;
+import com.kadaijin.kadaijin.DTO.fiture.ConvertModelToDTO;
 import com.kadaijin.kadaijin.DTO.AccountsDTO;
 import com.kadaijin.kadaijin.model.log.LogModel;
 import com.kadaijin.kadaijin.model.AccountsModel;
@@ -23,7 +23,7 @@ import org.springframework.data.domain.Pageable;
 public class LogService {
 
     @Autowired
-    private AccountsRepository AccountsRepository;
+    private AccountsRepository accountsRepository;
 
     @Autowired
     private LogRepository logRepository;
@@ -35,37 +35,34 @@ public class LogService {
     ModelMapper modelMapper;
 
     @Autowired
-    ConvertAccountsDTO convertAccountsDTO;
+    ConvertModelToDTO convertModelToDTO;
 
-    public void logInsert(String username) {
-
-        if (AccountsRepository.findByEmail(username) == null) {
-            AccountsModel AccountsModel = new AccountsModel();
-            AccountsModel.setEmail(username);
-            AccountsRepository.save(AccountsModel);
+    public void logInsert(AccountsDTO accountsDTO) {
+        if (accountsRepository.existsByEmailAndPassword(accountsDTO.getEmail(), accountsDTO.getPassword())) {
+            LogModel logModel = new LogModel(accountsRepository.findIdByEmail(accountsDTO.getEmail()));
+            logRepository.save(logModel);
+            System.out.println("Masuk bang!");
+        } else {
+            System.out.println("ada yang salah bang!!");
         }
-
-        Integer id = AccountsRepository.findIdByEmail(username);
-        LogModel logModel = new LogModel(id);
-        logRepository.save(logModel);
 
     }
 
     public List<AccountsDTO> getLog() {
-        List<AccountsModel> AccountsModel = AccountsRepository.findAll();
-        return convertAccountsDTO.listModelToDTO(AccountsModel);
+        List<AccountsModel> AccountsModel = accountsRepository.findAll();
+        return convertModelToDTO.listAccountModelToDTO(AccountsModel);
     }
 
     public AccountsDTO getOneName(String request) {
-        AccountsModel AccountsModel = AccountsRepository.findByEmail(request);
+        AccountsModel AccountsModel = accountsRepository.findByEmail(request);
         return modelMapper.map(AccountsModel, AccountsDTO.class);
 
     }
 
     public List<AccountsDTO> getPage(Integer page, Integer size) {
         Pageable pageable = PageRequest.of(page, size);
-        Page<AccountsModel> pageResult = AccountsRepository.findAll(pageable);
+        Page<AccountsModel> pageResult = accountsRepository.findAll(pageable);
 
-        return convertAccountsDTO.listModelToDTO(pageResult);
+        return convertModelToDTO.pageAccountModelToDTO(pageResult);
     }
 }

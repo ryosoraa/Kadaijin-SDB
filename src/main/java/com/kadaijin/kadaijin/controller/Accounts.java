@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kadaijin.kadaijin.DTO.AccountsDTO;
+import com.kadaijin.kadaijin.service.LogService;
 import com.kadaijin.kadaijin.service.LoginService;
 import com.kadaijin.kadaijin.service.RegisterService;
 
@@ -17,7 +18,7 @@ import io.swagger.v3.oas.annotations.Operation;
 public class Accounts {
 
     @Autowired
-    LoginService loginService;
+    LogService logService;
 
     @Autowired
     RegisterService registerService;
@@ -28,9 +29,10 @@ public class Accounts {
             @RequestParam(name = "Email") String email,
             @RequestParam(name = "Password") String password) {
         AccountsDTO accountsDTO = new AccountsDTO();
-        accountsDTO.setUsername(email);
+        accountsDTO.setEmail(email);
         accountsDTO.setPassword(password);
-        this.loginService.newLogin(accountsDTO);
+        this.logService.logInsert(accountsDTO);
+        ;
     }
 
     @Operation(summary = "Alternative Register", description = "Insert UserName And Password")
@@ -39,7 +41,7 @@ public class Accounts {
             @RequestParam String email,
             @RequestParam String password) {
         AccountsDTO accountsDTO = new AccountsDTO();
-        accountsDTO.setUsername(email);
+        accountsDTO.setEmail(email);
         accountsDTO.setPassword(password);
         this.registerService.insert(accountsDTO);
     }

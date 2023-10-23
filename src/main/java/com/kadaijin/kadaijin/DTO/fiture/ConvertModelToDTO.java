@@ -12,25 +12,34 @@ import com.kadaijin.kadaijin.DTO.log.LogDTO;
 
 import com.kadaijin.kadaijin.DTO.AccountsDTO;
 import com.kadaijin.kadaijin.model.log.LogModel;
+import com.kadaijin.kadaijin.repository.AccountsRepository;
+import com.kadaijin.kadaijin.repository.log.LogRepository;
 import com.kadaijin.kadaijin.model.AccountsModel;
 
 @Component
-public class ConvertAccountsDTO {
+public class ConvertModelToDTO {
 
     @Autowired
     ModelMapper modelMapper;
 
-    public List<AccountsDTO> listModelToDTO(List<AccountsModel> AccountsModels) {
+    @Autowired
+    LogRepository logRepository;
+
+    @Autowired
+    AccountsRepository accountsRepository;
+
+    public List<AccountsDTO> listAccountModelToDTO(List<AccountsModel> AccountsModels) {
         List<AccountsDTO> dto = new ArrayList<>();
         ModelMapper mapper = new ModelMapper();
         for (AccountsModel model : AccountsModels) {
             System.out.println(mapper.map(model, AccountsDTO.class));
-            dto.add(mapper.map(model, AccountsDTO.class));
+            // dto.add(mapper.map(model, AccountsDTO.class));
+            dto.add(accountModelToDto(model));
         }
         return dto;
     }
 
-    public List<AccountsDTO> listModelToDTO(Page<AccountsModel> AccountsModels) {
+    public List<AccountsDTO> pageAccountModelToDTO(Page<AccountsModel> AccountsModels) {
         ModelMapper mapper = new ModelMapper();
         List<AccountsDTO> dto = new ArrayList<>();
         for (AccountsModel model : AccountsModels) {
@@ -47,6 +56,21 @@ public class ConvertAccountsDTO {
             dto.add(mapper.map(model, LogDTO.class));
         }
         return dto;
+    }
+
+    public AccountsDTO accountModelToDto(AccountsModel accountsModel) {
+        AccountsDTO accountsDTO = new AccountsDTO();
+        accountsDTO.setId(accountsModel.getId());
+        accountsDTO.setEmail(accountsModel.getEmail());
+        accountsDTO.setPassword(accountsModel.getPassword());
+        accountsDTO.setRegister(accountsModel.getRegister());
+        accountsDTO.setTotalLogin(logRepository
+                .countByCustomValue(accountsRepository
+                        .findIdByEmail(accountsModel
+                                .getEmail())));
+        System.out.println(accountsModel.getLogs().toString());
+
+        return accountsDTO;
     }
 
 }

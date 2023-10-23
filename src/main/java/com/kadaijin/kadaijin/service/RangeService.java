@@ -7,8 +7,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.kadaijin.kadaijin.DTO.fiture.ConvertAccountsDTO;
 import com.kadaijin.kadaijin.DTO.AccountsDTO;
+import com.kadaijin.kadaijin.DTO.fiture.ConvertModelToDTO;
 import com.kadaijin.kadaijin.configuration.SetAccountsDTO;
 import com.kadaijin.kadaijin.model.log.LogModel;
 import com.kadaijin.kadaijin.model.AccountsModel;
@@ -22,7 +22,7 @@ public class RangeService {
     SetAccountsDTO setAccountsDTO;
 
     @Autowired
-    ConvertAccountsDTO convertAccountsDTO;
+    ConvertModelToDTO convertModelToDTO;
 
     @Autowired
     LogRepository logRepository;
@@ -48,10 +48,10 @@ public class RangeService {
     public AccountsDTO restoreAll(String email) {
         AccountsDTO AccountsDTO = new AccountsDTO();
         AccountsModel AccountsModel = new AccountsModel(AccountsRepository.findIdByEmail(email));
-        List<LogModel> logModel = logRepository.findAllByAccount_id(AccountsModel);
+        List<LogModel> logModel = logRepository.findAllByAccounts_id(AccountsModel);
 
-        AccountsDTO.setUsername(email);
-        AccountsDTO.setLog(convertAccountsDTO.listModelToLogDTO(logModel));
+        AccountsDTO.setEmail(email);
+        AccountsDTO.setLog(convertModelToDTO.listModelToLogDTO(logModel));
         AccountsDTO.setTotalLogin(logRepository.countByCustomValue(AccountsRepository.findIdByEmail(email)));
         return AccountsDTO;
     }

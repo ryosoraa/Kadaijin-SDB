@@ -23,19 +23,19 @@ public class LogModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "login")
+    @Column(name = "login", nullable = true)
     private Timestamp login;
 
     @ManyToOne
-    @JoinColumn(name = "account_id", nullable = false)
-    private AccountsModel account;
+    @JoinColumn(name = "accounts_id", nullable = false)
+    private AccountsModel accounts;
 
     public LogModel() {
 
     }
 
     public LogModel(Integer no) {
-        this.account = new AccountsModel(no);
+        this.accounts = new AccountsModel(no);
     }
 
 }

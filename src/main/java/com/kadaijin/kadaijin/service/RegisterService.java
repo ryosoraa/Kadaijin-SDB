@@ -26,7 +26,7 @@ public class RegisterService {
          * dengan databasenya
          */
 
-        if (AccountsRepository.findByEmail(accountsDTO.getUsername()) != null) {
+        if (AccountsRepository.findByEmail(accountsDTO.getEmail()) != null) {
             System.out.println("Email udah ada bang!!");
         } else {
             AccountsModel model = modelMapper.map(accountsDTO, AccountsModel.class);

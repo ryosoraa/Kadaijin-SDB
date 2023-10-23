@@ -8,7 +8,7 @@ import com.kadaijin.kadaijin.model.AccountsModel;
 
 public interface AccountsRepository extends JpaRepository<AccountsModel, Integer> {
 
-    AccountsModel findByEmail(String username);
+    AccountsModel findByEmail(String email);
 
     AccountsModel findByPassword(String password);
 

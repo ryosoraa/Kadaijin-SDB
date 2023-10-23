@@ -12,10 +12,10 @@ import com.kadaijin.kadaijin.model.AccountsModel;
 
 public interface LogRepository extends JpaRepository<LogModel, Integer> {
 
-        @Query("SELECT COUNT(l) FROM LogModel l WHERE l.account.id = :customValue")
+        @Query("SELECT COUNT(l) FROM LogModel l WHERE l.accounts.id = :customValue")
         Integer countByCustomValue(@Param("customValue") Integer customValue);
 
-        @Query("SELECT l FROM LogModel l WHERE l.login BETWEEN :startTime AND :endTime AND l.account IN :userIds")
+        @Query("SELECT l FROM LogModel l WHERE l.login BETWEEN :startTime AND :endTime AND l.accounts IN :userIds")
         List<LogModel> findLogsBetweenLoginForUsers(
                         @Param("startTime") Timestamp startTime,
                         @Param("endTime") Timestamp endTime,
@@ -26,7 +26,7 @@ public interface LogRepository extends JpaRepository<LogModel, Integer> {
                         @Param("startTime") Timestamp startTime,
                         @Param("endTime") Timestamp endTime);
 
-        List<LogModel> findAllByAccount_id(AccountsModel account);
+        List<LogModel> findAllByAccounts_id(AccountsModel accounts);
 
         List<LogModel> findAllByLogin(Timestamp timestamp);
 

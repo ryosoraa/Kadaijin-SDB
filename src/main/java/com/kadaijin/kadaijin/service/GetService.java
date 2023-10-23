@@ -12,8 +12,10 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.kadaijin.kadaijin.DTO.AccountsDTO;
+import com.kadaijin.kadaijin.DTO.fiture.ConvertModelToDTO;
 import com.kadaijin.kadaijin.model.AccountsModel;
 import com.kadaijin.kadaijin.repository.AccountsRepository;
+import com.kadaijin.kadaijin.repository.log.LogRepository;
 
 @Service
 public class GetService {
@@ -22,10 +24,16 @@ public class GetService {
     AccountsRepository AccountsRepository;
 
     @Autowired
+    LogRepository logRepository;
+
+    @Autowired
     AccountsDTO accountsDTO;
 
     @Autowired
     ModelMapper modelMapper;
+
+    @Autowired
+    ConvertModelToDTO convertModelToDTO;
 
     public List<AccountsDTO> getData() {
         List<AccountsModel> findAll = AccountsRepository.findAll();
@@ -35,8 +43,9 @@ public class GetService {
 
     public AccountsDTO getOne(Integer no) {
         Optional<AccountsModel> optional = AccountsRepository.findById(no);
-        AccountsDTO dto = modelMapper.map(optional, AccountsDTO.class);
-
+        System.out.println(optional.get().toString());
+        // AccountsDTO dto = modelMapper.map(optional, AccountsDTO.class);
+        AccountsDTO dto = convertModelToDTO.accountModelToDto(optional.get());
         return dto;
 
     }

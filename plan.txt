@@ -8,4 +8,18 @@ v1.5-beta.1 : Rilis fiture Range
 v1.6-beta.2 : menambah keterangan total login
 v1.7-beta.2 : penghapusan bug total login terisi padahal pada bulan/waktu itu tidak login
 v1.8-beta.2 : penghapusan table database account
+v1.9-beta.2 : merubah table database kadaijin ke table accounts
+v2.0-beta.2 : pengoptimalan model entity baru 
+v2.1-beta.3 : perubahan jpa repository builder
+v2.1-beta.3 : perbaikan convert model to dto
+v2.2-beta.3 : optimization
+v2.3-beta.3 : add personal data
+
+
+menambah supaya keluar email dan log login secara barengan
+
+
+
+
+
 v1.9-beta.2 : jika paramater email di reques di kosongi maka akan memeunculkan semua email
