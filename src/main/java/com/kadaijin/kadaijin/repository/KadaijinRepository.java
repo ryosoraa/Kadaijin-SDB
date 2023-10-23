@@ -2,16 +2,16 @@ package com.kadaijin.kadaijin.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.kadaijin.kadaijin.model.KadaijinModel;
+import com.kadaijin.kadaijin.model.AccountsModel;
 
-public interface KadaijinRepository extends JpaRepository<KadaijinModel, Integer> {
+public interface KadaijinRepository extends JpaRepository<AccountsModel, Integer> {
 
-    KadaijinModel findByUsername(String username);
+    AccountsModel findByUsername(String username);
 
-    KadaijinModel findByPassword(String password);
+    AccountsModel findByPassword(String password);
 
     boolean existsByUsernameAndPassword(String username, String password);
 
-    // KadaijinModel findByPage(Integer limit, Integer offset);
+    // accountsModel findByPage(Integer limit, Integer offset);
 
 }

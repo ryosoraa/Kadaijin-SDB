@@ -4,18 +4,21 @@ import java.sql.Timestamp;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.kadaijin.kadaijin.model.log.LogModel;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 
 @Data
 @Entity
 @Table(name = "accounts")
-public class KadaijinModel {
+public class AccountsModel {
 
     /** model mewakili tabel yang ada di dalam database */
 
@@ -30,5 +33,8 @@ public class KadaijinModel {
     @Column(name = "register", columnDefinition = "TIMESTAMP")
     @CreationTimestamp
     private Timestamp register;
+
+    @OneToMany(mappedBy = "userId")
+    private LogModel log;
 
 }

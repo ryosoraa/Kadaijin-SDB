@@ -12,7 +12,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.kadaijin.kadaijin.DTO.KadaijinDTO;
-import com.kadaijin.kadaijin.model.KadaijinModel;
+import com.kadaijin.kadaijin.model.AccountsModel;
 import com.kadaijin.kadaijin.repository.KadaijinRepository;
 
 @Service
@@ -28,13 +28,13 @@ public class GetService {
     ModelMapper modelMapper;
 
     public List<KadaijinDTO> getData() {
-        List<KadaijinModel> findAll = kadaijinRepository.findAll();
+        List<AccountsModel> findAll = kadaijinRepository.findAll();
 
         return kadaijinDTO.listEntityToDto(findAll);
     }
 
     public KadaijinDTO getOne(Integer no) {
-        Optional<KadaijinModel> optional = kadaijinRepository.findById(no);
+        Optional<AccountsModel> optional = kadaijinRepository.findById(no);
         KadaijinDTO dto = modelMapper.map(optional, KadaijinDTO.class);
 
         return dto;
@@ -43,7 +43,7 @@ public class GetService {
 
     public List<KadaijinDTO> getPages(Integer page, Integer size) {
         Pageable pageable = PageRequest.of(page, size); // sistem untuk membaut paging
-        Page<KadaijinModel> pageResult = kadaijinRepository.findAll(pageable);
+        Page<AccountsModel> pageResult = kadaijinRepository.findAll(pageable);
 
         return kadaijinDTO.listEntityToDto(pageResult);
     }

@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kadaijin.kadaijin.DTO.KadaijinDTO;
-import com.kadaijin.kadaijin.model.KadaijinModel;
+import com.kadaijin.kadaijin.model.AccountsModel;
 import com.kadaijin.kadaijin.repository.KadaijinRepository;
 
 @Service
@@ -29,7 +29,7 @@ public class RegisterService {
         if (kadaijinRepository.findByUsername(kadaijinDTO.getUsername()) != null) {
             System.out.println("Email udah ada bang!!");
         } else {
-            KadaijinModel model = modelMapper.map(kadaijinDTO, KadaijinModel.class);
+            AccountsModel model = modelMapper.map(kadaijinDTO, AccountsModel.class);
             this.kadaijinRepository.save(model);
         }
     }

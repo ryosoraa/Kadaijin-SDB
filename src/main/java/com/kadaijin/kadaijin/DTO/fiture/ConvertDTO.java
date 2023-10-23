@@ -9,7 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
 import com.kadaijin.kadaijin.DTO.KadaijinDTO;
-import com.kadaijin.kadaijin.model.KadaijinModel;
+import com.kadaijin.kadaijin.model.AccountsModel;
 
 @Component
 public class ConvertDTO {
@@ -17,20 +17,20 @@ public class ConvertDTO {
     @Autowired
     ModelMapper modelMapper;
 
-    public List<KadaijinDTO> listEntityToDto(List<KadaijinModel> kadaijinModel) {
+    public List<KadaijinDTO> listEntityToDto(List<AccountsModel> accountsModel) {
         List<KadaijinDTO> dataDTO = new ArrayList<>();
 
-        for (KadaijinModel model : kadaijinModel) {
+        for (AccountsModel model : accountsModel) {
             /** KadaijinDTO dto = modelMapper.map(model, KadaijinDTO.class); */
             dataDTO.add(modelMapper.map(model, KadaijinDTO.class));
         }
         return dataDTO;
     }
 
-    public List<KadaijinDTO> listEntityToDto(Page<KadaijinModel> kadaijinModel) {
+    public List<KadaijinDTO> listEntityToDto(Page<AccountsModel> accountsModel) {
         List<KadaijinDTO> dataDTO = new ArrayList<>();
 
-        for (KadaijinModel model : kadaijinModel.getContent()) {
+        for (AccountsModel model : accountsModel.getContent()) {
             KadaijinDTO dto = modelMapper.map(model, KadaijinDTO.class);
             dataDTO.add(dto);
         }
