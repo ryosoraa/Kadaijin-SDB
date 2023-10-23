@@ -11,41 +11,41 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-import com.kadaijin.kadaijin.DTO.KadaijinDTO;
+import com.kadaijin.kadaijin.DTO.AccountsDTO;
 import com.kadaijin.kadaijin.model.AccountsModel;
-import com.kadaijin.kadaijin.repository.KadaijinRepository;
+import com.kadaijin.kadaijin.repository.AccountsRepository;
 
 @Service
 public class GetService {
 
     @Autowired
-    KadaijinRepository kadaijinRepository;
+    AccountsRepository AccountsRepository;
 
     @Autowired
-    KadaijinDTO kadaijinDTO;
+    AccountsDTO accountsDTO;
 
     @Autowired
     ModelMapper modelMapper;
 
-    public List<KadaijinDTO> getData() {
-        List<AccountsModel> findAll = kadaijinRepository.findAll();
+    public List<AccountsDTO> getData() {
+        List<AccountsModel> findAll = AccountsRepository.findAll();
 
-        return kadaijinDTO.listEntityToDto(findAll);
+        return accountsDTO.listEntityToDto(findAll);
     }
 
-    public KadaijinDTO getOne(Integer no) {
-        Optional<AccountsModel> optional = kadaijinRepository.findById(no);
-        KadaijinDTO dto = modelMapper.map(optional, KadaijinDTO.class);
+    public AccountsDTO getOne(Integer no) {
+        Optional<AccountsModel> optional = AccountsRepository.findById(no);
+        AccountsDTO dto = modelMapper.map(optional, AccountsDTO.class);
 
         return dto;
 
     }
 
-    public List<KadaijinDTO> getPages(Integer page, Integer size) {
+    public List<AccountsDTO> getPages(Integer page, Integer size) {
         Pageable pageable = PageRequest.of(page, size); // sistem untuk membaut paging
-        Page<AccountsModel> pageResult = kadaijinRepository.findAll(pageable);
+        Page<AccountsModel> pageResult = AccountsRepository.findAll(pageable);
 
-        return kadaijinDTO.listEntityToDto(pageResult);
+        return accountsDTO.listEntityToDto(pageResult);
     }
 
 }

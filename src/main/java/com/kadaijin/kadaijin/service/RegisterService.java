@@ -4,20 +4,20 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.kadaijin.kadaijin.DTO.KadaijinDTO;
+import com.kadaijin.kadaijin.DTO.AccountsDTO;
 import com.kadaijin.kadaijin.model.AccountsModel;
-import com.kadaijin.kadaijin.repository.KadaijinRepository;
+import com.kadaijin.kadaijin.repository.AccountsRepository;
 
 @Service
 public class RegisterService {
 
     @Autowired
-    KadaijinRepository kadaijinRepository;
+    AccountsRepository AccountsRepository;
 
     @Autowired
     ModelMapper modelMapper;
 
-    public void insert(KadaijinDTO kadaijinDTO) {
+    public void insert(AccountsDTO accountsDTO) {
 
         /**
          * menyimpan data yang di ambil lalu di masukan di dalam model
@@ -26,11 +26,11 @@ public class RegisterService {
          * dengan databasenya
          */
 
-        if (kadaijinRepository.findByUsername(kadaijinDTO.getUsername()) != null) {
+        if (AccountsRepository.findByUsername(accountsDTO.getUsername()) != null) {
             System.out.println("Email udah ada bang!!");
         } else {
-            AccountsModel model = modelMapper.map(kadaijinDTO, AccountsModel.class);
-            this.kadaijinRepository.save(model);
+            AccountsModel model = modelMapper.map(accountsDTO, AccountsModel.class);
+            this.AccountsRepository.save(model);
         }
     }
 

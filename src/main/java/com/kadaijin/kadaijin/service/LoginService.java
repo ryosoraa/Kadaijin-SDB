@@ -3,22 +3,22 @@ package com.kadaijin.kadaijin.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.kadaijin.kadaijin.DTO.KadaijinDTO;
-import com.kadaijin.kadaijin.repository.KadaijinRepository;
+import com.kadaijin.kadaijin.DTO.AccountsDTO;
+import com.kadaijin.kadaijin.repository.AccountsRepository;
 
 @Service
 public class LoginService {
 
     @Autowired
-    KadaijinRepository kadaijinRepository;
+    AccountsRepository AccountsRepository;
 
     @Autowired
     LogService logService;
 
-    public void newLogin(KadaijinDTO kadaijinDTO) {
+    public void newLogin(AccountsDTO accountsDTO) {
 
-        if (kadaijinRepository.existsByUsernameAndPassword(kadaijinDTO.getUsername(), kadaijinDTO.getPassword())) {
-            logService.logInsert(kadaijinDTO.getUsername());
+        if (AccountsRepository.existsByUsernameAndPassword(accountsDTO.getUsername(), accountsDTO.getPassword())) {
+            logService.logInsert(accountsDTO.getUsername());
             System.out.println("Masuk bang!");
         } else {
             System.out.println("ada yang salah bang!!");

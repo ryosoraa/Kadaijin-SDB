@@ -9,7 +9,7 @@ import lombok.Data;
 public class LogDTO {
 
     @Schema(name = "times", example = "2023-10-16 00:57:13")
-    private Timestamp timestamp;
+    private Timestamp login;
 
     @Schema(name = "id", example = "1")
     private Integer ID;

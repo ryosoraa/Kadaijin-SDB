@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kadaijin.kadaijin.DTO.KadaijinDTO;
+import com.kadaijin.kadaijin.DTO.AccountsDTO;
 import com.kadaijin.kadaijin.service.GetService;
 import com.kadaijin.kadaijin.service.LoginService;
 import com.kadaijin.kadaijin.service.RegisterService;
@@ -32,38 +32,38 @@ public class Users {
 
     @Operation(summary = "Register", description = "Register new user")
     @PostMapping("/Register")
-    private void apiTest(@RequestBody KadaijinDTO kadaijinDTO) {
-        System.out.println("register : " + kadaijinDTO.toString());
-        this.registerService.insert(kadaijinDTO);
+    private void apiTest(@RequestBody AccountsDTO accountsDTO) {
+        System.out.println("register : " + accountsDTO.toString());
+        this.registerService.insert(accountsDTO);
 
     }
 
     @Operation(summary = "Login", description = "Login user")
     @PostMapping("/Login")
-    public void login(@RequestBody KadaijinDTO KadaijinDTO) {
-        this.loginService.newLogin(KadaijinDTO);
+    public void login(@RequestBody AccountsDTO accountsDTO) {
+        this.loginService.newLogin(accountsDTO);
 
     }
 
     @Operation(summary = "Restore One Data", description = "returns data by id")
     @GetMapping("/get")
-    private KadaijinDTO getDataOne(@RequestParam(defaultValue = "1") Integer id) {
+    private AccountsDTO getDataOne(@RequestParam(defaultValue = "1") Integer id) {
         return this.getService.getOne(id);
 
     }
 
     @Operation(summary = "Restore All Data", description = "restore all saved data")
     @GetMapping("/get/all")
-    private List<KadaijinDTO> getAllData() {
+    private List<AccountsDTO> getAllData() {
         return this.getService.getData();
     }
 
     @Operation(summary = "Returns data by page", description = "returns the desired amount of data")
     @GetMapping("/get/page")
-    private List<KadaijinDTO> paging(
+    private List<AccountsDTO> paging(
             @RequestParam(defaultValue = "0") Integer page,
             @RequestParam(defaultValue = "10") Integer size) {
-        List<KadaijinDTO> kadaijinList = getService.getPages(page, size);
+        List<AccountsDTO> kadaijinList = getService.getPages(page, size);
         return kadaijinList;
     }
 

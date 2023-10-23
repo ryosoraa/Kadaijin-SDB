@@ -7,22 +7,22 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.kadaijin.kadaijin.DTO.fiture.ConvertUserDTO;
-import com.kadaijin.kadaijin.DTO.log.UserDTO;
-import com.kadaijin.kadaijin.configuration.SetUserDTO;
+import com.kadaijin.kadaijin.DTO.fiture.ConvertAccountsDTO;
+import com.kadaijin.kadaijin.DTO.AccountsDTO;
+import com.kadaijin.kadaijin.configuration.SetAccountsDTO;
 import com.kadaijin.kadaijin.model.log.LogModel;
-import com.kadaijin.kadaijin.model.log.UserModel;
+import com.kadaijin.kadaijin.model.AccountsModel;
 import com.kadaijin.kadaijin.repository.log.LogRepository;
-import com.kadaijin.kadaijin.repository.log.UserRepository;
+import com.kadaijin.kadaijin.repository.AccountsRepository;
 
 @Service
 public class RangeService {
 
     @Autowired
-    SetUserDTO setUserDTO;
+    SetAccountsDTO setAccountsDTO;
 
     @Autowired
-    ConvertUserDTO convertUserDTO;
+    ConvertAccountsDTO convertAccountsDTO;
 
     @Autowired
     LogRepository logRepository;
@@ -31,69 +31,69 @@ public class RangeService {
     ModelMapper modelMapper;
 
     @Autowired
-    UserRepository userRepository;
+    AccountsRepository AccountsRepository;
 
-    public UserDTO customize(String email, String starts, String finish) {
+    public AccountsDTO customize(String email, String starts, String finish) {
 
-        UserModel userModel = new UserModel(userRepository.findIdByUsername(email));
+        AccountsModel AccountsModel = new AccountsModel(AccountsRepository.findIdByUsername(email));
         Timestamp start = Timestamp.valueOf(starts.concat(" 00:00:00"));
         Timestamp end = Timestamp.valueOf(finish.concat(" 23:59:59"));
         List<LogModel> logModels = logRepository
-                .findLogsBetweenTimestampsForUsers(start, end, userModel);
+                .findLogsBetweenTimestampsForUsers(start, end, AccountsModel);
 
-        UserDTO userDTO = setUserDTO.setUserDTO(email, logModels);
-        return userDTO;
+        AccountsDTO AccountsDTO = setAccountsDTO.setAccountsDTO(email, logModels);
+        return AccountsDTO;
     }
 
-    public UserDTO restoreAll(String email) {
-        UserDTO userDTO = new UserDTO();
-        UserModel userModel = new UserModel(userRepository.findIdByUsername(email));
-        List<LogModel> logModel = logRepository.findAllByuserId(userModel);
+    public AccountsDTO restoreAll(String email) {
+        AccountsDTO AccountsDTO = new AccountsDTO();
+        AccountsModel AccountsModel = new AccountsModel(AccountsRepository.findIdByUsername(email));
+        List<LogModel> logModel = logRepository.findAllByuserId(AccountsModel);
 
-        userDTO.setUserName(email);
-        userDTO.setLog(convertUserDTO.listModelToLogDTO(logModel));
-        userDTO.setTotalLogin(logRepository.countByCustomValue(userRepository.findIdByUsername(email)));
-        return userDTO;
+        AccountsDTO.setUsername(email);
+        AccountsDTO.setLog(convertAccountsDTO.listModelToLogDTO(logModel));
+        AccountsDTO.setTotalLogin(logRepository.countByCustomValue(AccountsRepository.findIdByUsername(email)));
+        return AccountsDTO;
     }
 
-    public UserDTO range(String email, String dates) {
+    public AccountsDTO range(String email, String dates) {
 
-        UserModel userModel = new UserModel(userRepository.findIdByUsername(email));
+        AccountsModel AccountsModel = new AccountsModel(AccountsRepository.findIdByUsername(email));
         Timestamp start = Timestamp.valueOf(dates.concat(" 00:00:00"));
         Timestamp end = Timestamp.valueOf(dates.concat(" 23:59:59"));
         List<LogModel> logModels = logRepository
-                .findLogsBetweenTimestampsForUsers(start, end, userModel);
+                .findLogsBetweenTimestampsForUsers(start, end, AccountsModel);
 
-        UserDTO userDTO = setUserDTO.setUserDTO(email, logModels);
+        AccountsDTO AccountsDTO = setAccountsDTO.setAccountsDTO(email, logModels);
 
-        return userDTO;
+        return AccountsDTO;
 
     }
 
-    public UserDTO range(String email, String dates, String years) {
+    public AccountsDTO range(String email, String dates, String years) {
 
-        UserModel userModel = new UserModel(userRepository.findIdByUsername(email));
+        AccountsModel AccountsModel = new AccountsModel(AccountsRepository.findIdByUsername(email));
         Timestamp start = Timestamp.valueOf(years + "-" + dates.concat("-01 00:00:00"));
         Timestamp end = Timestamp.valueOf(years + "-" + dates.concat("-31 23:59:59"));
         List<LogModel> logModels = logRepository
-                .findLogsBetweenTimestampsForUsers(start, end, userModel);
+                .findLogsBetweenTimestampsForUsers(start, end, AccountsModel);
 
-        UserDTO userDTO = setUserDTO.setUserDTO(email, logModels);
+        AccountsDTO AccountsDTO = setAccountsDTO.setAccountsDTO(email, logModels);
 
-        return userDTO;
+        return AccountsDTO;
     }
 
-    public UserDTO rangeYears(String email, String years) {
+    public AccountsDTO rangeYears(String email, String years) {
 
-        UserModel userModel = new UserModel(userRepository.findIdByUsername(email));
+        AccountsModel AccountsModel = new AccountsModel(AccountsRepository.findIdByUsername(email));
         Timestamp start = Timestamp.valueOf(years + "-".concat("01-01 00:00:00"));
         Timestamp end = Timestamp.valueOf(years + "-".concat("12-31 23:59:59"));
         List<LogModel> logModels = logRepository
-                .findLogsBetweenTimestampsForUsers(start, end, userModel);
+                .findLogsBetweenTimestampsForUsers(start, end, AccountsModel);
 
-        UserDTO userDTO = setUserDTO.setUserDTO(email, logModels);
+        AccountsDTO AccountsDTO = setAccountsDTO.setAccountsDTO(email, logModels);
 
-        return userDTO;
+        return AccountsDTO;
     }
 
 }

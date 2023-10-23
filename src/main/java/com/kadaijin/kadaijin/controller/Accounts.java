@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kadaijin.kadaijin.DTO.KadaijinDTO;
+import com.kadaijin.kadaijin.DTO.AccountsDTO;
 import com.kadaijin.kadaijin.service.LoginService;
 import com.kadaijin.kadaijin.service.RegisterService;
 
@@ -27,10 +27,10 @@ public class Accounts {
     private void postEmail(
             @RequestParam(name = "Email") String email,
             @RequestParam(name = "Password") String password) {
-        KadaijinDTO kadaijinDTO = new KadaijinDTO();
-        kadaijinDTO.setUsername(email);
-        kadaijinDTO.setPassword(password);
-        this.loginService.newLogin(kadaijinDTO);
+        AccountsDTO accountsDTO = new AccountsDTO();
+        accountsDTO.setUsername(email);
+        accountsDTO.setPassword(password);
+        this.loginService.newLogin(accountsDTO);
     }
 
     @Operation(summary = "Alternative Register", description = "Insert UserName And Password")
@@ -38,10 +38,10 @@ public class Accounts {
     private void register(
             @RequestParam String email,
             @RequestParam String password) {
-        KadaijinDTO kadaijinDTO = new KadaijinDTO();
-        kadaijinDTO.setUsername(email);
-        kadaijinDTO.setPassword(password);
-        this.registerService.insert(kadaijinDTO);
+        AccountsDTO accountsDTO = new AccountsDTO();
+        accountsDTO.setUsername(email);
+        accountsDTO.setPassword(password);
+        this.registerService.insert(accountsDTO);
     }
 
 }

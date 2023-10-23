@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kadaijin.kadaijin.DTO.log.UserDTO;
-import com.kadaijin.kadaijin.repository.KadaijinRepository;
+import com.kadaijin.kadaijin.DTO.AccountsDTO;
+import com.kadaijin.kadaijin.repository.AccountsRepository;
 import com.kadaijin.kadaijin.service.LogService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -23,24 +23,24 @@ public class Logs {
     private LogService logService;
 
     @Autowired
-    KadaijinRepository kadaijinRepository;
+    AccountsRepository AccountsRepository;
 
     @Operation(summary = "Get Data Log", description = "Get login log via email name")
     @GetMapping
     @Query("example@gmail.com")
-    private UserDTO getOne(@RequestParam String email) {
+    private AccountsDTO getOne(@RequestParam String email) {
         return this.logService.getOneName(email);
     }
 
     @Operation(summary = "Restore All Data", description = "restore all saved data")
     @GetMapping("/all")
-    private List<UserDTO> getDataLog() {
+    private List<AccountsDTO> getDataLog() {
         return this.logService.getLog();
     }
 
     @Operation(summary = "Returns data by page", description = "restore email data and login logs with page")
     @GetMapping("/page")
-    private List<UserDTO> getPage(
+    private List<AccountsDTO> getPage(
             @RequestParam(defaultValue = "0") Integer page,
             @RequestParam(defaultValue = "10") Integer size) {
         return logService.getPage(page, size);

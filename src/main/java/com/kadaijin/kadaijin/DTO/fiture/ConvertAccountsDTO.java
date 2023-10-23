@@ -10,31 +10,31 @@ import org.springframework.stereotype.Component;
 
 import com.kadaijin.kadaijin.DTO.log.LogDTO;
 
-import com.kadaijin.kadaijin.DTO.log.UserDTO;
+import com.kadaijin.kadaijin.DTO.AccountsDTO;
 import com.kadaijin.kadaijin.model.log.LogModel;
-import com.kadaijin.kadaijin.model.log.UserModel;
+import com.kadaijin.kadaijin.model.AccountsModel;
 
 @Component
-public class ConvertUserDTO {
+public class ConvertAccountsDTO {
 
     @Autowired
     ModelMapper modelMapper;
 
-    public List<UserDTO> listModelToDTO(List<UserModel> userModels) {
-        List<UserDTO> dto = new ArrayList<>();
+    public List<AccountsDTO> listModelToDTO(List<AccountsModel> AccountsModels) {
+        List<AccountsDTO> dto = new ArrayList<>();
         ModelMapper mapper = new ModelMapper();
-        for (UserModel model : userModels) {
-            System.out.println(mapper.map(model, UserDTO.class));
-            dto.add(mapper.map(model, UserDTO.class));
+        for (AccountsModel model : AccountsModels) {
+            System.out.println(mapper.map(model, AccountsDTO.class));
+            dto.add(mapper.map(model, AccountsDTO.class));
         }
         return dto;
     }
 
-    public List<UserDTO> listModelToDTO(Page<UserModel> userModels) {
+    public List<AccountsDTO> listModelToDTO(Page<AccountsModel> AccountsModels) {
         ModelMapper mapper = new ModelMapper();
-        List<UserDTO> dto = new ArrayList<>();
-        for (UserModel model : userModels) {
-            dto.add(mapper.map(model, UserDTO.class));
+        List<AccountsDTO> dto = new ArrayList<>();
+        for (AccountsModel model : AccountsModels) {
+            dto.add(mapper.map(model, AccountsDTO.class));
         }
         return dto;
     }

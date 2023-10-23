@@ -1,6 +1,7 @@
 package com.kadaijin.kadaijin.model;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -24,9 +25,9 @@ public class AccountsModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // untuk menghasilkan nilai id
-    private Integer Id;
+    private Integer id;
 
-    private String username;
+    private String email;
 
     private String password;
 
@@ -34,7 +35,15 @@ public class AccountsModel {
     @CreationTimestamp
     private Timestamp register;
 
-    @OneToMany(mappedBy = "userId")
-    private LogModel log;
+    @OneToMany(mappedBy = "account_id")
+    private List<LogModel> logs;
+
+    public AccountsModel(Integer no) {
+        this.id = no;
+    }
+
+    public AccountsModel() {
+
+    }
 
 }

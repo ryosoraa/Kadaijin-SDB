@@ -12,6 +12,8 @@ import lombok.Data;
 
 import java.sql.Timestamp;
 
+import com.kadaijin.kadaijin.model.AccountsModel;
+
 @Data
 @Table(name = "logs")
 @Entity
@@ -21,19 +23,19 @@ public class LogModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "timestamp")
-    private Timestamp timestamp;
+    @Column(name = "login")
+    private Timestamp login;
 
     @ManyToOne
-    @JoinColumn(name = "userId", nullable = false)
-    private UserModel userId;
+    @JoinColumn(name = "accountId", nullable = false)
+    private AccountsModel account_id;
 
     public LogModel() {
 
     }
 
     public LogModel(Integer no) {
-        this.userId = new UserModel(no);
+        this.account_id = new AccountsModel(no);
     }
 
 }

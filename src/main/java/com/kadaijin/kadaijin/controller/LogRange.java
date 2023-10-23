@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kadaijin.kadaijin.DTO.log.UserDTO;
+import com.kadaijin.kadaijin.DTO.AccountsDTO;
 import com.kadaijin.kadaijin.service.RangeService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -20,13 +20,13 @@ public class LogRange {
 
     @Operation(summary = "Restore All Data", description = "restore all saved data")
     @PostMapping("/all")
-    public UserDTO allData(@RequestParam String email) {
+    public AccountsDTO allData(@RequestParam String email) {
         return rangeService.restoreAll(email);
     }
 
     @Operation(summary = "Restore One Data", description = "returns data by email and Date")
     @PostMapping("/date")
-    public UserDTO oneData(
+    public AccountsDTO oneData(
             @RequestParam(required = false) String email,
             @RequestParam String date) {
 
@@ -35,7 +35,7 @@ public class LogRange {
 
     @Operation(summary = "Restore Data via month", description = "returns data by email and month")
     @PostMapping("/month")
-    public UserDTO month(
+    public AccountsDTO month(
             @RequestParam String email,
             @RequestParam String month,
             @RequestParam String years) {
@@ -44,7 +44,7 @@ public class LogRange {
 
     @Operation(summary = "Restore Data via Years", description = "returns data by email and Years")
     @PostMapping("/years")
-    public UserDTO years(
+    public AccountsDTO years(
             @RequestParam String email,
             @RequestParam String years) {
         return rangeService.rangeYears(email, years);
@@ -52,7 +52,7 @@ public class LogRange {
 
     @Operation(summary = "Restore Data Customize", description = "returns data by Customize date")
     @PostMapping("/customs")
-    public UserDTO customs(
+    public AccountsDTO customs(
             @RequestParam String email,
             @RequestParam String start,
             @RequestParam String end) {

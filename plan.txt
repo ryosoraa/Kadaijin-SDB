@@ -3,7 +3,7 @@ v1.0-beta.1 : first launching
 v1.2-beta.1 : update dto converter to mapper
 v1.3-beta.1 : data yang di terima tidak langsung di terima oleh model tpi ke dto dulu
 v1.3-beta.1 : pengoptimalan converter
-v1.4-beta.1 : pengoptimalan RangeDTO dan UserDTO
+v1.4-beta.1 : pengoptimalan RangeDTO dan AccountsDTO
 v1.5-beta.1 : Rilis fiture Range
 v1.6-beta.2 : menambah keterangan total login
 v1.7-beta.2 : penghapusan bug total login terisi padahal pada bulan/waktu itu tidak login
