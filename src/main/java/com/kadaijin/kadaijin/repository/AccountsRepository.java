@@ -1,5 +1,8 @@
 package com.kadaijin.kadaijin.repository;
 
+import java.sql.Timestamp;
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -18,6 +21,12 @@ public interface AccountsRepository extends JpaRepository<AccountsModel, Integer
 
     @Query("SELECT u.id FROM AccountsModel u WHERE u.email = :email")
     Integer findIdByEmail(@Param("email") String email);
+
+    @Query("SELECT a FROM AccountsModel a LEFT JOIN a.logs l WHERE l.login BETWEEN :start AND :finish AND l.accounts= :id")
+    List<AccountsModel> findByIdAndLog(
+            @Param("id") AccountsModel id,
+            @Param("start") Timestamp start,
+            @Param("finish") Timestamp finish);
 
     // AccountsModel findByUserName(String username);
 

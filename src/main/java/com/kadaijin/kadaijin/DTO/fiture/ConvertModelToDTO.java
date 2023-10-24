@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import com.kadaijin.kadaijin.DTO.log.LogDTO;
 
 import com.kadaijin.kadaijin.DTO.AccountsDTO;
+import com.kadaijin.kadaijin.DTO.RangeCustomDTO;
 import com.kadaijin.kadaijin.model.log.LogModel;
 import com.kadaijin.kadaijin.repository.AccountsRepository;
 import com.kadaijin.kadaijin.repository.log.LogRepository;
@@ -71,6 +72,11 @@ public class ConvertModelToDTO {
         System.out.println(accountsModel.getLogs().toString());
 
         return accountsDTO;
+    }
+
+    public AccountsDTO rangeCustomDtoToAccountDto(RangeCustomDTO rangeCustomDTO) {
+
+        return null;
     }
 
 }

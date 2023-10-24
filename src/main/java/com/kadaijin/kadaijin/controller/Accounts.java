@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.kadaijin.kadaijin.DTO.AccountsDTO;
 import com.kadaijin.kadaijin.service.LogService;
-import com.kadaijin.kadaijin.service.LoginService;
 import com.kadaijin.kadaijin.service.RegisterService;
 
 import io.swagger.v3.oas.annotations.Operation;

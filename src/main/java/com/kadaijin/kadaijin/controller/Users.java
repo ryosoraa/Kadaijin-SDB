@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.kadaijin.kadaijin.DTO.AccountsDTO;
 import com.kadaijin.kadaijin.service.GetService;
-import com.kadaijin.kadaijin.service.LoginService;
+import com.kadaijin.kadaijin.service.LogService;
 import com.kadaijin.kadaijin.service.RegisterService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -25,7 +25,7 @@ public class Users {
     private RegisterService registerService;
 
     @Autowired
-    private LoginService loginService;
+    private LogService logService;
 
     @Autowired
     private GetService getService;
@@ -41,7 +41,7 @@ public class Users {
     @Operation(summary = "Login", description = "Login user")
     @PostMapping("/Login")
     public void login(@RequestBody AccountsDTO accountsDTO) {
-        this.loginService.newLogin(accountsDTO);
+        this.logService.logInsert(accountsDTO);
 
     }
 

@@ -1,15 +1,22 @@
 package com.kadaijin.kadaijin.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kadaijin.kadaijin.DTO.AccountsDTO;
+import com.kadaijin.kadaijin.DTO.RangeCustomDTO;
 import com.kadaijin.kadaijin.service.RangeService;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
 @RestController
 @RequestMapping("/Range")
@@ -51,12 +58,12 @@ public class LogRange {
     }
 
     @Operation(summary = "Restore Data Customize", description = "returns data by Customize date")
-    @PostMapping("/customs")
-    public AccountsDTO customs(
-            @RequestParam String email,
-            @RequestParam String start,
-            @RequestParam String end) {
-        return rangeService.customize(email, start, end);
+    @GetMapping("/customs")
+    public List<AccountsDTO> customs(
+            @RequestParam(name = "email", defaultValue = "elda@gmail.com") String email,
+            @RequestParam(name = "start", defaultValue = "2023-10-23 18:50:13") String start,
+            @RequestParam(name = "end", defaultValue = "2023-10-23 18:50:13") String end) {
+        return rangeService.customize(new RangeCustomDTO(email, start, end));
     }
 
 }

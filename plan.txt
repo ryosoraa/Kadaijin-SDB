@@ -13,6 +13,8 @@ v2.0-beta.2 : pengoptimalan model entity baru
 v2.1-beta.3 : perubahan jpa repository builder
 v2.1-beta.3 : perbaikan convert model to dto
 v2.2-beta.3 : optimization
+v2.3-beta.3 : merubah cara kerja range
+
 v2.3-beta.3 : add personal data
 
 
