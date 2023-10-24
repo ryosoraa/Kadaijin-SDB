@@ -22,11 +22,11 @@ public interface AccountsRepository extends JpaRepository<AccountsModel, Integer
     @Query("SELECT u.id FROM AccountsModel u WHERE u.email = :email")
     Integer findIdByEmail(@Param("email") String email);
 
-    @Query("SELECT a FROM AccountsModel a LEFT JOIN a.logs l WHERE l.login BETWEEN :start AND :finish AND l.accounts= :id")
+    @Query("SELECT a FROM AccountsModel a LEFT JOIN a.logs l ON a.id = l.accounts AND l.accounts = :id WHERE l.login BETWEEN :start AND :end")
     List<AccountsModel> findByIdAndLog(
             @Param("id") AccountsModel id,
             @Param("start") Timestamp start,
-            @Param("finish") Timestamp finish);
+            @Param("end") Timestamp end);
 
     // AccountsModel findByUserName(String username);
 

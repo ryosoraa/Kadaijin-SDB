@@ -60,7 +60,7 @@ public class LogRange {
     @Operation(summary = "Restore Data Customize", description = "returns data by Customize date")
     @GetMapping("/customs")
     public List<AccountsDTO> customs(
-            @RequestParam(name = "email", defaultValue = "elda@gmail.com") String email,
+            @RequestParam(name = "email", defaultValue = "ryo@gmail.com") String email,
             @RequestParam(name = "start", defaultValue = "2023-10-23 18:50:13") String start,
             @RequestParam(name = "end", defaultValue = "2023-10-23 18:50:13") String end) {
         return rangeService.customize(new RangeCustomDTO(email, start, end));

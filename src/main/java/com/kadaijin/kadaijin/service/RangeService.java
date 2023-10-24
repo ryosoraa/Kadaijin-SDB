@@ -104,12 +104,15 @@ public class RangeService {
         System.out.println(rangeCustomDTO.getStart());
         AccountsModel accountsModel = new AccountsModel(accountsRepository.findIdByEmail(rangeCustomDTO.getEmail()));
         System.out.println(rangeCustomDTO.getEnd());
+        System.out.println(accountsModel.toString());
 
         // Timestamp start = Timestamp.valueOf(rangeCustomDTO.getStart());
         // Timestamp finish = Timestamp.valueOf(rangeCustomDTO.getEnd());
 
         List<AccountsModel> accountsDTOs = accountsRepository
                 .findByIdAndLog(accountsModel, rangeCustomDTO.getStart(), rangeCustomDTO.getEnd());
+
+        System.out.println(accountsDTOs.toString());
 
         return convertModelToDTO.listAccountModelToDTO(accountsDTOs);
 
