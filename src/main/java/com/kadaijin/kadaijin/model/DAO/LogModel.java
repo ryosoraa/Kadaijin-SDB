@@ -1,4 +1,4 @@
-package com.kadaijin.kadaijin.model.log;
+package com.kadaijin.kadaijin.model.DAO;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,8 +11,6 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 import java.sql.Timestamp;
-
-import com.kadaijin.kadaijin.model.AccountsModel;
 
 @Data
 @Table(name = "logs")

@@ -9,14 +9,14 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.kadaijin.kadaijin.DTO.AccountsDTO;
-import com.kadaijin.kadaijin.DTO.RangeCustomDTO;
-import com.kadaijin.kadaijin.DTO.fiture.ConvertModelToDTO;
-import com.kadaijin.kadaijin.configuration.SetAccountsDTO;
-import com.kadaijin.kadaijin.model.log.LogModel;
-import com.kadaijin.kadaijin.model.AccountsModel;
-import com.kadaijin.kadaijin.repository.log.LogRepository;
+import com.kadaijin.kadaijin.model.DAO.AccountsModel;
+import com.kadaijin.kadaijin.model.DAO.LogModel;
+import com.kadaijin.kadaijin.model.DTO.AccountsDTO;
+import com.kadaijin.kadaijin.model.DTO.RangeCustomDTO;
+import com.kadaijin.kadaijin.model.converter.ConvertModelToDTO;
+import com.kadaijin.kadaijin.model.converter.SetAccountsDTO;
 import com.kadaijin.kadaijin.repository.AccountsRepository;
+import com.kadaijin.kadaijin.repository.LogRepository;
 
 @Service
 public class RangeService {
@@ -99,22 +99,15 @@ public class RangeService {
         return AccountsDTO;
     }
 
-    public List<AccountsDTO> customize(RangeCustomDTO rangeCustomDTO) {
+    public AccountsModel customize(RangeCustomDTO rangeCustomDTO) {
 
-        System.out.println(rangeCustomDTO.getStart());
-        AccountsModel accountsModel = new AccountsModel(accountsRepository.findIdByEmail(rangeCustomDTO.getEmail()));
-        System.out.println(rangeCustomDTO.getEnd());
-        System.out.println(accountsModel.toString());
+        AccountsModel accountsModels = accountsRepository
+                .findByIdAndLogsInDateRange(accountsRepository.findIdByEmail(
+                        rangeCustomDTO.getEmail()),
+                        rangeCustomDTO.getStart(),
+                        rangeCustomDTO.getEnd());
 
-        // Timestamp start = Timestamp.valueOf(rangeCustomDTO.getStart());
-        // Timestamp finish = Timestamp.valueOf(rangeCustomDTO.getEnd());
-
-        List<AccountsModel> accountsDTOs = accountsRepository
-                .findByIdAndLog(accountsModel, rangeCustomDTO.getStart(), rangeCustomDTO.getEnd());
-
-        System.out.println(accountsDTOs.toString());
-
-        return convertModelToDTO.listAccountModelToDTO(accountsDTOs);
+        return accountsModels;
 
     }
 

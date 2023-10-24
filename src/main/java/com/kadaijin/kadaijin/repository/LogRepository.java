@@ -1,4 +1,4 @@
-package com.kadaijin.kadaijin.repository.log;
+package com.kadaijin.kadaijin.repository;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -7,8 +7,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.kadaijin.kadaijin.model.log.LogModel;
-import com.kadaijin.kadaijin.model.AccountsModel;
+import com.kadaijin.kadaijin.model.DAO.AccountsModel;
+import com.kadaijin.kadaijin.model.DAO.LogModel;
 
 public interface LogRepository extends JpaRepository<LogModel, Integer> {
 

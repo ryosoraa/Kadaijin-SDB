@@ -1,4 +1,4 @@
-package com.kadaijin.kadaijin.DTO.fiture;
+package com.kadaijin.kadaijin.model.converter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
-import com.kadaijin.kadaijin.DTO.AccountsDTO;
-import com.kadaijin.kadaijin.model.AccountsModel;
+import com.kadaijin.kadaijin.model.DAO.AccountsModel;
+import com.kadaijin.kadaijin.model.DTO.AccountsDTO;
 
 @Component
 public class ConvertDTO {

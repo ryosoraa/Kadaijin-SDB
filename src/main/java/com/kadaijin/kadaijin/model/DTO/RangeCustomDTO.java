@@ -1,4 +1,4 @@
-package com.kadaijin.kadaijin.DTO;
+package com.kadaijin.kadaijin.model.DTO;
 
 import java.sql.Timestamp;
 

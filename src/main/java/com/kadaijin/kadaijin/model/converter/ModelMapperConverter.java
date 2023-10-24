@@ -1,11 +1,11 @@
-package com.kadaijin.kadaijin.configuration;
+package com.kadaijin.kadaijin.model.converter;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class Converter {
+public class ModelMapperConverter {
 
     @Bean
     public ModelMapper modelMapper() {

@@ -6,12 +6,12 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.kadaijin.kadaijin.DTO.fiture.ConvertModelToDTO;
-import com.kadaijin.kadaijin.DTO.AccountsDTO;
-import com.kadaijin.kadaijin.model.log.LogModel;
-import com.kadaijin.kadaijin.model.AccountsModel;
-import com.kadaijin.kadaijin.repository.log.LogRepository;
+import com.kadaijin.kadaijin.model.DAO.AccountsModel;
+import com.kadaijin.kadaijin.model.DAO.LogModel;
+import com.kadaijin.kadaijin.model.DTO.AccountsDTO;
+import com.kadaijin.kadaijin.model.converter.ConvertModelToDTO;
 import com.kadaijin.kadaijin.repository.AccountsRepository;
+import com.kadaijin.kadaijin.repository.LogRepository;
 
 import jakarta.persistence.EntityManager;
 
@@ -67,4 +67,6 @@ public class LogService {
 
         return convertModelToDTO.pageAccountModelToDTO(pageResult);
     }
+
+
 }

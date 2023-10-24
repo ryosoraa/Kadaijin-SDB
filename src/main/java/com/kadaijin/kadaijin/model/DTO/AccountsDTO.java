@@ -1,4 +1,4 @@
-package com.kadaijin.kadaijin.DTO;
+package com.kadaijin.kadaijin.model.DTO;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -7,8 +7,8 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.kadaijin.kadaijin.DTO.fiture.ConvertDTO;
-import com.kadaijin.kadaijin.DTO.log.LogDTO;
+import com.kadaijin.kadaijin.model.converter.ConvertDTO;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 

@@ -1,5 +1,6 @@
 package com.kadaijin.kadaijin.controller;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kadaijin.kadaijin.DTO.AccountsDTO;
-import com.kadaijin.kadaijin.DTO.RangeCustomDTO;
+import com.kadaijin.kadaijin.model.DAO.AccountsModel;
+import com.kadaijin.kadaijin.model.DTO.AccountsDTO;
+import com.kadaijin.kadaijin.model.DTO.RangeCustomDTO;
+import com.kadaijin.kadaijin.repository.AccountsRepository;
 import com.kadaijin.kadaijin.service.RangeService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -24,6 +27,9 @@ public class LogRange {
 
     @Autowired
     RangeService rangeService;
+
+    @Autowired
+    AccountsRepository accountsRepository;
 
     @Operation(summary = "Restore All Data", description = "restore all saved data")
     @PostMapping("/all")
@@ -59,11 +65,15 @@ public class LogRange {
 
     @Operation(summary = "Restore Data Customize", description = "returns data by Customize date")
     @GetMapping("/customs")
-    public List<AccountsDTO> customs(
+    public AccountsModel customs(
             @RequestParam(name = "email", defaultValue = "ryo@gmail.com") String email,
             @RequestParam(name = "start", defaultValue = "2023-10-23 18:50:13") String start,
             @RequestParam(name = "end", defaultValue = "2023-10-23 18:50:13") String end) {
         return rangeService.customize(new RangeCustomDTO(email, start, end));
+
+        // return accountsRepository.findByIdAndLogsInDateRange(1,
+        // Timestamp.valueOf("2023-10-22 02:49:15"),
+        // Timestamp.valueOf("2023-10-22 02:49:15"));
     }
 
 }

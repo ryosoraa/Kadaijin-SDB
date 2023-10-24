@@ -1,11 +1,9 @@
-package com.kadaijin.kadaijin.model;
+package com.kadaijin.kadaijin.model.DAO;
 
 import java.sql.Timestamp;
 import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
-
-import com.kadaijin.kadaijin.model.log.LogModel;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

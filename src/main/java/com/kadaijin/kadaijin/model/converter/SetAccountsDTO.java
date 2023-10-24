@@ -1,15 +1,14 @@
-package com.kadaijin.kadaijin.configuration;
+package com.kadaijin.kadaijin.model.converter;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.kadaijin.kadaijin.DTO.AccountsDTO;
-import com.kadaijin.kadaijin.DTO.fiture.ConvertModelToDTO;
-import com.kadaijin.kadaijin.model.log.LogModel;
-import com.kadaijin.kadaijin.repository.log.LogRepository;
+import com.kadaijin.kadaijin.model.DAO.LogModel;
+import com.kadaijin.kadaijin.model.DTO.AccountsDTO;
 import com.kadaijin.kadaijin.repository.AccountsRepository;
+import com.kadaijin.kadaijin.repository.LogRepository;
 
 @Component
 public class SetAccountsDTO {

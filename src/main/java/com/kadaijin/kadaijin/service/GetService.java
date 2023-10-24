@@ -11,11 +11,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-import com.kadaijin.kadaijin.DTO.AccountsDTO;
-import com.kadaijin.kadaijin.DTO.fiture.ConvertModelToDTO;
-import com.kadaijin.kadaijin.model.AccountsModel;
+import com.kadaijin.kadaijin.model.DAO.AccountsModel;
+import com.kadaijin.kadaijin.model.DTO.AccountsDTO;
+import com.kadaijin.kadaijin.model.converter.ConvertModelToDTO;
 import com.kadaijin.kadaijin.repository.AccountsRepository;
-import com.kadaijin.kadaijin.repository.log.LogRepository;
+import com.kadaijin.kadaijin.repository.LogRepository;
 
 @Service
 public class GetService {
