@@ -31,12 +31,6 @@ public class LogRange {
     @Autowired
     AccountsRepository accountsRepository;
 
-    @Operation(summary = "Restore All Data", description = "restore all saved data")
-    @PostMapping("/all")
-    public AccountsDTO allData(@RequestParam String email) {
-        return rangeService.restoreAll(email);
-    }
-
     @Operation(summary = "Restore Data Customize", description = "returns data by Customize date")
     @GetMapping("/customs")
     public AccountsModel customs(
@@ -45,12 +39,6 @@ public class LogRange {
             @RequestParam(name = "end", defaultValue = "2023-10-23 18:50:13") String end) {
         return rangeService.customize(new RangeCustomDTO(email, start, end));
 
-    }
-
-    @PostMapping("/try")
-    public List<AccountsDTO> coba(@RequestParam String dates) {
-
-        return rangeService.ranges(dates);
     }
 
 }

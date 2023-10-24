@@ -12,6 +12,8 @@ import lombok.Data;
 
 import java.sql.Timestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Data
 @Table(name = "logs")
 @Entity
@@ -24,6 +26,7 @@ public class LogModel {
     @Column(name = "login", nullable = true)
     private Timestamp login;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "accounts_id", nullable = false)
     private AccountsModel accounts;

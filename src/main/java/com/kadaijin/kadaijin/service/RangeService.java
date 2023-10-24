@@ -48,17 +48,6 @@ public class RangeService {
         return AccountsDTO;
     }
 
-    public AccountsDTO restoreAll(String email) {
-        AccountsDTO AccountsDTO = new AccountsDTO();
-        AccountsModel AccountsModel = new AccountsModel(accountsRepository.findIdByEmail(email));
-        List<LogModel> logModel = logRepository.findAllByAccounts_id(AccountsModel);
-
-        AccountsDTO.setEmail(email);
-        AccountsDTO.setLog(convertModelToDTO.listModelToLogDTO(logModel));
-        AccountsDTO.setTotalLogin(logRepository.countByCustomValue(accountsRepository.findIdByEmail(email)));
-        return AccountsDTO;
-    }
-
     public AccountsDTO range(String email, String dates) {
 
         AccountsModel AccountsModel = new AccountsModel(accountsRepository.findIdByEmail(email));

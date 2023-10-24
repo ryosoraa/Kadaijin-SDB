@@ -27,7 +27,7 @@ public class SetAccountsDTO {
         AccountsDTO.setId(AccountsRepository.findIdByEmail(email));
         AccountsDTO.setEmail(email);
         AccountsDTO.setTotalLogin(logModel.size());
-        AccountsDTO.setLog(convertModelToDTO.listModelToLogDTO(logModel));
+        AccountsDTO.setLog(logModel);
         return AccountsDTO;
     }
 

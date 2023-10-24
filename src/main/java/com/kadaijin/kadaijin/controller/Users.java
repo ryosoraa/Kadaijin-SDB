@@ -3,6 +3,8 @@ package com.kadaijin.kadaijin.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,6 +18,7 @@ import com.kadaijin.kadaijin.service.LogService;
 import com.kadaijin.kadaijin.service.RegisterService;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.models.headers.Header;
 
 @RestController
 @RequestMapping("/users")
@@ -47,8 +50,14 @@ public class Users {
 
     @Operation(summary = "Restore One Data", description = "returns data by id")
     @GetMapping("/get")
-    private AccountsDTO getDataOne(@RequestParam(defaultValue = "1") Integer id) {
-        return this.getService.getOne(id);
+    private ResponseEntity<AccountsDTO> getDataOne(@RequestParam(defaultValue = "1") Integer id) {
+        HttpHeaders header = new HttpHeaders();
+        header.add("test header", "done bang!");
+        // return this.getService.getOne(id);
+
+        return ResponseEntity.ok()
+                .headers(header)
+                .body(getService.getOne(id));
 
     }
 

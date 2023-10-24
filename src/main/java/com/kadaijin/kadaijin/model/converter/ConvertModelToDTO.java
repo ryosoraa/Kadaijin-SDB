@@ -34,7 +34,7 @@ public class ConvertModelToDTO {
         for (AccountsModel model : AccountsModels) {
             System.out.println(mapper.map(model, AccountsDTO.class));
             // dto.add(mapper.map(model, AccountsDTO.class));
-            dto.add(accountModelToDto(model));
+            dto.add(new AccountsDTO(model));
         }
         return dto;
     }
@@ -64,26 +64,26 @@ public class ConvertModelToDTO {
         return logDTO;
     }
 
-    public AccountsDTO accountModelToDto(AccountsModel accountsModel) {
-        AccountsDTO accountsDTO = new AccountsDTO();
-        List<LogDTO> logDTOs = new ArrayList<>();
-        accountsDTO.setId(accountsModel.getId());
-        accountsDTO.setEmail(accountsModel.getEmail());
-        accountsDTO.setPassword(accountsModel.getPassword());
-        accountsDTO.setRegister(accountsModel.getRegister());
-        accountsDTO.setTotalLogin(logRepository
-                .countByCustomValue(accountsRepository
-                        .findIdByEmail(accountsModel
-                                .getEmail())));
-        // System.out.println(accountsModel.getLogs().toString());
-        accountsDTO.setLog(logDTOs);
+    // public AccountsDTO accountModelTDto(AccountsModel accountsModel) {
+    // AccountsDTO accountsDTO = new AccountsDTO();
+    // List<LogDTO> logDTOs = new ArrayList<>();
+    // accountsDTO.setId(accountsModel.getId());
+    // accountsDTO.setEmail(accountsModel.getEmail());
+    // accountsDTO.setPassword(accountsModel.getPassword());
+    // accountsDTO.setRegister(accountsModel.getRegister());
+    // accountsDTO.setTotalLogin(logRepository
+    // .countByCustomValue(accountsRepository
+    // .findIdByEmail(accountsModel
+    // .getEmail())));
+    // // System.out.println(accountsModel.getLogs().toString());
+    // accountsDTO.setLog(logDTOs);
 
-        for (LogModel logModel : accountsModel.getLogs()) {
-            logDTOs.add(logModelToDto(logModel));
-        }
+    // for (LogModel logModel : accountsModel.getLogs()) {
+    // logDTOs.add(logModelToDto(logModel));
+    // }
 
-        return accountsDTO;
-    }
+    // return accountsDTO;
+    // }
 
     public AccountsDTO rangeCustomDtoToAccountDto(RangeCustomDTO rangeCustomDTO) {
 

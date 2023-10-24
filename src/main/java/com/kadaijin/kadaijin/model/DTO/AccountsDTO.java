@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.kadaijin.kadaijin.model.DAO.AccountsModel;
 import com.kadaijin.kadaijin.model.DAO.LogModel;
 import com.kadaijin.kadaijin.model.converter.ConvertDTO;
 
@@ -37,8 +38,18 @@ public class AccountsDTO extends ConvertDTO {
     @Schema(name = "Log")
     private List<LogModel> log = new ArrayList<>();
 
-    public AccountsDTO(){
-        
+    public AccountsDTO(AccountsModel accountsModel) {
+        this.id = accountsModel.getId();
+        this.email = accountsModel.getEmail();
+        this.password = accountsModel.getPassword();
+        this.register = accountsModel.getRegister();
+        this.totalLogin = accountsModel.getLogs().size();
+        this.log = accountsModel.getLogs();
+
+    }
+
+    public AccountsDTO() {
+
     }
 
 }
