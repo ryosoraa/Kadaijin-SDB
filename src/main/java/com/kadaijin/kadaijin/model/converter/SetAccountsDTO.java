@@ -31,11 +31,4 @@ public class SetAccountsDTO {
         return AccountsDTO;
     }
 
-    public AccountsDTO setAccountsDTO(List<LogModel> logModel) {
-        AccountsDTO AccountsDTO = new AccountsDTO();
-        AccountsDTO.setTotalLogin(logModel.size());
-        AccountsDTO.setLog(convertModelToDTO.listModelToLogDTO(logModel));
-        return AccountsDTO;
-    }
-
 }

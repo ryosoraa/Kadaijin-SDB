@@ -99,6 +99,8 @@ public class RangeService {
         return AccountsDTO;
     }
 
+    // ================================================================================
+
     public AccountsModel customize(RangeCustomDTO rangeCustomDTO) {
 
         AccountsModel accountsModels = accountsRepository
@@ -107,7 +109,29 @@ public class RangeService {
                         rangeCustomDTO.getStart(),
                         rangeCustomDTO.getEnd());
 
+        if (accountsModels != null) {
+            System.out.println("data bang!!");
+        } else {
+            System.out.println("Data tidak ditemukan.");
+            System.out.println(rangeCustomDTO.getEmail());
+            System.out.println(rangeCustomDTO.getStart());
+            System.out.println(rangeCustomDTO.getEnd());
+        }
+
         return accountsModels;
+
+    }
+
+    public List<AccountsDTO> ranges(String dates) {
+
+        Timestamp start = Timestamp.valueOf(dates.concat(" 02:49:15"));
+        Timestamp end = Timestamp.valueOf(dates.concat(" 02:49:15"));
+
+        List<AccountsModel> AccountsModel = accountsRepository.findAccountsModelAndLogs(start, end);
+
+        List<AccountsDTO> AccountsDTO = convertModelToDTO.listAccountModelToDTO(AccountsModel);
+
+        return AccountsDTO;
 
     }
 

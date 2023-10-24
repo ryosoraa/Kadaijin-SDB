@@ -37,32 +37,6 @@ public class LogRange {
         return rangeService.restoreAll(email);
     }
 
-    @Operation(summary = "Restore One Data", description = "returns data by email and Date")
-    @PostMapping("/date")
-    public AccountsDTO oneData(
-            @RequestParam(required = false) String email,
-            @RequestParam String date) {
-
-        return rangeService.range(email, date);
-    }
-
-    @Operation(summary = "Restore Data via month", description = "returns data by email and month")
-    @PostMapping("/month")
-    public AccountsDTO month(
-            @RequestParam String email,
-            @RequestParam String month,
-            @RequestParam String years) {
-        return rangeService.range(email, month, years);
-    }
-
-    @Operation(summary = "Restore Data via Years", description = "returns data by email and Years")
-    @PostMapping("/years")
-    public AccountsDTO years(
-            @RequestParam String email,
-            @RequestParam String years) {
-        return rangeService.rangeYears(email, years);
-    }
-
     @Operation(summary = "Restore Data Customize", description = "returns data by Customize date")
     @GetMapping("/customs")
     public AccountsModel customs(
@@ -71,9 +45,12 @@ public class LogRange {
             @RequestParam(name = "end", defaultValue = "2023-10-23 18:50:13") String end) {
         return rangeService.customize(new RangeCustomDTO(email, start, end));
 
-        // return accountsRepository.findByIdAndLogsInDateRange(1,
-        // Timestamp.valueOf("2023-10-22 02:49:15"),
-        // Timestamp.valueOf("2023-10-22 02:49:15"));
+    }
+
+    @PostMapping("/try")
+    public List<AccountsDTO> coba(@RequestParam String dates) {
+
+        return rangeService.ranges(dates);
     }
 
 }

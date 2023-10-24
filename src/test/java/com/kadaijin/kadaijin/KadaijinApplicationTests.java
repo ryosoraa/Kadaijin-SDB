@@ -25,7 +25,7 @@ class KadaijinApplicationTests {
 				Timestamp.valueOf("2023-10-22 02:49:15"),
 				Timestamp.valueOf("2023-10-22 02:49:15"));
 
-		System.out.println(accountsModel.toString());
+		// System.out.println(accountsModel.toString());
 	}
 
 }

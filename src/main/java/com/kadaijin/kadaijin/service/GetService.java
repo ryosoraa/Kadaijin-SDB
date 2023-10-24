@@ -43,7 +43,7 @@ public class GetService {
 
     public AccountsDTO getOne(Integer no) {
         Optional<AccountsModel> optional = AccountsRepository.findById(no);
-        System.out.println(optional.get().toString());
+        // System.out.println(optional.get().toString());
         // AccountsDTO dto = modelMapper.map(optional, AccountsDTO.class);
         AccountsDTO dto = convertModelToDTO.accountModelToDto(optional.get());
         return dto;

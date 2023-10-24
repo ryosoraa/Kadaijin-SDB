@@ -33,7 +33,7 @@ public class Users {
     @Operation(summary = "Register", description = "Register new user")
     @PostMapping("/Register")
     private void apiTest(@RequestBody AccountsDTO accountsDTO) {
-        System.out.println("register : " + accountsDTO.toString());
+        // System.out.println("register : " + accountsDTO.toString());
         this.registerService.insert(accountsDTO);
 
     }

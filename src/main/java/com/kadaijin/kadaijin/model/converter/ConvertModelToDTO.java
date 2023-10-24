@@ -75,7 +75,7 @@ public class ConvertModelToDTO {
                 .countByCustomValue(accountsRepository
                         .findIdByEmail(accountsModel
                                 .getEmail())));
-        System.out.println(accountsModel.getLogs().toString());
+        // System.out.println(accountsModel.getLogs().toString());
         accountsDTO.setLog(logDTOs);
 
         for (LogModel logModel : accountsModel.getLogs()) {
