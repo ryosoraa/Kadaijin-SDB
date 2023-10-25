@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kadaijin.kadaijin.model.DTO.AccountsDTO;
+import com.kadaijin.kadaijin.model.DTO.LoginDTO;
 import com.kadaijin.kadaijin.service.AccountsService;
 import com.kadaijin.kadaijin.service.LogService;
 
@@ -37,8 +38,8 @@ public class Accounts {
 
     @Operation(summary = "Login", description = "Login user")
     @PostMapping("/Login")
-    public void login(@RequestBody AccountsDTO accountsDTO) {
-        this.accountsService.logInsert(accountsDTO);
+    public void login(@RequestBody LoginDTO loginDTO) {
+        this.accountsService.logInsert(loginDTO);
 
     }
 

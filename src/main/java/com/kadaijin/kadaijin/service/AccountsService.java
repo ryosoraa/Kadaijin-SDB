@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import com.kadaijin.kadaijin.model.DAO.AccountsModel;
 import com.kadaijin.kadaijin.model.DAO.LogModel;
 import com.kadaijin.kadaijin.model.DTO.AccountsDTO;
+import com.kadaijin.kadaijin.model.DTO.LoginDTO;
 import com.kadaijin.kadaijin.repository.AccountsRepository;
 import com.kadaijin.kadaijin.repository.LogRepository;
 
@@ -48,10 +49,10 @@ public class AccountsService {
     }
 
     // LOGIN
-    public void logInsert(AccountsDTO accountsDTO) {
-        if (accountsRepository.existsByEmailAndPassword(accountsDTO.getEmail(), accountsDTO.getPassword())) {
-            System.out.println(accountsRepository.findIdByEmail(accountsDTO.getEmail()));
-            LogModel logModel = new LogModel(accountsRepository.findIdByEmail(accountsDTO.getEmail()));
+    public void logInsert(LoginDTO loginDTO) {
+        if (accountsRepository.existsByEmailAndPassword(loginDTO.getEmail(), loginDTO.getPassword())) {
+            System.out.println(accountsRepository.findIdByEmail(loginDTO.getEmail()));
+            LogModel logModel = new LogModel(accountsRepository.findIdByEmail(loginDTO.getEmail()));
             logRepository.save(logModel);
             System.out.println("Masuk bang!");
         } else {
