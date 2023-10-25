@@ -15,7 +15,6 @@ import com.kadaijin.kadaijin.model.DTO.AccountsDTO;
 import com.kadaijin.kadaijin.model.DTO.PersonalDataDTO;
 import com.kadaijin.kadaijin.model.DTO.RangeCustomDTO;
 import com.kadaijin.kadaijin.model.converter.ConvertDTO;
-import com.kadaijin.kadaijin.model.converter.ConvertModelToDTO;
 import com.kadaijin.kadaijin.repository.AccountsRepository;
 import com.kadaijin.kadaijin.repository.LogRepository;
 import com.kadaijin.kadaijin.repository.PersonalDataRepository;
@@ -53,7 +52,7 @@ public class LogService {
     }
 
     public AccountsDTO getOneName(String request) {
-        AccountsModel AccountsModel = accountsRepository.findByEmail(request);
+        AccountsModel AccountsModel = accountsRepository.findByEmails(request);
         return modelMapper.map(AccountsModel, AccountsDTO.class);
 
     }

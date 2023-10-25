@@ -56,17 +56,25 @@ public class Accounts {
 
     @Operation(summary = "Restore All Data", description = "restore all saved data")
     @GetMapping("/get/all")
-    private List<AccountsDTO> getAllData() {
-        return this.accountsService.getData();
+    private ResponseEntity<List<AccountsDTO>> getAllData() {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("test", "bisa bang");
+
+        return ResponseEntity.ok()
+                .headers(headers)
+                .body(accountsService.getData());
     }
 
     @Operation(summary = "Returns data by page", description = "returns the desired amount of data")
     @GetMapping("/get/page")
-    private List<AccountsDTO> paging(
+    private ResponseEntity<List<AccountsDTO>> paging(
             @RequestParam(defaultValue = "0") Integer page,
             @RequestParam(defaultValue = "10") Integer size) {
-        List<AccountsDTO> kadaijinList = accountsService.getPages(page, size);
-        return kadaijinList;
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("test", "bisa bang");
+        return ResponseEntity.ok()
+                .headers(headers)
+                .body(accountsService.getPages(page, size));
     }
 
 }

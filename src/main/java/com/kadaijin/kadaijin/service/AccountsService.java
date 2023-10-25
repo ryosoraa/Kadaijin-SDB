@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import com.kadaijin.kadaijin.model.DAO.AccountsModel;
 import com.kadaijin.kadaijin.model.DAO.LogModel;
 import com.kadaijin.kadaijin.model.DTO.AccountsDTO;
-import com.kadaijin.kadaijin.model.converter.ConvertModelToDTO;
 import com.kadaijin.kadaijin.repository.AccountsRepository;
 import com.kadaijin.kadaijin.repository.LogRepository;
 
@@ -31,9 +30,6 @@ public class AccountsService {
 
     @Autowired
     EntityManager entityManager;
-
-    @Autowired
-    ConvertModelToDTO convertModelToDTO;
 
     @Autowired
     ModelMapper modelMapper;
