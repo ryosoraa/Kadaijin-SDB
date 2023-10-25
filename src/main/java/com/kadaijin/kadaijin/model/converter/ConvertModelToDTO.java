@@ -28,16 +28,7 @@ public class ConvertModelToDTO {
     @Autowired
     AccountsRepository accountsRepository;
 
-    public List<AccountsDTO> listAccountModelToDTO(List<AccountsModel> AccountsModels) {
-        List<AccountsDTO> dto = new ArrayList<>();
-        ModelMapper mapper = new ModelMapper();
-        for (AccountsModel model : AccountsModels) {
-            System.out.println(mapper.map(model, AccountsDTO.class));
-            // dto.add(mapper.map(model, AccountsDTO.class));
-            dto.add(new AccountsDTO(model));
-        }
-        return dto;
-    }
+
 
     public List<AccountsDTO> pageAccountModelToDTO(Page<AccountsModel> AccountsModels) {
         ModelMapper mapper = new ModelMapper();
