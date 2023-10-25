@@ -9,9 +9,11 @@ import org.springframework.stereotype.Component;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.kadaijin.kadaijin.model.DAO.AccountsModel;
 import com.kadaijin.kadaijin.model.DAO.LogModel;
+import com.kadaijin.kadaijin.model.DAO.PersonalDataModel;
 import com.kadaijin.kadaijin.model.converter.ConvertDTO;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.OneToMany;
 import lombok.Data;
 
 @Data
@@ -34,7 +36,9 @@ public class AccountsDTO extends ConvertDTO {
     @Schema(name = "totalLogin", required = false)
     public Integer totalLogin;
 
-    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private List<PersonalDataModel> dataModels;
+
+    // @JsonInclude(JsonInclude.Include.NON_NULL)
     @Schema(name = "Log")
     private List<LogModel> log = new ArrayList<>();
 
@@ -45,6 +49,7 @@ public class AccountsDTO extends ConvertDTO {
         this.register = accountsModel.getRegister();
         this.totalLogin = accountsModel.getLogs().size();
         this.log = accountsModel.getLogs();
+        this.dataModels = accountsModel.getPersonalDataModels();
 
     }
 

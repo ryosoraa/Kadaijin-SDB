@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.kadaijin.kadaijin.model.DAO.AccountsModel;
 import com.kadaijin.kadaijin.model.DTO.AccountsDTO;
+import com.kadaijin.kadaijin.model.DTO.PersonalDataDTO;
 import com.kadaijin.kadaijin.model.DTO.RangeCustomDTO;
 import com.kadaijin.kadaijin.repository.AccountsRepository;
 import com.kadaijin.kadaijin.service.RangeService;
@@ -33,12 +34,17 @@ public class LogRange {
 
     @Operation(summary = "Restore Data Customize", description = "returns data by Customize date")
     @GetMapping("/customs")
-    public AccountsModel customs(
+    public AccountsDTO customs(
             @RequestParam(name = "email", defaultValue = "ryo@gmail.com") String email,
             @RequestParam(name = "start", defaultValue = "2023-10-23 18:50:13") String start,
             @RequestParam(name = "end", defaultValue = "2023-10-23 18:50:13") String end) {
         return rangeService.customize(new RangeCustomDTO(email, start, end));
 
+    }
+
+    @GetMapping("/personal")
+    public PersonalDataDTO personData(@RequestParam String name) {
+        return rangeService.getByName(name);
     }
 
 }

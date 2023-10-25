@@ -19,13 +19,4 @@ class KadaijinApplicationTests {
 	void contextLoads() {
 	}
 
-	@Test
-	void testAccount() {
-		AccountsModel accountsModel = accountsRepository.findByIdAndLogsInDateRange(1,
-				Timestamp.valueOf("2023-10-22 02:49:15"),
-				Timestamp.valueOf("2023-10-22 02:49:15"));
-
-		// System.out.println(accountsModel.toString());
-	}
-
 }

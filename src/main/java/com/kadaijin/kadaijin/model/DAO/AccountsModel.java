@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -32,6 +34,9 @@ public class AccountsModel {
     @Column(name = "register", columnDefinition = "TIMESTAMP")
     @CreationTimestamp
     private Timestamp register;
+
+    @OneToMany(mappedBy = "accounts_id")
+    private List<PersonalDataModel> personalDataModels;
 
     @OneToMany(mappedBy = "accounts")
     private List<LogModel> logs;
