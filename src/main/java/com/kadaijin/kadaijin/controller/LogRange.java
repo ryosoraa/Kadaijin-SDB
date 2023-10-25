@@ -36,9 +36,9 @@ public class LogRange {
     @GetMapping("/customs")
     public AccountsDTO customs(
             @RequestParam(name = "email", defaultValue = "ryo@gmail.com") String email,
-            @RequestParam(name = "start", defaultValue = "2023-10-23 18:50:13") String start,
-            @RequestParam(name = "end", defaultValue = "2023-10-23 18:50:13") String end) {
-        return rangeService.customize(new RangeCustomDTO(email, start, end));
+            @RequestParam(name = "start", required = false) String start,
+            @RequestParam(name = "end", defaultValue = "2023-10-24 23:59:593") String end) {
+        return rangeService.custom(email, start, end);
 
     }
 

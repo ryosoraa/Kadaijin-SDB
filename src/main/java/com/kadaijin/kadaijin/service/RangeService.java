@@ -28,9 +28,6 @@ public class RangeService {
     SetAccountsDTO setAccountsDTO;
 
     @Autowired
-    ConvertModelToDTO convertModelToDTO;
-
-    @Autowired
     LogRepository logRepository;
 
     @Autowired
@@ -54,80 +51,41 @@ public class RangeService {
         return AccountsDTO;
     }
 
-    public AccountsDTO range(String email, String dates) {
-
-        AccountsModel AccountsModel = new AccountsModel(accountsRepository.findIdByEmail(email));
-        Timestamp start = Timestamp.valueOf(dates.concat(" 00:00:00"));
-        Timestamp end = Timestamp.valueOf(dates.concat(" 23:59:59"));
-        List<LogModel> logModels = logRepository
-                .findLogsBetweenLoginForUsers(start, end, AccountsModel);
-
-        AccountsDTO AccountsDTO = setAccountsDTO.setAccountsDTO(email, logModels);
-
-        return AccountsDTO;
-
-    }
-
-    public AccountsDTO range(String email, String dates, String years) {
-
-        AccountsModel AccountsModel = new AccountsModel(accountsRepository.findIdByEmail(email));
-        Timestamp start = Timestamp.valueOf(years + "-" + dates.concat("-01 00:00:00"));
-        Timestamp end = Timestamp.valueOf(years + "-" + dates.concat("-31 23:59:59"));
-        List<LogModel> logModels = logRepository
-                .findLogsBetweenLoginForUsers(start, end, AccountsModel);
-
-        AccountsDTO AccountsDTO = setAccountsDTO.setAccountsDTO(email, logModels);
-
-        return AccountsDTO;
-    }
-
-    public AccountsDTO rangeYears(String email, String years) {
-
-        AccountsModel AccountsModel = new AccountsModel(accountsRepository.findIdByEmail(email));
-        Timestamp start = Timestamp.valueOf(years + "-".concat("01-01 00:00:00"));
-        Timestamp end = Timestamp.valueOf(years + "-".concat("12-31 23:59:59"));
-        List<LogModel> logModels = logRepository
-                .findLogsBetweenLoginForUsers(start, end, AccountsModel);
-
-        AccountsDTO AccountsDTO = setAccountsDTO.setAccountsDTO(email, logModels);
-
-        return AccountsDTO;
-    }
-
     // ================================================================================
 
-    public AccountsDTO customize(RangeCustomDTO rangeCustomDTO) {
+    // public AccountsDTO customize(RangeCustomDTO rangeCustomDTO) {
 
-        AccountsModel accountsModels = accountsRepository
-                .findByIdAndLog(accountsRepository.findIdByEmail(
-                        rangeCustomDTO.getEmail()),
-                        rangeCustomDTO.getStart(),
-                        rangeCustomDTO.getEnd());
+    // AccountsModel accountsModels = accountsRepository
+    // .findByEmailAndLog(
+    // rangeCustomDTO.getEmail(),
+    // rangeCustomDTO.getStart(),
+    // rangeCustomDTO.getEnd());
 
-        if (accountsModels != null) {
-            System.out.println("data bang!!");
+    // if (accountsModels != null) {
+    // System.out.println("data bang!!");
+    // } else {
+    // System.out.println("Data tidak ditemukan.");
+    // System.out.println(rangeCustomDTO.getEmail());
+    // System.out.println(rangeCustomDTO.getStart());
+    // System.out.println(rangeCustomDTO.getEnd());
+    // }
+
+    // return new AccountsDTO(accountsModels);
+
+    // }
+
+    public AccountsDTO custom(String email, String start, String end) {
+        if (start == null || end == null) {
+            return new AccountsDTO(accountsRepository.findByEmail(email));
         } else {
-            System.out.println("Data tidak ditemukan.");
-            System.out.println(rangeCustomDTO.getEmail());
-            System.out.println(rangeCustomDTO.getStart());
-            System.out.println(rangeCustomDTO.getEnd());
+            RangeCustomDTO rangeCustomDTO = new RangeCustomDTO(email, start, end);
+            AccountsDTO accountsDTO = new AccountsDTO(
+                    accountsRepository.findByEmailAndLog(
+                            rangeCustomDTO.getEmail(),
+                            rangeCustomDTO.getStart(),
+                            rangeCustomDTO.getEnd()));
+            return accountsDTO;
         }
-
-        return new AccountsDTO(accountsModels);
-
-    }
-
-    public List<AccountsDTO> ralnges(String dates) {
-
-        Timestamp start = Timestamp.valueOf(dates.concat(" 02:49:15"));
-        Timestamp end = Timestamp.valueOf(dates.concat(" 02:49:15"));
-
-        List<AccountsModel> AccountsModel = accountsRepository.findAccountsModelAndLogs(start, end);
-
-        List<AccountsDTO> AccountsDTO = convertModelToDTO.listAccountModelToDTO(AccountsModel);
-
-        return AccountsDTO;
-
     }
 
     public PersonalDataDTO getByName(String name) {
