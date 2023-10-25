@@ -14,6 +14,7 @@ import com.kadaijin.kadaijin.model.DAO.PersonalDataModel;
 import com.kadaijin.kadaijin.model.DTO.AccountsDTO;
 import com.kadaijin.kadaijin.model.DTO.PersonalDataDTO;
 import com.kadaijin.kadaijin.model.DTO.RangeCustomDTO;
+import com.kadaijin.kadaijin.model.converter.ConvertDTO;
 import com.kadaijin.kadaijin.model.converter.ConvertModelToDTO;
 import com.kadaijin.kadaijin.repository.AccountsRepository;
 import com.kadaijin.kadaijin.repository.LogRepository;
@@ -44,11 +45,11 @@ public class LogService {
     ModelMapper modelMapper;
 
     @Autowired
-    ConvertModelToDTO convertModelToDTO;
+    ConvertDTO convertDTO;
 
     public List<AccountsDTO> getLog() {
         List<AccountsModel> AccountsModel = accountsRepository.findAll();
-        return convertModelToDTO.listAccountModelToDTO(AccountsModel);
+        return convertDTO.listAccountModelToDTO(AccountsModel);
     }
 
     public AccountsDTO getOneName(String request) {
@@ -61,7 +62,7 @@ public class LogService {
         Pageable pageable = PageRequest.of(page, size);
         Page<AccountsModel> pageResult = accountsRepository.findAll(pageable);
 
-        return convertModelToDTO.pageAccountModelToDTO(pageResult);
+        return convertDTO.listEntityToDto(pageResult);
     }
 
     public AccountsDTO getOne(Integer no) {
