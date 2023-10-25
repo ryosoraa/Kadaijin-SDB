@@ -65,7 +65,7 @@
     <script>
       document.getElementById("register").addEventListener("submit", (e) => {
         e.preventDefault();
-        const username = document.getElementById("username").value;
+        const email = document.getElementById("username").value;
         const password = document.getElementById("password").value;
 
         fetch("/accounts/Login", {
@@ -74,7 +74,7 @@
             Accept: "application/json",
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ username, password }),
+          body: JSON.stringify({ email, password }),
         });
       });
     </script>
