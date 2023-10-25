@@ -35,7 +35,6 @@ public class Accounts {
     @Operation(summary = "Register", description = "Register new user")
     @PostMapping("/Register")
     private void apiTest(@RequestBody AccountsDTO accountsDTO) {
-        // System.out.println("register : " + accountsDTO.toString());
         this.accountsService.insert(accountsDTO);
 
     }
@@ -43,7 +42,7 @@ public class Accounts {
     @Operation(summary = "Login", description = "Login user")
     @PostMapping("/Login")
     public void login(@RequestBody AccountsDTO accountsDTO) {
-        this.logService.logInsert(accountsDTO);
+        this.accountsService.logInsert(accountsDTO);
 
     }
 
@@ -56,14 +55,14 @@ public class Accounts {
 
         return ResponseEntity.ok()
                 .headers(header)
-                .body(getService.getOne(id));
+                .body(accountsService.getOne(id));
 
     }
 
     @Operation(summary = "Restore All Data", description = "restore all saved data")
     @GetMapping("/get/all")
     private List<AccountsDTO> getAllData() {
-        return this.getService.getData();
+        return this.accountsService.getData();
     }
 
     @Operation(summary = "Returns data by page", description = "returns the desired amount of data")
@@ -71,7 +70,7 @@ public class Accounts {
     private List<AccountsDTO> paging(
             @RequestParam(defaultValue = "0") Integer page,
             @RequestParam(defaultValue = "10") Integer size) {
-        List<AccountsDTO> kadaijinList = getService.getPages(page, size);
+        List<AccountsDTO> kadaijinList = accountsService.getPages(page, size);
         return kadaijinList;
     }
 

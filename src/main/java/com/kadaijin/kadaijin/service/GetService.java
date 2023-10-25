@@ -35,24 +35,5 @@ public class GetService {
     @Autowired
     ConvertModelToDTO convertModelToDTO;
 
-    public List<AccountsDTO> getData() {
-        List<AccountsModel> findAll = AccountsRepository.findAll();
-
-        return accountsDTO.listEntityToDto(findAll);
-    }
-
-    public AccountsDTO getOne(Integer no) {
-        Optional<AccountsModel> optional = AccountsRepository.findById(no);
-        AccountsDTO dto = new AccountsDTO(optional.get());
-        return dto;
-
-    }
-
-    public List<AccountsDTO> getPages(Integer page, Integer size) {
-        Pageable pageable = PageRequest.of(page, size); // sistem untuk membaut paging
-        Page<AccountsModel> pageResult = AccountsRepository.findAll(pageable);
-
-        return accountsDTO.listEntityToDto(pageResult);
-    }
 
 }

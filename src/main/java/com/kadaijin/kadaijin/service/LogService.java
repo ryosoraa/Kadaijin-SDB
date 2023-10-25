@@ -38,18 +38,6 @@ public class LogService {
     @Autowired
     ConvertModelToDTO convertModelToDTO;
 
-    public void logInsert(AccountsDTO accountsDTO) {
-        if (accountsRepository.existsByEmailAndPassword(accountsDTO.getEmail(), accountsDTO.getPassword())) {
-            System.out.println(accountsRepository.findIdByEmail(accountsDTO.getEmail()));
-            LogModel logModel = new LogModel(accountsRepository.findIdByEmail(accountsDTO.getEmail()));
-            logRepository.save(logModel);
-            System.out.println("Masuk bang!");
-        } else {
-            System.out.println("ada yang salah bang!!");
-        }
-
-    }
-
     public List<AccountsDTO> getLog() {
         List<AccountsModel> AccountsModel = accountsRepository.findAll();
         return convertModelToDTO.listAccountModelToDTO(AccountsModel);
