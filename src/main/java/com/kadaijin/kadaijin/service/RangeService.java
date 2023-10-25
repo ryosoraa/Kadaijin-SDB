@@ -40,41 +40,6 @@ public class RangeService {
     @Autowired
     PersonalDataRepository personalDataRepository;
 
-    public AccountsDTO customize(String email, String starts, String finish) {
-
-        AccountsModel AccountsModel = new AccountsModel(accountsRepository.findIdByEmail(email));
-        Timestamp start = Timestamp.valueOf(starts.concat(" 00:00:00"));
-        Timestamp end = Timestamp.valueOf(finish.concat(" 23:59:59"));
-        List<LogModel> logModels = logRepository
-                .findLogsBetweenLoginForUsers(start, end, AccountsModel);
-
-        AccountsDTO AccountsDTO = setAccountsDTO.setAccountsDTO(email, logModels);
-        return AccountsDTO;
-    }
-
-    // ================================================================================
-
-    // public AccountsDTO customize(RangeCustomDTO rangeCustomDTO) {
-
-    // AccountsModel accountsModels = accountsRepository
-    // .findByEmailAndLog(
-    // rangeCustomDTO.getEmail(),
-    // rangeCustomDTO.getStart(),
-    // rangeCustomDTO.getEnd());
-
-    // if (accountsModels != null) {
-    // System.out.println("data bang!!");
-    // } else {
-    // System.out.println("Data tidak ditemukan.");
-    // System.out.println(rangeCustomDTO.getEmail());
-    // System.out.println(rangeCustomDTO.getStart());
-    // System.out.println(rangeCustomDTO.getEnd());
-    // }
-
-    // return new AccountsDTO(accountsModels);
-
-    // }
-
     public PersonalDataDTO getByName(String name) {
         PersonalDataModel personalDataModel = personalDataRepository.findByJeneng(name);
 

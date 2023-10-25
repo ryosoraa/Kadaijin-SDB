@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.kadaijin.kadaijin.model.DTO.AccountsDTO;
 import com.kadaijin.kadaijin.repository.AccountsRepository;
 import com.kadaijin.kadaijin.service.LogService;
+import com.kadaijin.kadaijin.service.RangeService;
 
 import io.swagger.v3.oas.annotations.Operation;
 
@@ -21,6 +22,9 @@ public class Logs {
 
     @Autowired
     private LogService logService;
+
+    @Autowired
+    RangeService rangeService;
 
     @Autowired
     AccountsRepository AccountsRepository;
@@ -44,6 +48,16 @@ public class Logs {
             @RequestParam(defaultValue = "0") Integer page,
             @RequestParam(defaultValue = "10") Integer size) {
         return logService.getPage(page, size);
+    }
+
+    @Operation(summary = "Restore Data Customize", description = "returns data by Customize date")
+    @GetMapping("/customs")
+    public AccountsDTO customs(
+            @RequestParam(name = "email", defaultValue = "ryo@gmail.com") String email,
+            @RequestParam(name = "start", required = false) String start,
+            @RequestParam(name = "end", defaultValue = "2023-10-24 23:59:59") String end) {
+        return rangeService.customsize(email, start, end);
+
     }
 
 }
