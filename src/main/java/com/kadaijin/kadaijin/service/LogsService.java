@@ -26,7 +26,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
 @Service
-public class LogService {
+public class LogsService {
 
     @Autowired
     private AccountsRepository accountsRepository;
@@ -59,7 +59,7 @@ public class LogService {
 
     public List<AccountsDTO> getPage(Integer page, Integer size) {
         Pageable pageable = PageRequest.of(page, size);
-        Page<AccountsModel> pageResult = accountsRepository.findAll(pageable);
+        Page<AccountsModel> pageResult = accountsRepository.findEmailAndLogBypage(pageable);
 
         return convertDTO.listEntityToDto(pageResult);
     }

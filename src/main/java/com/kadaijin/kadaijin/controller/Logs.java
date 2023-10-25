@@ -15,7 +15,7 @@ import org.springframework.web.servlet.function.ServerRequest.Headers;
 import com.kadaijin.kadaijin.model.DTO.AccountsDTO;
 import com.kadaijin.kadaijin.repository.AccountsRepository;
 import com.kadaijin.kadaijin.service.AccountsService;
-import com.kadaijin.kadaijin.service.LogService;
+import com.kadaijin.kadaijin.service.LogsService;
 
 import io.swagger.v3.oas.annotations.Operation;
 
@@ -24,7 +24,7 @@ import io.swagger.v3.oas.annotations.Operation;
 public class Logs {
 
     @Autowired
-    private LogService logService;
+    private LogsService logService;
 
     @Autowired
     AccountsService accountsService;
@@ -35,11 +35,8 @@ public class Logs {
     @Operation(summary = "Get Data Log", description = "Get login log via email name")
     @GetMapping
     private ResponseEntity<AccountsDTO> getOne(@RequestParam String email) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.add(email, email);
         // return this.accountsService.getOne(email);
         return ResponseEntity.ok()
-                .headers(headers)
                 .body(accountsService.getOne(email));
 
     }
@@ -52,10 +49,11 @@ public class Logs {
 
     @Operation(summary = "Returns data by page", description = "restore email data and login logs with page")
     @GetMapping("/page")
-    private List<AccountsDTO> getPage(
+    private ResponseEntity<List<AccountsDTO>> getPage(
             @RequestParam(defaultValue = "0") Integer page,
             @RequestParam(defaultValue = "10") Integer size) {
-        return logService.getPage(page, size);
+        return ResponseEntity.ok()
+                .body(logService.getPage(page, size));
     }
 
     @Operation(summary = "Restore Data Customize", description = "returns data by Customize date")

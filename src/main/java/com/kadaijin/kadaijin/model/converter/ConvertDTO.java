@@ -30,8 +30,9 @@ public class ConvertDTO {
         List<AccountsDTO> dataDTO = new ArrayList<>();
 
         for (AccountsModel model : accountsModel.getContent()) {
-            AccountsDTO dto = modelMapper.map(model, AccountsDTO.class);
-            dataDTO.add(dto);
+            dataDTO.add(new AccountsDTO(model));
+            // AccountsDTO dto = modelMapper.map(model, AccountsDTO.class);
+            // dataDTO.add(dto);
         }
         return dataDTO;
     }
@@ -46,6 +47,5 @@ public class ConvertDTO {
         }
         return dto;
     }
-
 
 }

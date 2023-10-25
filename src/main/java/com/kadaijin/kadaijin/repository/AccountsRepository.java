@@ -31,15 +31,14 @@ public interface AccountsRepository extends JpaRepository<AccountsModel, Integer
         // @Query("SELECT a, l, pd FROM AccountsModel a LEFT JOIN a.logs l LEFT JOIN
         // a.personalDataModels pd WHERE a.email = :email AND l.login BETWEEN :start AND
         // :end")
-        @Query("SELECT a FROM AccountsModel a JOIN a.logs l WHERE a.email = :email AND l.login BETWEEN :start AND :end")
+        @Query("SELECT a FROM AccountsModel a JOIN a.logs l JOIN a.personalDataModels pd WHERE a.email = :email AND l.login BETWEEN :start AND :end")
         AccountsModel findByEmailAndLog(
                         @Param("email") String email,
                         @Param("start") Timestamp start,
                         @Param("end") Timestamp end);
 
-        // @Query("SELECT a FROM AccountsModel a JOIN a.logs l JOIN a.PersonalDataModel
-        // pd")
-        // Page<AccountsModel> findEmailAndLogBypage(Pageable pageable);
+        @Query("SELECT a FROM AccountsModel a RIGHT JOIN a.logs l RIGHT JOIN a.personalDataModels pd ")
+        Page<AccountsModel> findEmailAndLogBypage(Pageable pageable);
 
         // AccountsModel findByUserName(String username);
 

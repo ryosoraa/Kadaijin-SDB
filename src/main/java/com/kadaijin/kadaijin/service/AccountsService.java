@@ -18,7 +18,6 @@ import com.kadaijin.kadaijin.repository.AccountsRepository;
 import com.kadaijin.kadaijin.repository.LogRepository;
 
 import jakarta.persistence.EntityManager;
-import lombok.var;
 
 @Service
 public class AccountsService {

@@ -3,7 +3,6 @@ package com.kadaijin.kadaijin.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.kadaijin.kadaijin.model.DTO.AccountsDTO;
 import com.kadaijin.kadaijin.model.DTO.LoginDTO;
 import com.kadaijin.kadaijin.service.AccountsService;
-import com.kadaijin.kadaijin.service.LogService;
+import com.kadaijin.kadaijin.service.LogsService;
 
 import io.swagger.v3.oas.annotations.Operation;
 
@@ -24,7 +23,7 @@ import io.swagger.v3.oas.annotations.Operation;
 public class Accounts {
 
     @Autowired
-    LogService logService;
+    LogsService logService;
 
     @Autowired
     AccountsService accountsService;
@@ -46,11 +45,8 @@ public class Accounts {
     @Operation(summary = "Restore One Data", description = "returns data by id")
     @GetMapping("/get")
     private ResponseEntity<AccountsDTO> getDataOne(@RequestParam(defaultValue = "1") String id) {
-        HttpHeaders header = new HttpHeaders();
-        header.add("test header", "done bang!");
 
         return ResponseEntity.ok()
-                .headers(header)
                 .body(accountsService.getOne(id));
 
     }
@@ -58,11 +54,8 @@ public class Accounts {
     @Operation(summary = "Restore All Data", description = "restore all saved data")
     @GetMapping("/get/all")
     private ResponseEntity<List<AccountsDTO>> getAllData() {
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("test", "bisa bang");
 
         return ResponseEntity.ok()
-                .headers(headers)
                 .body(accountsService.getData());
     }
 
@@ -71,10 +64,8 @@ public class Accounts {
     private ResponseEntity<List<AccountsDTO>> paging(
             @RequestParam(defaultValue = "0") Integer page,
             @RequestParam(defaultValue = "10") Integer size) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("test", "bisa bang");
+
         return ResponseEntity.ok()
-                .headers(headers)
                 .body(accountsService.getPages(page, size));
     }
 
