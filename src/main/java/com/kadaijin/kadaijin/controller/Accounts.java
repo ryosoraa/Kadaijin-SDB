@@ -20,7 +20,7 @@ import com.kadaijin.kadaijin.service.RegisterService;
 import io.swagger.v3.oas.annotations.Operation;
 
 @RestController
-@RequestMapping("/account")
+@RequestMapping("/accounts")
 public class Accounts {
 
     @Autowired
@@ -31,29 +31,6 @@ public class Accounts {
 
     @Autowired
     RegisterService registerService;
-
-    @Operation(summary = "Alternative login", description = "Insert UserName And Password")
-    @PostMapping("/Login")
-    private void postEmail(
-            @RequestParam(name = "Email") String email,
-            @RequestParam(name = "Password") String password) {
-        AccountsDTO accountsDTO = new AccountsDTO();
-        accountsDTO.setEmail(email);
-        accountsDTO.setPassword(password);
-        this.logService.logInsert(accountsDTO);
-        ;
-    }
-
-    @Operation(summary = "Alternative Register", description = "Insert UserName And Password")
-    @PostMapping("/Register")
-    private void register(
-            @RequestParam String email,
-            @RequestParam String password) {
-        AccountsDTO accountsDTO = new AccountsDTO();
-        accountsDTO.setEmail(email);
-        accountsDTO.setPassword(password);
-        this.registerService.insert(accountsDTO);
-    }
 
     @Operation(summary = "Register", description = "Register new user")
     @PostMapping("/Register")
@@ -99,3 +76,43 @@ public class Accounts {
     }
 
 }
+
+/*
+ *** ALTERNATIVE REGISTER**
+ * 
+ * @Operation(summary = "Alternative Register", description =
+ * "Insert UserName And Password")
+ * 
+ * @PostMapping("/Register")
+ * private void register(
+ * 
+ * @RequestParam String email,
+ * 
+ * @RequestParam String password) {
+ * AccountsDTO accountsDTO = new AccountsDTO();
+ * accountsDTO.setEmail(email);
+ * accountsDTO.setPassword(password);
+ * this.registerService.insert(accountsDTO);
+ * }
+ */
+
+/*
+ ** 
+ * ALTERNATIVE LOGIN**
+ * 
+ * @Operation(summary = "Alternative login", description =
+ * "Insert UserName And Password")
+ * 
+ * @PostMapping("/Login")
+ * private void postEmail(
+ * 
+ * @RequestParam(name = "Email") String email,
+ * 
+ * @RequestParam(name = "Password") String password) {
+ * AccountsDTO accountsDTO = new AccountsDTO();
+ * accountsDTO.setEmail(email);
+ * accountsDTO.setPassword(password);
+ * this.logService.logInsert(accountsDTO);
+ * ;
+ * }
+ */
