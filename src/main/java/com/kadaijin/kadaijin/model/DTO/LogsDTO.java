@@ -6,7 +6,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
-public class LogDTO {
+public class LogsDTO {
 
     @Schema(name = "times", example = "2023-10-16 00:57:13")
     private Timestamp login;
