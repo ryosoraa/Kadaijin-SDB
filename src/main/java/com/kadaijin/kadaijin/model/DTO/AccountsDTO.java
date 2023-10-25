@@ -54,6 +54,17 @@ public class AccountsDTO extends ConvertDTO {
 
     }
 
+    public AccountsDTO(AccountsModel accountsModel, List<LogModel> logModels) {
+        this.id = accountsModel.getId();
+        this.email = accountsModel.getEmail();
+        this.password = accountsModel.getPassword();
+        this.register = accountsModel.getRegister();
+        this.totalLogin = logModels.size();
+        this.log = logModels;
+        this.dataModels = accountsModel.getPersonalDataModels();
+
+    }
+
     public AccountsDTO() {
 
     }

@@ -2,6 +2,7 @@ package com.kadaijin.kadaijin.service;
 
 import java.sql.Time;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -74,20 +75,6 @@ public class RangeService {
 
     // }
 
-    public AccountsDTO custom(String email, String start, String end) {
-        if (start == null || end == null) {
-            return new AccountsDTO(accountsRepository.findByEmail(email));
-        } else {
-            RangeCustomDTO rangeCustomDTO = new RangeCustomDTO(email, start, end);
-            AccountsDTO accountsDTO = new AccountsDTO(
-                    accountsRepository.findByEmailAndLog(
-                            rangeCustomDTO.getEmail(),
-                            rangeCustomDTO.getStart(),
-                            rangeCustomDTO.getEnd()));
-            return accountsDTO;
-        }
-    }
-
     public PersonalDataDTO getByName(String name) {
         PersonalDataModel personalDataModel = personalDataRepository.findByJeneng(name);
 
@@ -96,6 +83,32 @@ public class RangeService {
         }
 
         return new PersonalDataDTO(personalDataModel, 1);
+
+    }
+
+    public AccountsDTO customsize(String email, String start, String end) {
+
+        if (start == null || end == null) {
+            return new AccountsDTO(accountsRepository.findByEmail(email));
+        } else {
+
+            List<LogModel> logModels = new ArrayList<>();
+            RangeCustomDTO rangeCustomDTO = new RangeCustomDTO(email, start, end);
+
+            AccountsModel accountsModel = accountsRepository.findByEmailAndLog(
+                    rangeCustomDTO.getEmail(),
+                    rangeCustomDTO.getStart(),
+                    rangeCustomDTO.getEnd());
+
+            for (LogModel logModel : accountsModel.getLogs()) {
+                if (logModel.getLogin().after(rangeCustomDTO.getStart())
+                        && logModel.getLogin().before(rangeCustomDTO.getEnd())) {
+                    logModels.add(logModel);
+                }
+            }
+
+            return new AccountsDTO(accountsModel, logModels);
+        }
 
     }
 

@@ -3,6 +3,8 @@ package com.kadaijin.kadaijin.repository;
 import java.sql.Timestamp;
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -26,16 +28,18 @@ public interface AccountsRepository extends JpaRepository<AccountsModel, Integer
         // @Query("SELECT a FROM AccountsModel a LEFT JOIN a.logs l LEFT JOIN
         // a.personalDataModels pd WHERE a.email = :email AND l.login BETWEEN :start AND
         // :end")
-        @Query("SELECT a, l, pd FROM AccountsModel a LEFT JOIN a.logs l LEFT JOIN a.personalDataModels pd WHERE a.email = :email AND l.login BETWEEN :start AND :end")
+        // @Query("SELECT a, l, pd FROM AccountsModel a LEFT JOIN a.logs l LEFT JOIN
+        // a.personalDataModels pd WHERE a.email = :email AND l.login BETWEEN :start AND
+        // :end")
+        @Query("SELECT a FROM AccountsModel a JOIN a.logs l WHERE a.email = :email AND l.login BETWEEN :start AND :end")
         AccountsModel findByEmailAndLog(
                         @Param("email") String email,
                         @Param("start") Timestamp start,
                         @Param("end") Timestamp end);
 
-        @Query("SELECT DISTINCT a FROM AccountsModel a INNER JOIN FETCH a.logs l WHERE l.login BETWEEN :start AND :end")
-        List<AccountsModel> findAccountsModelAndLogs(
-                        @Param("start") Timestamp start,
-                        @Param("end") Timestamp end);
+        // @Query("SELECT a FROM AccountsModel a JOIN a.logs l JOIN a.PersonalDataModel
+        // pd")
+        // Page<AccountsModel> findEmailAndLogBypage(Pageable pageable);
 
         // AccountsModel findByUserName(String username);
 

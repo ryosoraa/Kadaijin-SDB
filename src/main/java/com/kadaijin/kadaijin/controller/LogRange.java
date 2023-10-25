@@ -37,14 +37,9 @@ public class LogRange {
     public AccountsDTO customs(
             @RequestParam(name = "email", defaultValue = "ryo@gmail.com") String email,
             @RequestParam(name = "start", required = false) String start,
-            @RequestParam(name = "end", defaultValue = "2023-10-24 23:59:593") String end) {
-        return rangeService.custom(email, start, end);
+            @RequestParam(name = "end", defaultValue = "2023-10-24 23:59:59") String end) {
+        return rangeService.customsize(email, start, end);
 
-    }
-
-    @GetMapping("/personal")
-    public PersonalDataDTO personData(@RequestParam String name) {
-        return rangeService.getByName(name);
     }
 
 }
