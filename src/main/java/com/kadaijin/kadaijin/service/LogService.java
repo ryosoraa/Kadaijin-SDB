@@ -71,17 +71,6 @@ public class LogService {
 
     }
 
-    public PersonalDataDTO getByName(String name) {
-        PersonalDataModel personalDataModel = personalDataRepository.findByJeneng(name);
-
-        if (personalDataModel == null) {
-            System.out.println("Kosong bang!!");
-        }
-
-        return new PersonalDataDTO(personalDataModel, 1);
-
-    }
-
     public AccountsDTO customsize(String email, String start, String end) {
 
         if (start == null || end == null) {

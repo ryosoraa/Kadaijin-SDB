@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.kadaijin.kadaijin.model.DTO.AccountsDTO;
 import com.kadaijin.kadaijin.repository.AccountsRepository;
 import com.kadaijin.kadaijin.service.LogService;
-import com.kadaijin.kadaijin.service.RangeService;
 
 import io.swagger.v3.oas.annotations.Operation;
 
@@ -22,9 +21,6 @@ public class Logs {
 
     @Autowired
     private LogService logService;
-
-    @Autowired
-    RangeService rangeService;
 
     @Autowired
     AccountsRepository AccountsRepository;
@@ -56,7 +52,7 @@ public class Logs {
             @RequestParam(name = "email", defaultValue = "ryo@gmail.com") String email,
             @RequestParam(name = "start", required = false) String start,
             @RequestParam(name = "end", defaultValue = "2023-10-24 23:59:59") String end) {
-        return rangeService.customsize(email, start, end);
+        return logService.customsize(email, start, end);
 
     }
 
