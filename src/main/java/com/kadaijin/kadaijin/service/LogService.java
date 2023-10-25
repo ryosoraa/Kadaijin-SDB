@@ -1,6 +1,7 @@
 package com.kadaijin.kadaijin.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +48,6 @@ public class LogService {
             System.out.println("ada yang salah bang!!");
         }
 
-
     }
 
     public List<AccountsDTO> getLog() {
@@ -68,5 +68,11 @@ public class LogService {
         return convertModelToDTO.pageAccountModelToDTO(pageResult);
     }
 
+    public AccountsDTO getOne(Integer no) {
+        Optional<AccountsModel> optional = accountsRepository.findById(no);
+        AccountsDTO dto = new AccountsDTO(optional.get());
+        return dto;
+
+    }
 
 }

@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kadaijin.kadaijin.model.DTO.AccountsDTO;
+import com.kadaijin.kadaijin.service.AccountsService;
 import com.kadaijin.kadaijin.service.GetService;
 import com.kadaijin.kadaijin.service.LogService;
-import com.kadaijin.kadaijin.service.RegisterService;
 
 import io.swagger.v3.oas.annotations.Operation;
 
@@ -30,13 +30,13 @@ public class Accounts {
     LogService logService;
 
     @Autowired
-    RegisterService registerService;
+    AccountsService accountsService;
 
     @Operation(summary = "Register", description = "Register new user")
     @PostMapping("/Register")
     private void apiTest(@RequestBody AccountsDTO accountsDTO) {
         // System.out.println("register : " + accountsDTO.toString());
-        this.registerService.insert(accountsDTO);
+        this.accountsService.insert(accountsDTO);
 
     }
 

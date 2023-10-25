@@ -11,27 +11,6 @@ import com.kadaijin.kadaijin.repository.AccountsRepository;
 @Service
 public class RegisterService {
 
-    @Autowired
-    AccountsRepository AccountsRepository;
 
-    @Autowired
-    ModelMapper modelMapper;
-
-    public void insert(AccountsDTO accountsDTO) {
-
-        /**
-         * menyimpan data yang di ambil lalu di masukan di dalam model
-         * setelah di masukan kedalam model lalu di save kedalam repository yang
-         * terhubung
-         * dengan databasenya
-         */
-
-        if (AccountsRepository.findByEmail(accountsDTO.getEmail()) != null) {
-            System.out.println("Email udah ada bang!!");
-        } else {
-            AccountsModel model = modelMapper.map(accountsDTO, AccountsModel.class);
-            this.AccountsRepository.save(model);
-        }
-    }
 
 }
