@@ -32,13 +32,14 @@ public class AccountsDTO extends ConvertDTO {
     @Schema(name = "register", example = "2023-10-16T04:09:09", required = false)
     public Timestamp register;
 
-    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @Schema(name = "totalLogin", required = false)
     public Integer totalLogin;
 
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private List<PersonalDataModel> dataModels;
 
-    // @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @Schema(name = "Log")
     private List<LogModel> log = new ArrayList<>();
 

@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.kadaijin.kadaijin.model.DTO.AccountsDTO;
 import com.kadaijin.kadaijin.service.AccountsService;
-import com.kadaijin.kadaijin.service.GetService;
 import com.kadaijin.kadaijin.service.LogService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -22,9 +21,6 @@ import io.swagger.v3.oas.annotations.Operation;
 @RestController
 @RequestMapping("/accounts")
 public class Accounts {
-
-    @Autowired
-    private GetService getService;
 
     @Autowired
     LogService logService;
@@ -48,10 +44,9 @@ public class Accounts {
 
     @Operation(summary = "Restore One Data", description = "returns data by id")
     @GetMapping("/get")
-    private ResponseEntity<AccountsDTO> getDataOne(@RequestParam(defaultValue = "1") Integer id) {
+    private ResponseEntity<AccountsDTO> getDataOne(@RequestParam(defaultValue = "1") String id) {
         HttpHeaders header = new HttpHeaders();
         header.add("test header", "done bang!");
-        // return this.getService.getOne(id);
 
         return ResponseEntity.ok()
                 .headers(header)

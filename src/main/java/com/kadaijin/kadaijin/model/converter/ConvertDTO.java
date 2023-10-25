@@ -21,7 +21,6 @@ public class ConvertDTO {
         List<AccountsDTO> dataDTO = new ArrayList<>();
 
         for (AccountsModel model : accountsModel) {
-            /** accountsDTO dto = modelMapper.map(model, accountsDTO.class); */
             dataDTO.add(modelMapper.map(model, AccountsDTO.class));
         }
         return dataDTO;

@@ -18,6 +18,7 @@ import com.kadaijin.kadaijin.repository.AccountsRepository;
 import com.kadaijin.kadaijin.repository.LogRepository;
 
 import jakarta.persistence.EntityManager;
+import lombok.var;
 
 @Service
 public class AccountsService {
@@ -42,7 +43,6 @@ public class AccountsService {
 
     // REGISTER
     public void insert(AccountsDTO accountsDTO) {
-
         if (accountsRepository.findByEmail(accountsDTO.getEmail()) != null) {
             System.out.println("Email udah ada bang!!");
         } else {
@@ -65,10 +65,16 @@ public class AccountsService {
     }
 
     // GET ONE ACCOUNT
-    public AccountsDTO getOne(Integer no) {
-        Optional<AccountsModel> optional = accountsRepository.findById(no);
-        AccountsDTO dto = new AccountsDTO(optional.get());
-        return dto;
+    public AccountsDTO getOne(String req) {
+        try {
+            Integer id = Integer.parseInt(req);
+            Optional<AccountsModel> optional = accountsRepository.findById(id);
+            AccountsDTO dto = new AccountsDTO(optional.get());
+            return dto;
+        } catch (Exception e) {
+            AccountsDTO accountsDTO = new AccountsDTO(accountsRepository.findByEmail(req));
+            return accountsDTO;
+        }
     }
 
     // GET ALL ACCOUNT
