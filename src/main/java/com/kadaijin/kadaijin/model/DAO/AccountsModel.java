@@ -19,14 +19,14 @@ import lombok.Data;
 @Table(name = "accounts")
 public class AccountsModel {
 
-    /** model mewakili tabel yang ada di dalam database */
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // untuk menghasilkan nilai id
     private Integer id;
 
+    @Column(name = "email")
     private String email;
 
+    @Column(name = "password")
     private String password;
 
     @Column(name = "register", columnDefinition = "TIMESTAMP")

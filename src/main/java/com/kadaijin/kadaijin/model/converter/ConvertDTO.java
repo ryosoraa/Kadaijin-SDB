@@ -31,18 +31,13 @@ public class ConvertDTO {
 
         for (AccountsModel model : accountsModel.getContent()) {
             dataDTO.add(new AccountsDTO(model));
-            // AccountsDTO dto = modelMapper.map(model, AccountsDTO.class);
-            // dataDTO.add(dto);
         }
         return dataDTO;
     }
 
     public List<AccountsDTO> listAccountModelToDTO(List<AccountsModel> AccountsModels) {
         List<AccountsDTO> dto = new ArrayList<>();
-        ModelMapper mapper = new ModelMapper();
         for (AccountsModel model : AccountsModels) {
-            System.out.println(mapper.map(model, AccountsDTO.class));
-            // dto.add(mapper.map(model, AccountsDTO.class));
             dto.add(new AccountsDTO(model));
         }
         return dto;
