@@ -89,24 +89,3 @@ public class Accounts {
  * this.registerService.insert(accountsDTO);
  * }
  */
-
-/*
- ** 
- * ALTERNATIVE LOGIN**
- * 
- * @Operation(summary = "Alternative login", description =
- * "Insert UserName And Password")
- * 
- * @PostMapping("/Login")
- * private void postEmail(
- * 
- * @RequestParam(name = "Email") String email,
- * 
- * @RequestParam(name = "Password") String password) {
- * AccountsDTO accountsDTO = new AccountsDTO();
- * accountsDTO.setEmail(email);
- * accountsDTO.setPassword(password);
- * this.logService.logInsert(accountsDTO);
- * ;
- * }
- */

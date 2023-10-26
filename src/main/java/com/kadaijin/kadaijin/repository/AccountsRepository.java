@@ -12,14 +12,10 @@ import com.kadaijin.kadaijin.model.DAO.AccountsModel;
 
 public interface AccountsRepository extends JpaRepository<AccountsModel, Integer> {
 
-        AccountsModel findByEmail(String email);
-
         @Query("SELECT a FROM AccountsModel a JOIN a.logs l WHERE a.email = :email")
         AccountsModel findByEmails(@Param("email") String email);
 
         boolean existsByEmailAndPassword(String username, String password);
-
-        // accountsModel findByPage(Integer limit, Integer offset);
 
         @Query("SELECT u.id FROM AccountsModel u WHERE u.email = :email")
         Integer findIdByEmail(@Param("email") String email);
@@ -32,7 +28,5 @@ public interface AccountsRepository extends JpaRepository<AccountsModel, Integer
 
         @Query("SELECT a FROM AccountsModel a LEFT JOIN a.personalDataModels pd")
         Page<AccountsModel> findEmailAndPersonalDataBypage(Pageable pageable);
-
-        // AccountsModel findByUserName(String username);
 
 }

@@ -41,7 +41,7 @@ public class AccountsService {
 
     // REGISTER
     public void insert(AccountsDTO accountsDTO) {
-        if (accountsRepository.findByEmail(accountsDTO.getEmail()) != null) {
+        if (accountsRepository.findByEmails(accountsDTO.getEmail()) != null) {
             System.out.println("Email udah ada bang!!");
         } else {
             AccountsModel model = modelMapper.map(accountsDTO, AccountsModel.class);
@@ -70,7 +70,7 @@ public class AccountsService {
             AccountsDTO dto = new AccountsDTO(optional.get(), Collections.EMPTY_LIST);
             return dto;
         } catch (Exception e) {
-            AccountsDTO accountsDTO = new AccountsDTO(accountsRepository.findByEmail(req), Collections.EMPTY_LIST);
+            AccountsDTO accountsDTO = new AccountsDTO(accountsRepository.findByEmails(req), Collections.EMPTY_LIST);
             return accountsDTO;
         }
     }
