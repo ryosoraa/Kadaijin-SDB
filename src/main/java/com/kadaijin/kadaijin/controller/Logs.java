@@ -37,7 +37,7 @@ public class Logs {
     private ResponseEntity<AccountsDTO> getOne(@RequestParam String email) {
         // return this.accountsService.getOne(email);
         return ResponseEntity.ok()
-                .body(accountsService.getOne(email));
+                .body(logService.getOneName(email));
 
     }
 

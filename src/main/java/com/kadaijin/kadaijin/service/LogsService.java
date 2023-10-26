@@ -53,7 +53,7 @@ public class LogsService {
 
     public AccountsDTO getOneName(String request) {
         AccountsModel AccountsModel = accountsRepository.findByEmails(request);
-        return modelMapper.map(AccountsModel, AccountsDTO.class);
+        return new AccountsDTO(AccountsModel);
 
     }
 
