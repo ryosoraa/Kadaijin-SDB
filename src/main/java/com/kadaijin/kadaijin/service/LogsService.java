@@ -55,7 +55,7 @@ public class LogsService {
             AccountsDTO dto = new AccountsDTO(optional.get());
             return dto;
         } catch (Exception e) {
-            AccountsDTO accountsDTO = new AccountsDTO(accountsRepository.findByEmails(request), Collections.EMPTY_LIST);
+            AccountsDTO accountsDTO = new AccountsDTO(accountsRepository.findByEmails(request));
             return accountsDTO;
         }
 
