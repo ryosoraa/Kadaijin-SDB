@@ -1,7 +1,5 @@
 package com.kadaijin.kadaijin.model.DAO;
 
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;

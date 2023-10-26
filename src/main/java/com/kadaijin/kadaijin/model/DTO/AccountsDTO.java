@@ -2,7 +2,6 @@ package com.kadaijin.kadaijin.model.DTO;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
@@ -14,7 +13,6 @@ import com.kadaijin.kadaijin.model.DAO.PersonalDataModel;
 import com.kadaijin.kadaijin.model.converter.ConvertDTO;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.persistence.OneToMany;
 import lombok.Data;
 
 @Data

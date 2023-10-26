@@ -2,7 +2,6 @@ package com.kadaijin.kadaijin.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,13 +9,10 @@ import org.springframework.stereotype.Service;
 
 import com.kadaijin.kadaijin.model.DAO.AccountsModel;
 import com.kadaijin.kadaijin.model.DAO.LogModel;
-import com.kadaijin.kadaijin.model.DAO.PersonalDataModel;
 import com.kadaijin.kadaijin.model.DTO.AccountsDTO;
-import com.kadaijin.kadaijin.model.DTO.PersonalDataDTO;
 import com.kadaijin.kadaijin.model.DTO.RangeCustomDTO;
 import com.kadaijin.kadaijin.model.converter.ConvertDTO;
 import com.kadaijin.kadaijin.repository.AccountsRepository;
-import com.kadaijin.kadaijin.repository.LogRepository;
 import com.kadaijin.kadaijin.repository.PersonalDataRepository;
 
 import jakarta.persistence.EntityManager;
@@ -43,35 +39,29 @@ public class LogsService {
     @Autowired
     ConvertDTO convertDTO;
 
-    // GET
+    // GET ALL ACCOUNTS AND DATA
     public List<AccountsDTO> getLog() {
         List<AccountsModel> AccountsModel = accountsRepository.findAll();
         return convertDTO.listAccountModelToDTO(AccountsModel);
     }
 
+    // GET ONE ACCOUNT
     public AccountsDTO getOneName(String request) {
         AccountsModel AccountsModel = accountsRepository.findByEmails(request);
         return new AccountsDTO(AccountsModel);
 
     }
 
+    // GET ACCOUNTS AND LOG WITH PAGE
     public List<AccountsDTO> getPage(Integer page, Integer size) {
         Pageable pageable = PageRequest.of(page, size);
         Page<AccountsModel> pageResult = accountsRepository.findAll(pageable);
-
         return convertDTO.listEntityToDto(pageResult);
     }
 
-    public AccountsDTO getOne(Integer no) {
-        Optional<AccountsModel> optional = accountsRepository.findById(no);
-        AccountsDTO dto = new AccountsDTO(optional.get());
-        return dto;
-
-    }
-
+    // GET ACCOUNTS WITH LOGS CUSTOMIZE
     public AccountsDTO customsize(RangeCustomDTO rangeCustomDTO) {
         List<LogModel> logModels = new ArrayList<>();
-
         AccountsModel accountsModel = accountsRepository.findByEmailAndLog(
                 rangeCustomDTO.getEmail(),
                 rangeCustomDTO.getStart(),

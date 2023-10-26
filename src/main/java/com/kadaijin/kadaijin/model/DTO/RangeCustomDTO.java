@@ -2,8 +2,6 @@ package com.kadaijin.kadaijin.model.DTO;
 
 import java.sql.Timestamp;
 
-import org.springframework.stereotype.Component;
-
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
