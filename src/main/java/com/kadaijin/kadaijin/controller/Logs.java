@@ -30,11 +30,12 @@ public class Logs {
     @Autowired
     AccountsRepository AccountsRepository;
 
-    @Operation(summary = "Get Data Log", description = "Get login log via email name")
+    @Operation(summary = "Get Data Log", description = "You can get data via ID or email")
     @GetMapping
-    private ResponseEntity<AccountsDTO> getOne(@RequestParam String email) {
+    private ResponseEntity<AccountsDTO> getOne(
+            @RequestParam(name = "Request", defaultValue = "ryo@gmail.com") String request) {
         return ResponseEntity.ok()
-                .body(logService.getOneName(email));
+                .body(logService.getOneName(request));
 
     }
 

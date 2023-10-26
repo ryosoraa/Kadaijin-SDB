@@ -62,11 +62,11 @@ public class Accounts {
     @Operation(summary = "Returns data by page", description = "returns the desired amount of data")
     @GetMapping("/get/page")
     private ResponseEntity<List<AccountsDTO>> paging(
-            @RequestParam(defaultValue = "0") Integer page,
+            @RequestParam(defaultValue = "1") Integer page,
             @RequestParam(defaultValue = "10") Integer size) {
 
         return ResponseEntity.ok()
-                .body(accountsService.getPages(page, size));
+                .body(accountsService.getPages(page - 1, size));
     }
 
 }

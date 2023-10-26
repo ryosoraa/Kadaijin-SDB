@@ -1,7 +1,9 @@
 package com.kadaijin.kadaijin.service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,8 +49,15 @@ public class LogsService {
 
     // GET ONE ACCOUNT
     public AccountsDTO getOneName(String request) {
-        AccountsModel AccountsModel = accountsRepository.findByEmails(request);
-        return new AccountsDTO(AccountsModel);
+        try {
+            Integer id = Integer.parseInt(request);
+            Optional<AccountsModel> optional = accountsRepository.findById(id);
+            AccountsDTO dto = new AccountsDTO(optional.get());
+            return dto;
+        } catch (Exception e) {
+            AccountsDTO accountsDTO = new AccountsDTO(accountsRepository.findByEmails(request), Collections.EMPTY_LIST);
+            return accountsDTO;
+        }
 
     }
 
