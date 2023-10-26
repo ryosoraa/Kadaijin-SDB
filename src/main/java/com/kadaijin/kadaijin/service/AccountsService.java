@@ -1,5 +1,6 @@
 package com.kadaijin.kadaijin.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -81,8 +82,15 @@ public class AccountsService {
 
     // GET ACCOUNT WITH PAGGING
     public List<AccountsDTO> getPages(Integer page, Integer size) {
+        List<AccountsModel> accountsModels = new ArrayList<>();
         Pageable pageable = PageRequest.of(page, size); // sistem untuk membaut paging
-        Page<AccountsModel> pageResult = accountsRepository.findAll(pageable);
-        return accountsDTO.listEntityToDto(pageResult);
+        Page<AccountsModel> pageResult = accountsRepository.findEmailAndPersonalDataBypage(pageable);
+
+        for (AccountsModel accountsModel : pageResult) {
+            accountsModel.setLogs(null);
+            accountsModels.add(accountsModel);
+        }
+
+        return accountsDTO.listEntityToDto(accountsModels);
     }
 }
