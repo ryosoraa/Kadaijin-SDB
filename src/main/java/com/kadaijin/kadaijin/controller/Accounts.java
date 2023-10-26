@@ -42,12 +42,12 @@ public class Accounts {
 
     }
 
-    @Operation(summary = "Restore One Data", description = "returns data by id")
+    @Operation(summary = "Restore One Data", description = "You can search for data via ID or email")
     @GetMapping("/get")
-    private ResponseEntity<AccountsDTO> getDataOne(@RequestParam(defaultValue = "1") String id) {
+    private ResponseEntity<AccountsDTO> getDataOne(@RequestParam(name = "Request", defaultValue = "1") String request) {
 
         return ResponseEntity.ok()
-                .body(accountsService.getOne(id));
+                .body(accountsService.getOne(request));
 
     }
 
