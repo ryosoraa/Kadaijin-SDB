@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.function.ServerRequest.Headers;
 
 import com.kadaijin.kadaijin.model.DTO.AccountsDTO;
+import com.kadaijin.kadaijin.model.DTO.RangeCustomDTO;
 import com.kadaijin.kadaijin.repository.AccountsRepository;
 import com.kadaijin.kadaijin.service.AccountsService;
 import com.kadaijin.kadaijin.service.LogsService;
@@ -35,7 +36,6 @@ public class Logs {
     @Operation(summary = "Get Data Log", description = "Get login log via email name")
     @GetMapping
     private ResponseEntity<AccountsDTO> getOne(@RequestParam String email) {
-        // return this.accountsService.getOne(email);
         return ResponseEntity.ok()
                 .body(logService.getOneName(email));
 
@@ -60,9 +60,9 @@ public class Logs {
     @GetMapping("/customs")
     public AccountsDTO customs(
             @RequestParam(name = "email", defaultValue = "ryo@gmail.com") String email,
-            @RequestParam(name = "start", required = false) String start,
+            @RequestParam(name = "start", defaultValue = "2023-10-23 23:59:59") String start,
             @RequestParam(name = "end", defaultValue = "2023-10-24 23:59:59") String end) {
-        return logService.customsize(email, start, end);
+        return logService.customsize(new RangeCustomDTO(email, start, end));
 
     }
 

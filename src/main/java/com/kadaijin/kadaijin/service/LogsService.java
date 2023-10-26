@@ -35,9 +35,6 @@ public class LogsService {
     PersonalDataRepository personalDataRepository;
 
     @Autowired
-    private LogRepository logRepository;
-
-    @Autowired
     EntityManager entityManager;
 
     @Autowired
@@ -46,6 +43,7 @@ public class LogsService {
     @Autowired
     ConvertDTO convertDTO;
 
+    // GET
     public List<AccountsDTO> getLog() {
         List<AccountsModel> AccountsModel = accountsRepository.findAll();
         return convertDTO.listAccountModelToDTO(AccountsModel);
@@ -71,31 +69,23 @@ public class LogsService {
 
     }
 
-    public AccountsDTO customsize(String email, String start, String end) {
+    public AccountsDTO customsize(RangeCustomDTO rangeCustomDTO) {
+        List<LogModel> logModels = new ArrayList<>();
 
-        if (start == null || end == null) {
-            return new AccountsDTO(accountsRepository.findByEmail(email));
-        } else {
+        AccountsModel accountsModel = accountsRepository.findByEmailAndLog(
+                rangeCustomDTO.getEmail(),
+                rangeCustomDTO.getStart(),
+                rangeCustomDTO.getEnd());
 
-            List<LogModel> logModels = new ArrayList<>();
-            RangeCustomDTO rangeCustomDTO = new RangeCustomDTO(email, start, end);
-
-            AccountsModel accountsModel = accountsRepository.findByEmailAndLog(
-                    rangeCustomDTO.getEmail(),
-                    rangeCustomDTO.getStart(),
-                    rangeCustomDTO.getEnd());
-
-            for (LogModel logModel : accountsModel.getLogs()) {
-                if (logModel.getLogin().after(rangeCustomDTO.getStart())
-                        &&
-                        logModel.getLogin().before(rangeCustomDTO.getEnd())) {
-                    logModels.add(logModel);
-                }
+        for (LogModel logModel : accountsModel.getLogs()) {
+            if (logModel.getLogin().after(rangeCustomDTO.getStart())
+                    &&
+                    logModel.getLogin().before(rangeCustomDTO.getEnd())) {
+                logModels.add(logModel);
             }
-
-            return new AccountsDTO(accountsModel, logModels);
         }
 
+        return new AccountsDTO(accountsModel, logModels);
     }
 
 }
