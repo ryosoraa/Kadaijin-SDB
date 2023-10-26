@@ -1,6 +1,7 @@
 package com.kadaijin.kadaijin.service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -66,10 +67,10 @@ public class AccountsService {
         try {
             Integer id = Integer.parseInt(req);
             Optional<AccountsModel> optional = accountsRepository.findById(id);
-            AccountsDTO dto = new AccountsDTO(optional.get());
+            AccountsDTO dto = new AccountsDTO(optional.get(), Collections.EMPTY_LIST);
             return dto;
         } catch (Exception e) {
-            AccountsDTO accountsDTO = new AccountsDTO(accountsRepository.findByEmail(req));
+            AccountsDTO accountsDTO = new AccountsDTO(accountsRepository.findByEmail(req), Collections.EMPTY_LIST);
             return accountsDTO;
         }
     }
