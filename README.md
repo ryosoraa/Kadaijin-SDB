@@ -8,19 +8,29 @@
 
 > Proyek ini merupakan tugas yang saya dapatkan selama magang di PT Indonesia Indicator dan merupakan perjalanan saya selama belajar bahasa pemrograman Java dan penggunaan framework Spring Boot
 
-## Fitur
+## Feature
 
-- Pemilihan teknologi atau library yang sesuai untuk web scraping.
-- Penentuan struktur data yang akan disimpan.
-- Pengembangan script untuk mengambil data dari halaman web.
-- Pengolahan dan penyimpanan data yang diambil.
-- Dokumentasi yang jelas mengenai cara menjalankan proyek dan menjelaskan kode.
+Proyek ini memiliki berbagai fitur yang sesuai dengan teknologi yang digunakan:
 
-## Versi
+1. **RESTful API**: Proyek ini menyediakan berbagai endpoint RESTful API yang memungkinkan pengguna untuk berinteraksi dengan aplikasi secara programatik. Anda dapat melakukan operasi CRUD (Create, Read, Update, Delete) pada sumber daya aplikasi melalui API ini.
+
+2. **Swagger Documentation**: Dokumentasi API yang dibangun dengan Swagger memungkinkan pengguna untuk dengan mudah menjelajahi dan memahami semua endpoint yang tersedia dalam proyek. Ini termasuk detail tentang penggunaan endpoint, parameter yang diperlukan, dan tanggapan yang diharapkan.
+
+3. **Maven Dependency Management**: Maven digunakan untuk mengelola dependensi proyek. Anda dapat dengan mudah menambahkan atau menghapus dependensi dari proyek Anda dengan menambahkan atau menghapus entri dependensi dalam berkas `pom.xml`. Maven juga mengotomatisasi proses pembangunan proyek, membuatnya lebih mudah untuk mengelola sumber daya dan kompilasi.
+
+4. **Spring Boot Application**: Proyek ini adalah aplikasi berbasis Spring Boot. Spring Boot memberikan konfigurasi otomatis yang kuat dan abstraksi yang memudahkan pengembangan aplikasi. Ini juga mendukung pembuatan aplikasi berkinerja tinggi dengan mudah.
+
+5. **Database Integration**: Proyek ini terintegrasi dengan MySQL sebagai basis data utama. Anda dapat mengelola data aplikasi, seperti pengguna, produk, atau entitas lainnya, melalui API yang terhubung ke basis data MySQL.
+
+6. **Security**: Anda dapat mengintegrasikan fitur keamanan dengan mudah menggunakan Spring Security, memungkinkan Anda untuk mengamankan akses ke endpoint API Anda.
+
+7. **Logging**: Proyek ini menggunakan sistem
+
+## Version
 
 #### v1.0-beta.1 : first launching 💫
 
-> Rilis: 13 Oktober 2023
+> **Rilis: 13 Oktober 2023**
 
 > Pada tanggal ini, proyek saya resmi diluncurkan! Proyek ini dibangun dengan menggunakan teknologi-teknologi canggih, termasuk Spring Boot, Maven, dan Swagger. Di bawah ini adalah penjelasan singkat tentang masing-masing teknologi dan komponen yang digunakan dalam proyek ini:
 
