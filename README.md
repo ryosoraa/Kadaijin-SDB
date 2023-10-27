@@ -1,21 +1,183 @@
-<h1 align="center">Hi 👋, I'm Ryo</h1>
-<h3 align="center">A passionate backend developer from Indonesia</h3>
+<h1 align="center">Halo 👋, Saya Ryo</h1>
+<h3 align="center">Seorang pengembang backend yang bersemangat dari Indonesia</h3>
 
-- 🔭 I’m currently working on **Kadaijin-SDB**
+# Selamat Datang di Kadaijin-SDB 👋
 
-- 👨‍💻 All of my projects are available at [https://ryosoraa.github.io/](https://ryosoraa.github.io/)
+![Versi](https://img.shields.io/badge/versi-4.1--beta.4-biru.svg?cacheSeconds=2592000)
+[![Twitter: Alexis11401746](https://img.shields.io/twitter/follow/Alexis11401746.svg?style=social)](https://twitter.com/dumps)
 
-- 📝 I regularly write articles on [continue](continue)
+> Proyek ini merupakan tugas yang saya dapatkan selama magang di PT Indonesia Indicator dan merupakan perjalanan saya selama belajar bahasa pemrograman Java dan penggunaan framework Spring Boot
 
-- 💬 Ask me about **java, python, C#**
+## Fitur
 
-- 📫 How to reach me **riodwi12174@gmail.com**
+- Pemilihan teknologi atau library yang sesuai untuk web scraping.
+- Penentuan struktur data yang akan disimpan.
+- Pengembangan script untuk mengambil data dari halaman web.
+- Pengolahan dan penyimpanan data yang diambil.
+- Dokumentasi yang jelas mengenai cara menjalankan proyek dan menjelaskan kode.
 
-- 📄 Know about my experiences [continue](continue)
+## Versi
 
-- ⚡ Fun fact **I a become to better person**
+v1.0-beta.1 : launching pertama  
+v1.2-beta.1 : update dto converter ke mapper  
+v1.3-beta.1 : data yang diterima tidak langsung diterima oleh model tpi ke dto dulu  
+v1.3-beta.1 : optimasi converter  
+v1.4-beta.1 : optimasi RangeDTO dan AccountsDTO
+v1.5-beta.1 : Rilis fitur Range  
+v1.6-beta.2 : menambahkan keterangan total login  
+v1.7-beta.2 : penghapusan bug total login terisi padahal pada bulan/waktu itu tidak login
+v1.8-beta.2 : penghapusan table database account
+v1.9-beta.2 : merubah table database kadaijin ke table accounts
+v2.0-beta.2 : optimasi model entity baru
+v2.1-beta.3 : perubahan jpa repository builder
+v2.2-beta.3 : perbaikan convert model to dto
+v2.3-beta.3 : optimasi
+v2.4-beta.3 : penambahan data baru personal data
+v2.5-beta.3 : update personal data model entity dan personal data DTO
+v2.6-beta.3 : update endpoint login hanya membutuhkan body email dan password
+v2.7-beta.3 : penambahan endpoint baru rangeLog
+v2.8-beta.3 : penambahan fitur log range
+v2.9-beta.3 : merubah cara kerja range
+v3.0-beta.3 : menambah keluaran email dan log login secara bersamaan
+v3.1-beta.4 : perubahan dari request body ke request param untuk rangeLog
+v3.2-beta.4 : penambahan fitur between di range log
+v3.3-beta.4 : menghapus log range controller
+v3.4-beta.4 : perbaikan rangeLog between yang tidak bekerja dengan benar
+v3.5-beta.4 : update log getOne dan accounts getOne bisa menerima string email
+v3.6-beta.4 : update range log jika salah satu param between dihapus akan menampilkan semua log
+v3.7-beta.4 : perbaikan di mana getOne account mengeluarkan log  
+v3.8-beta.4 : penghapusan converter model to DTO dan merubah menjadi konstruktor
+v3.9-beta.4 : perubah menjadi 1 controller 1 service
+v3.0-beta.4 : optimasi
+v4.1-beta.4 :
 
-<h3 align="left">Connect with me:</h3>
+## Struktur
+
+```
+├───.mvn
+│   └───wrapper
+├───.vscode
+├───src
+│   ├───main
+│   │   ├───java
+│   │   │   └───com
+│   │   │       └───kadaijin
+│   │   │           └───kadaijin
+│   │   │               ├───configuration
+│   │   │               ├───controller
+│   │   │               ├───json
+│   │   │               ├───model
+│   │   │               │   ├───converter
+│   │   │               │   ├───DAO
+│   │   │               │   └───DTO
+│   │   │               ├───repository
+│   │   │               └───service
+│   │   └───resources
+│   │       ├───static
+│   │       │   └───database
+│   │       └───templates
+│   └───test
+│       └───java
+│           └───com
+│               └───kadaijin
+│                   └───kadaijin
+└───target
+    ├───classes
+    │   ├───com
+    │   │   └───kadaijin
+    │   │       └───kadaijin
+    │   │           ├───configuration
+    │   │           ├───controller
+    │   │           ├───json
+    │   │           ├───model
+    │   │           │   ├───converter
+    │   │           │   ├───DAO
+    │   │           │   └───DTO
+    │   │           ├───repository
+    │   │           └───service
+    │   └───static
+    │       └───database
+    ├───generated-sources
+    │   └───annotations
+    ├───generated-test-sources
+    │   └───test-annotations
+    ├───maven-archiver
+    ├───maven-status
+    │   └───maven-compiler-plugin
+    │       ├───compile
+    │       │   └───default-compile
+    │       └───testCompile
+    │           └───default-testCompile
+    ├───surefire-reports
+    └───test-classes
+        └───com
+            └───kadaijin
+                └───kadaijin
+```
+
+## Teknologi
+
+Aplikasi ini dibangun menggunakan sejumlah proyek sumber terbuka untuk berfungsi dengan benar:
+
+- [Java](<https://id.wikipedia.org/wiki/Java_(bahasa_pemrograman)>) - Bahasa pemrograman berorientasi objek yang dapat dijalankan di berbagai komputer termasuk telepon genggam.
+- [Spring Boot](https://spring.io/projects/spring-boot) - Framework open source untuk membangun aplikasi Java yang berdiri sendiri.
+- [JPA Repository](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/) - Abstraksi Spring Data yang memfasilitasi implementasi repository berdasarkan JPA.
+- [Swagger](https://swagger.io/) - Kerangka kerja open source untuk merancang, membangun, mendokumentasikan, dan mengonsumsi RESTful Web Services.
+- [MySQL](https://www.mysql.com/) - Sistem manajemen database open source yang populer.
+- [Maven](https://maven.apache.org/) - Alat bantu build otomatis untuk proyek Java.
+
+## Kebutuhan
+
+- [Java](https://www.java.com/en/download/) v11+
+- [Maven](https://maven.apache.org/) (sesuaikan versi dengan Java)
+
+## Instalasi
+
+Proyek ini memerlukan [Java](https://www.java.com/en/download/) LTS 11+ untuk dijalankan.
+
+Instal semua dependency yang dibutuhkan pada proyek ini.
+
+```sh
+mvn install
+```
+
+## Penggunaan
+
+```sh
+mvn spring-boot:run
+```
+
+## Penulis
+
+👤 **Rio Dwi Saputra**
+
+- Twitter: [@ryosora12](https://twitter.com/ryosora12)
+- Github: [@ryosoraa](https://github.com/ryosoraa)
+- LinkedIn: [@rio-dwi-saputra-23560b287](https://www.linkedin.com/in/rio-dwi-saputra-23560b287/)
+
+## Lisensi
+
+MIT
+
+## Terima Kasih
+
+> Rio Dwi Saputra
+
+- 🔭 Saat ini saya bekerja pada **Kadaijin-SDB**
+
+- 👨‍💻 Semua proyek saya tersedia di [https://ryosoraa.github.io/](https://ryosoraa.github.io/)
+
+- 📝 Saya secara teratur menulis artikel di [situs web](situs web)
+
+- 💬 Tanya saya tentang **java, python, C#**
+
+- 📫 Hubungi saya di **riodwi12174@gmail.com**
+
+- 📄 Tahu tentang pengalaman saya [situs web](situs web)
+
+- ⚡ Fakta menarik **Saya ingin menjadi pribadi yang lebih baik**
+
+<h3 align="left">Hubungi saya:</h3>
 <p align="left">
 <a href="https://codepen.io/ryosoraa" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codepen.svg" alt="ryosoraa" height="30" width="40" /></a>
 <a href="https://dev.to/ryosoraa" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/devto.svg" alt="ryosoraa" height="30" width="40" /></a>
@@ -26,7 +188,7 @@
 <a href="https://kaggle.com/ryosoraa" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/kaggle.svg" alt="ryosoraa" height="30" width="40" /></a>
 <a href="https://fb.com/ryosoraa" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="ryosoraa" height="30" width="40" /></a>
 <a href="https://instagram.com/ryosoraa" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="ryosoraa" height="30" width="40" /></a>
-<a href="https://www.behance.net/ryosoraa" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/behance.svg" alt="ryosoraa" height="30" width="40" /></a>
+<a href="https://www.behance.net/ryosoraa" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/behance.svg" alt="ryosoraa" height="30" width="40" /></a>  
 <a href="https://hashnode.com/@ryosora" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/hashnode.svg" alt="@ryosora" height="30" width="40" /></a>
 <a href="https://medium.com/@ryosoraa" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/medium.svg" alt="@ryosoraa" height="30" width="40" /></a>
 <a href="https://www.youtube.com/c/ryosoraa" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/youtube.svg" alt="ryosoraa" height="30" width="40" /></a>
@@ -36,14 +198,4 @@
 <a href="https://www.leetcode.com/ryosora" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/leet-code.svg" alt="ryosora" height="30" width="40" /></a>
 <a href="https://www.hackerearth.com/@ryosora" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/hackerearth.svg" alt="@ryosora" height="30" width="40" /></a>
 <a href="https://auth.geeksforgeeks.org/user/ryosoraa" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/geeks-for-geeks.svg" alt="ryosoraa" height="30" width="40" /></a>
-<a href="https://www.topcoder.com/members/ryosoraa" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/topcoder.svg" alt="ryosoraa" height="30" width="40" /></a>
-<a href="https://discord.gg/ryosoraa" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" alt="ryosoraa" height="30" width="40" /></a>
-</p>
-
-<h3 align="left">Languages and Tools:</h3>
-<p align="left"> <a href="https://www.arduino.cc/" target="_blank" rel="noreferrer"> <img src="https://cdn.worldvectorlogo.com/logos/arduino-1.svg" alt="arduino" width="40" height="40"/> </a> <a href="https://www.cockroachlabs.com/product/cockroachdb/" target="_blank" rel="noreferrer"> <img src="https://cdn.worldvectorlogo.com/logos/cockroachdb.svg" alt="cockroachdb" width="40" height="40"/> </a> <a href="https://www.w3schools.com/cs/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg" alt="csharp" width="40" height="40"/> </a> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://flask.palletsprojects.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/pocoo_flask/pocoo_flask-icon.svg" alt="flask" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://www.java.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://kafka.apache.org/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/apache_kafka/apache_kafka-icon.svg" alt="kafka" width="40" height="40"/> </a> <a href="https://www.linux.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/> </a> <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a> <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> <a href="https://spring.io/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/springio/springio-icon.svg" alt="spring" width="40" height="40"/> </a> <a href="https://unity.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/unity3d/unity3d-icon.svg" alt="unity" width="40" height="40"/> </a> </p>
-
-
-<h3 align="left">Support:</h3>
-<p><a href="https://www.buymeacoffee.com/ryosora"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="ryosora" /></a><a href="https://ko-fi.com/ryosoraa"> <img align="left" src="https://cdn.ko-fi.com/cdn/kofi3.png?v=3" height="50" width="210" alt="ryosoraa" /></a></p><br><br>
-
+<a href="https://www.topcoder.com/members/ryosoraa" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-

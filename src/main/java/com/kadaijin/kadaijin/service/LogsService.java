@@ -76,19 +76,23 @@ public class LogsService {
                 rangeCustomDTO.getStart(),
                 rangeCustomDTO.getEnd());
 
-        if (accountsModel == null) {
-            return new AccountsDTO(accountsRepository.findByEmails(rangeCustomDTO.getEmail()), Collections.EMPTY_LIST);
-        } else {
-            for (LogModel logModel : accountsModel.getLogs()) {
-                if (logModel.getLogin().after(rangeCustomDTO.getStart())
-                        &&
-                    logModel.getLogin().before(rangeCustomDTO.getEnd())) {
-                    logModels.add(logModel);
-                }
-            }
+        return new AccountsDTO(accountsModel);
 
-            return new AccountsDTO(accountsModel, logModels);
-        }
+        // if (accountsModel == null) {
+        // return new
+        // AccountsDTO(accountsRepository.findByEmails(rangeCustomDTO.getEmail()),
+        // Collections.EMPTY_LIST);
+        // } else {
+        // for (LogModel logModel : accountsModel.getLogs()) {
+        // if (logModel.getLogin().after(rangeCustomDTO.getStart())
+        // &&
+        // logModel.getLogin().before(rangeCustomDTO.getEnd())) {
+        // logModels.add(logModel);
+        // }
+        // }
+
+        // return new AccountsDTO(accountsModel, logModels);
+        // }
 
     }
 

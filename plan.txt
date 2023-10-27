@@ -11,26 +11,26 @@ v1.8-beta.2 : penghapusan table database account
 v1.9-beta.2 : merubah table database kadaijin ke table accounts
 v2.0-beta.2 : pengoptimalan model entity baru 
 v2.1-beta.3 : perubahan jpa repository builder
-v2.1-beta.3 : perbaikan convert model to dto
-v2.2-beta.3 : optimization
-v2.6-beta.3 : penambahan data baru personal data
-v2.6-beta.3 : update personal data model enityt dan personal data DTO
+v2.2-beta.3 : perbaikan convert model to dto
+v2.3-beta.3 : optimization
+v2.4-beta.3 : penambahan data baru personal data
+v2.5-beta.3 : update personal data model enityt dan personal data DTO
 v2.6-beta.3 : update endpoint login menjadi hanya memnutuhkan masukan body email dan password
-v2.6-beta.3 : penambahan endpoint baru rangeLog
-v2.3-beta.3 : penambahan fiture log range
-v2.3-beta.3 : merubah cara kerja range
-v2.7-beta.3 : menambah supaya keluar email dan log login secara barengan
-v2.3-beta.3 : perubahan dari menggunakan request body untuk rangeLog menjadi menjadi reques param
-v2.3-beta.3 : penambahan fiture between di range log
-v2.4-beta.3 : menghapus log range controller
-v2.6-beta.3 : perbaikan dimana rangeLog between tidak bekerja semestinya
-v2.5-beta.3 : update log getOne and accounts getOne bisa menerima string email
-v2.6-beta.3 : update range log jika salah satu param between di hapus akan menampilkan semua log
-v2.7-beta.3 : perbaikan di mana getOne account mengeluarkan log
-v2.7-beta.3 : penghapusan converter model to DTO dan merubah menjadi konstruktor
-v2.7-beta.3 : perubah menjadi 1 controller 1 service
-v2.7-beta.3 : 
-v2.7-beta.3 : 
+v2.7-beta.3 : penambahan endpoint baru rangeLog
+v2.8-beta.3 : penambahan fiture log range
+v2.9-beta.3 : merubah cara kerja range
+v3.0-beta.3 : menambah supaya keluar email dan log login secara barengan
+v3.1-beta.4 : perubahan dari menggunakan request body untuk rangeLog menjadi menjadi reques param
+v3.2-beta.4 : penambahan fiture between di range log
+v3.3-beta.4 : menghapus log range controller
+v3.4-beta.4 : perbaikan dimana rangeLog between tidak bekerja semestinya
+v3.5-beta.4 : update log getOne and accounts getOne bisa menerima string email
+v3.6-beta.4 : update range log jika salah satu param between di hapus akan menampilkan semua log
+v3.7-beta.4 : perbaikan di mana getOne account mengeluarkan log
+v3.8-beta.4 : penghapusan converter model to DTO dan merubah menjadi konstruktor
+v3.9-beta.4 : perubah menjadi 1 controller 1 service
+v3.0-beta.4 : optimization
+v4.1-beta.4 : 
 
 
 
