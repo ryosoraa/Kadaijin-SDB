@@ -1,12 +1,12 @@
-<h1 align="center">Hello 👋, I'm Ryo</h1>
-<h3 align="center">An independent backend developer</h3>
+<h1 align="center"  >Hello 👋, I'm Ryo</h1    >
+<h3 align="center"  >An independent backend developer</h3 >
 
 # Selamat Datang di Kadaijin-SDB 👋
 
 ![Versi](https://img.shields.io/badge/versi-4.1--beta.4-biru.svg?cacheSeconds=2592000)
 [![Twitter: Alexis11401746](https://img.shields.io/twitter/follow/Alexis11401746.svg?style=social)](https://twitter.com/dumps)
 
-> Proyek ini merupakan tugas yang saya dapatkan selama magang di PT Indonesia Indicator dan merupakan perjalanan saya selama belajar bahasa pemrograman Java dan penggunaan framework Spring Boot
+    > Proyek ini merupakan tugas yang saya dapatkan selama magang di PT Indonesia Indicator dan merupakan perjalanan saya selama belajar bahasa pemrograman Java dan penggunaan framework Spring Boot
 
 ## Feature
 
@@ -32,25 +32,25 @@ Proyek ini memiliki berbagai fitur yang sesuai dengan teknologi yang digunakan:
 
 **Release: 13 Oktober 2023**
 
-> Pada tanggal ini, proyek saya resmi diluncurkan! Proyek ini dibangun dengan menggunakan teknologi-teknologi canggih, termasuk Spring Boot, Maven, dan Swagger. Di bawah ini adalah penjelasan singkat tentang masing-masing teknologi dan komponen yang digunakan dalam proyek ini:
+    > Pada tanggal ini, proyek saya resmi diluncurkan! Proyek ini dibangun dengan menggunakan teknologi-teknologi canggih, termasuk Spring Boot, Maven, dan Swagger. Di bawah ini adalah penjelasan singkat tentang masing-masing teknologi dan komponen yang digunakan dalam proyek ini:
 
-> Spring Boot: Spring Boot adalah framework yang kuat untuk pengembangan aplikasi Java. Ini menyederhanakan pengembangan aplikasi dengan menyediakan banyak konvensi dan konfigurasi otomatis. Spring Boot memungkinkan pengembang untuk dengan cepat membangun aplikasi berkinerja tinggi tanpa harus menghabiskan banyak waktu dalam konfigurasi manual.
+    > Spring Boot: Spring Boot adalah framework yang kuat untuk pengembangan aplikasi Java. Ini menyederhanakan pengembangan aplikasi dengan menyediakan banyak konvensi dan konfigurasi otomatis. Spring Boot memungkinkan pengembang untuk dengan cepat membangun aplikasi berkinerja tinggi tanpa harus menghabiskan banyak waktu dalam konfigurasi manual.
 
-> Maven: Maven adalah alat manajemen proyek yang digunakan untuk mengelola dependensi, mengelola proses pembangunan, dan mengotomatisasi banyak tugas pengembangan. Ini memudahkan pengembang dalam mengelola proyek dan bergantung pada pustaka-pustaka eksternal yang diperlukan.
+    > Maven: Maven adalah alat manajemen proyek yang digunakan untuk mengelola dependensi, mengelola proses pembangunan, dan mengotomatisasi banyak tugas pengembangan. Ini memudahkan pengembang dalam mengelola proyek dan bergantung pada pustaka-pustaka eksternal yang diperlukan.
 
-> Swagger: Swagger digunakan dalam proyek ini untuk menciptakan dokumentasi API yang otomatis. Ini membuat pengembang dan pengguna API dapat dengan mudah memahami dan menguji endpoints API yang ada.
+    > Swagger: Swagger digunakan dalam proyek ini untuk menciptakan dokumentasi API yang otomatis. Ini membuat pengembang dan pengguna API dapat dengan mudah memahami dan menguji endpoints API yang ada.
 
-> Selain itu, proyek ini menggunakan REST API untuk berkomunikasi antara berbagai komponen. REST (Representational State Transfer) adalah gaya arsitektur perangkat lunak yang digunakan untuk merancang jaringan aplikasi web yang bersifat stateless. Proyek ini juga mengandalkan MySQL sebagai basis data utama. MySQL adalah sistem manajemen basis data relasional (RDBMS) yang kuat, yang digunakan untuk menyimpan dan mengelola data aplikasi.
+    > Selain itu, proyek ini menggunakan REST API untuk berkomunikasi antara berbagai komponen. REST (Representational State Transfer) adalah gaya arsitektur perangkat lunak yang digunakan untuk merancang jaringan aplikasi web yang bersifat stateless. Proyek ini juga mengandalkan MySQL sebagai basis data utama. MySQL adalah sistem manajemen basis data relasional (RDBMS) yang kuat, yang digunakan untuk menyimpan dan mengelola data aplikasi.
 
-> Kombinasi dari teknologi-teknologi ini memungkinkan proyek ini untuk berjalan dengan baik dan efisien, memberikan solusi yang andal dan tangguh. Selamat datang di proyek saya, dan kami berharap proyek ini dapat memberikan manfaat bagi pengguna dan pengembang!
+    > Kombinasi dari teknologi-teknologi ini memungkinkan proyek ini untuk berjalan dengan baik dan efisien, memberikan solusi yang andal dan tangguh. Selamat datang di proyek saya, dan kami berharap proyek ini dapat memberikan manfaat bagi pengguna dan pengembang!
 
 - #### v1.1-beta.1 💫
 
   **data yang diterima tidak langsung diterima oleh model tpi ke dto dulu**
 
-> pada versi ini aku melakukan kesalahan karena Request yang dikirimkan oleh user tidak seharusnya langsung di terima oleh Model Enity tetapi harus melalui DTO terlebih dahulu, keuntungan menggunakan DTO adalah
+  > pada versi ini aku melakukan kesalahan karena Request yang dikirimkan oleh user tidak seharusnya langsung di terima oleh Model Enity tetapi harus melalui DTO terlebih dahulu, keuntungan menggunakan DTO adalah
 
-> Menghindari "Overposting": Jika mengizinkan klien untuk mengirim data langsung ke model entitas, ini bisa membuka celah keamanan yang disebut "overposting". Overposting terjadi ketika klien dapat mengirimkan lebih banyak data daripada yang seharusnya, yang dapat menyebabkan masalah keamanan atau kegagalan validasi.
+  > Menghindari "Overposting": Jika mengizinkan klien untuk mengirim data langsung ke model entitas, ini bisa membuka celah keamanan yang disebut "overposting". Overposting terjadi ketika klien dapat mengirimkan lebih banyak data daripada yang seharusnya, yang dapat menyebabkan masalah keamanan atau kegagalan validasi.
 
 - #### v1.2-beta.1 💫
 
@@ -62,13 +62,14 @@ Proyek ini memiliki berbagai fitur yang sesuai dengan teknologi yang digunakan:
 
 **update DTO converter To ModelMapper**
 
-> Pada Versi ini aku merubah yang sebelumnya menggunakan DTO converter selama manual menjadi menggunakan ModelMapper dari Library **org.modelmapper.ModelMapper**,
-> Tapi model ini memiliki kekurangan karena antara DTO dan Model Entity field nya harus sama
+    > Pada Versi ini aku merubah yang sebelumnya menggunakan DTO converter selama manual menjadi menggunakan ModelMapper dari Library **org.modelmapper.ModelMapper**,
+    > Tapi model ini memiliki kekurangan karena antara DTO dan Model Entity field nya harus sama
 
 - #### v1.4-beta.1 💫
+
   **Rilis fitur Range**
 
-> Pada Versi ini aku mendapatkan arahan dari leader ku untuk menambahkan fiture dimana user bisa mengatur paging secara manual atau setiap page nya ingin memunculkan berapa banyak data, karena load dari database akan lambat jika harus me load semua data sekalihus
+  > Pada Versi ini aku mendapatkan arahan dari leader ku untuk menambahkan fiture dimana user bisa mengatur paging secara manual atau setiap page nya ingin memunculkan berapa banyak data, karena load dari database akan lambat jika harus me load semua data sekalihus
 
 - #### v1.5-beta.1 : optimasi RangeDTO dan AccountsDTO 💫
 
@@ -192,7 +193,7 @@ Proyek ini memiliki berbagai fitur yang sesuai dengan teknologi yang digunakan:
 
 Aplikasi ini dibangun menggunakan sejumlah proyek sumber terbuka untuk berfungsi dengan benar:
 
-- [Java](<https://id.wikipedia.org/wiki/Java_(bahasa_pemrograman)>) - Bahasa pemrograman berorientasi objek yang dapat dijalankan di berbagai komputer termasuk telepon genggam.
+- [Java](<https://id.wikipedia.org/wiki/Java_(bahasa_pemrograman)   >) - Bahasa pemrograman berorientasi objek yang dapat dijalankan di berbagai komputer termasuk telepon genggam.
 - [Spring Boot](https://spring.io/projects/spring-boot) - Framework open source untuk membangun aplikasi Java yang berdiri sendiri.
 - [JPA Repository](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/) - Abstraksi Spring Data yang memfasilitasi implementasi repository berdasarkan JPA.
 - [Swagger](https://swagger.io/) - Kerangka kerja open source untuk merancang, membangun, mendokumentasikan, dan mengonsumsi RESTful Web Services.
@@ -234,7 +235,7 @@ MIT
 
 ## Terima Kasih
 
-> Rio Dwi Saputra
+    > Rio Dwi Saputra
 
 - 🔭 Saat ini saya bekerja pada **Kadaijin-SDB**
 
@@ -250,25 +251,25 @@ MIT
 
 - ⚡ Fakta menarik **Saya ingin menjadi pribadi yang lebih baik**
 
-<h3 align="left">Hubungi saya:</h3>
-<p align="left">
-<a href="https://codepen.io/ryosoraa" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codepen.svg" alt="ryosoraa" height="30" width="40" /></a>
-<a href="https://dev.to/ryosoraa" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/devto.svg" alt="ryosoraa" height="30" width="40" /></a>
-<a href="https://twitter.com/ryosora12" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="ryosora12" height="30" width="40" /></a>
-<a href="https://linkedin.com/in/rio-dwi-23560b287" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="rio-dwi-23560b287" height="30" width="40" /></a>
-<a href="https://stackoverflow.com/users/ryosoraa" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/stack-overflow.svg" alt="ryosoraa" height="30" width="40" /></a>
-<a href="https://codesandbox.com/ryosoraa" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codesandbox.svg" alt="ryosoraa" height="30" width="40" /></a>
-<a href="https://kaggle.com/ryosoraa" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/kaggle.svg" alt="ryosoraa" height="30" width="40" /></a>
-<a href="https://fb.com/ryosoraa" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="ryosoraa" height="30" width="40" /></a>
-<a href="https://instagram.com/ryosoraa" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="ryosoraa" height="30" width="40" /></a>
-<a href="https://www.behance.net/ryosoraa" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/behance.svg" alt="ryosoraa" height="30" width="40" /></a>  
-<a href="https://hashnode.com/@ryosora" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/hashnode.svg" alt="@ryosora" height="30" width="40" /></a>
-<a href="https://medium.com/@ryosoraa" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/medium.svg" alt="@ryosoraa" height="30" width="40" /></a>
-<a href="https://www.youtube.com/c/ryosoraa" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/youtube.svg" alt="ryosoraa" height="30" width="40" /></a>
-<a href="https://www.codechef.com/users/ryosoraa" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.1.0/icons/codechef.svg" alt="ryosoraa" height="30" width="40" /></a>
-<a href="https://www.hackerrank.com/@ryosora" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/hackerrank.svg" alt="@ryosora" height="30" width="40" /></a>
-<a href="https://codeforces.com/profile/ryosoraa" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codeforces.svg" alt="ryosoraa" height="30" width="40" /></a>
-<a href="https://www.leetcode.com/ryosora" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/leet-code.svg" alt="ryosora" height="30" width="40" /></a>
-<a href="https://www.hackerearth.com/@ryosora" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/hackerearth.svg" alt="@ryosora" height="30" width="40" /></a>
-<a href="https://auth.geeksforgeeks.org/user/ryosoraa" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/geeks-for-geeks.svg" alt="ryosoraa" height="30" width="40" /></a>
-<a href="https://www.topcoder.com/members/ryosoraa" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-
+<h3 align="left"    >Hubungi saya:</h3  >
+<p align="left" >
+<a href="https://codepen.io/ryosoraa" target="blank"    ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codepen.svg" alt="ryosoraa" height="30" width="40" / ></a >
+<a href="https://dev.to/ryosoraa" target="blank"    ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/devto.svg" alt="ryosoraa" height="30" width="40" /   ></a   >
+<a href="https://twitter.com/ryosora12" target="blank"  ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="ryosora12" height="30" width="40" /  ></a  >
+<a href="https://linkedin.com/in/rio-dwi-23560b287" target="blank"  ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="rio-dwi-23560b287" height="30" width="40" /    ></a    >
+<a href="https://stackoverflow.com/users/ryosoraa" target="blank"   ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/stack-overflow.svg" alt="ryosoraa" height="30" width="40" / ></a >
+<a href="https://codesandbox.com/ryosoraa" target="blank"   ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codesandbox.svg" alt="ryosoraa" height="30" width="40" /    ></a    >
+<a href="https://kaggle.com/ryosoraa" target="blank"    ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/kaggle.svg" alt="ryosoraa" height="30" width="40" /  ></a  >
+<a href="https://fb.com/ryosoraa" target="blank"    ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="ryosoraa" height="30" width="40" /    ></a    >
+<a href="https://instagram.com/ryosoraa" target="blank" ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="ryosoraa" height="30" width="40" /    ></a    >
+<a href="https://www.behance.net/ryosoraa" target="blank"   ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/behance.svg" alt="ryosoraa" height="30" width="40" /    ></a    >  
+<a href="https://hashnode.com/@ryosora" target="blank"  ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/hashnode.svg" alt="@ryosora" height="30" width="40" /  ></a  >
+<a href="https://medium.com/@ryosoraa" target="blank"   ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/medium.svg" alt="@ryosoraa" height="30" width="40" /    ></a    >
+<a href="https://www.youtube.com/c/ryosoraa" target="blank" ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/youtube.svg" alt="ryosoraa" height="30" width="40" /  ></a  >
+<a href="https://www.codechef.com/users/ryosoraa" target="blank"    ><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.1.0/icons/codechef.svg" alt="ryosoraa" height="30" width="40" /   ></a   >
+<a href="https://www.hackerrank.com/@ryosora" target="blank"    ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/hackerrank.svg" alt="@ryosora" height="30" width="40" /  ></a  >
+<a href="https://codeforces.com/profile/ryosoraa" target="blank"    ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codeforces.svg" alt="ryosoraa" height="30" width="40" /  ></a  >
+<a href="https://www.leetcode.com/ryosora" target="blank"   ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/leet-code.svg" alt="ryosora" height="30" width="40" /   ></a   >
+<a href="https://www.hackerearth.com/@ryosora" target="blank"   ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/hackerearth.svg" alt="@ryosora" height="30" width="40" /    ></a    >
+<a href="https://auth.geeksforgeeks.org/user/ryosoraa" target="blank"   ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/geeks-for-geeks.svg" alt="ryosoraa" height="30" width="40" /    ></a    >
+<a href="https://www.topcoder.com/members/ryosoraa" target="blank"  ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-
