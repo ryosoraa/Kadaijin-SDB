@@ -60,129 +60,130 @@ Proyek ini memiliki berbagai fitur yang sesuai dengan teknologi yang digunakan:
 
 <br>
 
-![Version](https://img.shields.io/badge/version-1.2--beta.1-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-1.2--beta.1-blue.svg?cacheSeconds=2592000) <br>
 **Optimization Converter** 💫
 
 > Pada versi ini aku membuat Class baru yang di khusukan untuk Merubah data Model Enity menjadi DTO dan sebaliknya, serta Membuat converter List Model Entity menjadi List Model DTO, Dan berlaku juga untuk Page dan Optional
 
 <br>
 
-![Version](https://img.shields.io/badge/version-1.3--beta.1-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-1.3--beta.1-blue.svg?cacheSeconds=2592000) <br>
 **Update DTO Converter To ModelMapper** 💫
+<br>
 
 > Pada Versi ini aku merubah yang sebelumnya menggunakan DTO converter selama manual menjadi menggunakan ModelMapper dari Library **org.modelmapper.ModelMapper**, 💫
 > Tapi model ini memiliki kekurangan karena antara DTO dan Model Entity field nya harus sama
 
 <br>
 
-![Version](https://img.shields.io/badge/version-1.4--beta.1-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-1.4--beta.1-blue.svg?cacheSeconds=2592000) <br>
 **Range Feature Release** 💫
 
 > Di Versi ini aku mendapatkan arahan dari leader ku untuk menambahkan fiture dimana user bisa mengatur paging secara manual atau setiap page nya ingin memunculkan berapa banyak data, karena load dari database akan lambat jika harus me load semua data sekalihus
 
 <br>
 
-![Version](https://img.shields.io/badge/version-1.5--beta.1-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-1.5--beta.1-blue.svg?cacheSeconds=2592000) <br>
 **Optimization RangeDTO dan AccountsDTO** 💫
 
 > DI versi sebelumnya penggunaan RangeDTO dan AccountDTO aku buat dengan Inherintence karena kedua Class memiliki kemiripan tetapi hasil return yang di hasikan tidak Rapi, Karena itu pada versi kali ini saya merubah menjadi 2 Class yang berbeda meski kedua model memiliki kemiripan
 
 <br>
 
-![Version](https://img.shields.io/badge/version-1.6--beta.2-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-1.6--beta.2-blue.svg?cacheSeconds=2592000) <br>
 **Add total login information** 💫
 
 > Setelah melaporkan hasil project pada versi sebelumnya aku mendapatkan arahan lagi untuk menambahkan fiture untuk melihat user tertentu itu sudah login berapa kali, lalu pada update versi kali ini aku menambahkan field baru dimana untuk menyimpan total Login user
 
 <br>
 
-![Version](https://img.shields.io/badge/version-1.7--beta.2-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-1.7--beta.2-blue.svg?cacheSeconds=2592000) <br>
 **Bug Fix Total Logins Not Filled In At The Right Timet** 💫
 
 > Pada versi ini, aku telah mengatasi masalah yang mengakibatkan total login terisi meskipun tidak ada aktivitas login yang sebenarnya pada bulan/waktu tertentu. Bug ini sekarang telah diperbaiki sehingga total login akan akurat merefleksikan aktivitas login yang sesungguhnya
 
 <br>
 
-![Version](https://img.shields.io/badge/version-1.8--beta.2-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-1.8--beta.2-blue.svg?cacheSeconds=2592000) <br>
 **Penghapusan Table Database Account** 💫
 
 > Di versi kali ini saya aku menghapus table account di database karena dinilai tidak optimal dan tidak berguna, karena pada versi sebelumnya aku mempunyai 3 table yaitu table user untuk menyimpan data user yang sudah melakukan registrasi, lalu table account untuk menyimpan data user yang berhasil login, dan table logs untuk menyimpan waktu user login, tapi penggunaan table account terlalu tidak berguna karena bisa langsung menggunakan table user untuk menyimpan data total login dan karena user merupakan table utama
 
 <br>
 
-![Version](https://img.shields.io/badge/version-1.9--beta.2-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-1.9--beta.2-blue.svg?cacheSeconds=2592000) <br>
 **change the kadaijin database table to the accounts table** 💫
 
 > Pada versi ini aku hanya melakukan perubahan kecil pada pengelolaan database nya, yaitu seperti merubah table user menjadi table accounts serta merubah beberapa nama column di dalamnya supaya bisa menjadi lebih mudah pengelolaan data nya
 
 <br>
 
-![Version](https://img.shields.io/badge/version-2.0--beta.2-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-2.0--beta.2-blue.svg?cacheSeconds=2592000) <br>
 **Optimization model entity baru** 💫
 
 > Pada versi sebelumnya aku melakukan perubahan pada database yang dimana ini memberikan dampak pada model entity nya menjadi tidak sesuai, dan di versi kali ini aku melakukan perbaikan untuk menyesuaikan antara database dan model entity nya
 
 <br>
 
-![Version](https://img.shields.io/badge/version-2.1--beta.3-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-2.1--beta.3-blue.svg?cacheSeconds=2592000) <br>
 **jpa repository builder changes** 💫
 
-> DI versi kali aku melakukan perbaikan pada Repository karena tidak dapat membuat query seperti yang aku harapkan, Dimana sebelumnya aku menggunakan fiture JPA builder untuk membuat query secara otomatis sekarang aku membuat Query manual di repository dengan menggunakan annotation **@Query** kelebihan pembuatan query manual adalah pengelolaan nya menjadi lebih💫mudah
+> DI versi kali aku melakukan perbaikan pada Repository karena tidak dapat membuat query seperti yang aku harapkan, Dimana sebelumnya aku menggunakan fiture JPA builder untuk membuat query secara otomatis sekarang aku membuat Query manual di repository dengan menggunakan annotation **@Query** kelebihan pembuatan query manual adalah pengelolaan nya menjadi <br>lebih💫mudah
 
 <br>
 
-![Version](https://img.shields.io/badge/version-2.2--beta.3-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-2.2--beta.3-blue.svg?cacheSeconds=2592000) <br>
 **repair convert model to dto** 💫
 
-> DI versi sebelumnya tepatnya pada versi **v1.3-beta.1** aku merubah converter menjadi menggunakan ModelMapper, tapi ternyata methode itu kurang effisien dikarenakan data dari model💫entity langsung di rubah dan di return kembali ke user tanpa bisa merubah apapun, dan hal ini menyulitkan untuk me ngeset data yang tidak ada di dalam model Entity
+> DI versi sebelumnya tepatnya pada versi **v1.3-beta.1** aku merubah converter menjadi menggunakan ModelMapper, tapi ternyata methode itu kurang effisien dikarenakan data dari <br>model💫entity langsung di rubah dan di return kembali ke user tanpa bisa merubah apapun, dan hal ini menyulitkan untuk me ngeset data yang tidak ada di dalam model Entity
 
 > seperti pada versi ini aku sedang membuat fiture total login dan aku menambahkan field baru di dalam Accoutns DTO tetapi karena sebelumnya aku menggunakan model Mapper aku jadi tidak bisa mengisi field total login karena field itu tidak ada di dalam model entity accountsModel sehingga aku harus menjalankan 2 query untuk mengembalikan total login dan data yang dari model entity yang di ambil dari repository
 
 <br>
 
-![Version](https://img.shields.io/badge/version-2.3--beta.3-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-2.3--beta.3-blue.svg?cacheSeconds=2592000) <br>
 **Optimization** 💫
 
 > Versi ini merupakan kelanjutan dari versi sebelumnya, pada versi ini aku merubah yang sebelumnya converter ku menggunakan model Mapper sekarang aku menggunakan construktor di dto nya, dimana construktor DTO ku menerima 2 paramater yaitu modelEntity dan juga list Modelentity lalu untuk mengeset totalLogin dan logs nya aku mengambil dari paramater List modelEnityt tersebut
 
 <br>
 
-![Version](https://img.shields.io/badge/version-2.4--beta.4-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-2.4--beta.4-blue.svg?cacheSeconds=2592000) <br>
 **adding new personal data** 💫
 
 > Setelah melaporkan project versi sebelumnya aku mendapatkan arahan untuk berlatih join pada Sql dan juga Jpa, lalu untuk menambah menu latihan dan juga tantangan aku menambahkan data baru yaitu personal data pada table di sql dan aku membuat personal data model entity dan juga repositorynya
 
 <br>
 
-![Version](https://img.shields.io/badge/version-1.2--beta.4-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-1.2--beta.4-blue.svg?cacheSeconds=2592000) <br>
 **update personal data model entity dan personal data DTO** 💫
 
-> pada versi ini aku hanya menambahkan contruktor untuk merubah Personal data DTO ke model entity dan juga sebaliknya, serta menambahkan sedikit configurasi pada model entity yangutama di mana aku menambakkan field baru dan **@OneToMany** pada model entity utama supaya table saling terhubung menggunakan foreign key 💫
+> pada versi ini aku hanya menambahkan contruktor untuk merubah Personal data DTO ke model entity dan juga sebaliknya, serta menambahkan sedikit configurasi pada model entity <br>yangutama di mana aku menambakkan field baru dan **@OneToMany** pada model entity utama supaya table saling terhubung menggunakan foreign key 💫
 
 <br>
 
-![Version](https://img.shields.io/badge/version-2.5--beta.4-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-2.5--beta.4-blue.svg?cacheSeconds=2592000) <br>
 **update endpoint login hanya membutuhkan body email dan password** 💫
 
 > Pada versi ini aku merubah endpoint login menjadi menerima requestBody email dan password, kaena pada versi sebelumnya aku mempunyai 2 endpoint login, yang satu untuk menerima reuqest dari sisi frontend dan yang satunya utnuk alternative login, tetapi membuat 2 endpoint dengan fungsi yang sama kurang effisien dan pada akhirnya aku menghapus salah satu endpoint dan aku merubah menjadi hanya bisa menerima dalam bentuk json dan di terima oleh request body
 
 <br>
 
-![Version](https://img.shields.io/badge/version-2.6--beta.4-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-2.6--beta.4-blue.svg?cacheSeconds=2592000) <br>
 **Added new controller rangeLog** 💫
 
 > setelah melakukan configurasi untuk log range akhirnya pada versi ini aku menambahkan controller untuk range log tersebut, dimana pada controller ini aku berencana menambahkan 3 endpoint dimana user bisa mengatur ingin mencari logs suatu user melalui rentang tahun, bulan, hari tertentu dan juga bisa custom pada tanggal berapa sampai berapa user tersebut sudah logib berapa kali
 
 <br>
 
-![Version](https://img.shields.io/badge/version-2.7--beta.4-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-2.7--beta.4-blue.svg?cacheSeconds=2592000) <br>
 **Added log range feature** 💫
 
 > versi ini merupakan kelanjutan dari versi sebelumnya di mana aku berencana menambahkan log range dengan beberapa fiture dan fiture tersebut telah aku tambahkan pada versi kali ini
 
 <br>
 
-![Version](https://img.shields.io/badge/version-2.8--beta.4-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-2.8--beta.4-blue.svg?cacheSeconds=2592000) <br>
 **changed the way the range works** 💫
 
 > setelah melaporkan project pada versi sebelumnya aku mendapatkan arahan lagi dari leaderku kenapa harus menjadi 3 endpoint kenapa tidak menjadi 1 saja di customs, dengan alasan ke effisienan karena semua endpoint tersebut bisa di handle oleh 1 endpoint customs saja
@@ -191,77 +192,77 @@ Proyek ini memiliki berbagai fitur yang sesuai dengan teknologi yang digunakan:
 
 <br>
 
-![Version](https://img.shields.io/badge/version-2.9--beta.5-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-2.9--beta.5-blue.svg?cacheSeconds=2592000) <br>
 **Fixed The Missing Login Logs** 💫
 
 > Pada versi ini aku melakukan perbaikan di mana terdapat bug log dari login tidak mengeluarkan hasil apapun pada saat user mengakses melalui email, dan data yang di kembalikan ke user hanya data account dan personal data tanpa log
 
 <br>
 
-![Version](https://img.shields.io/badge/version-3.0--beta.5-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-3.0--beta.5-blue.svg?cacheSeconds=2592000) <br>
 **Changed From Request Body To Request Param** 💫
 
 > Pada versi ini aku melakukan perubahan karena rangeDTO tidak mau menerima data Request body dari user dan data dari DTO tetap null, sehingga pada versi kali ini aku merubah yang sebelumnya method post aku rubah menjadi get dan hanya menerima reuqest melalui request param
 
 <br>
 
-![Version](https://img.shields.io/badge/version-3.1--beta.5-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-3.1--beta.5-blue.svg?cacheSeconds=2592000) <br>
 **rangeLog between bug that doesn't work correctly** 💫
 
 > Pada versi ini terdapat bug yang sangat menjengkelkan dimana query between yang aku buat tidak mereturn hasil sesuai dengan yang aku minta dan pada versi ini aku belum menemukan cara memperbaikinya
 
 <br>
 
-![Version](https://img.shields.io/badge/version-3.2--beta.5-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-3.2--beta.5-blue.svg?cacheSeconds=2592000) <br>
 **Added Filter Between In Range Log** 💫
 
 > Versi ini merupakan lanjutan dari versi sebelunya yang dimana terdapat bug fiture beetwwen yang aku buat di dalam repository tidak bekerja dan pada versi ini aku menambahkan fiture filter untuk mengambil semua data log dan aku filter untuk mengambil data mulai dari tanggal start dan sebelum tanggal end
 
 <br>
 
-![Version](https://img.shields.io/badge/version-3.3--beta.5-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-3.3--beta.5-blue.svg?cacheSeconds=2592000) <br>
 **Clearing Range Controller Logs** 💫
 
 > Pada versi kali ini aku menghapus range controller dan menggabungkan nya ke log controller, karena dinilai kurang effisien dan terlalu banyak controller padahal fiture nya sama
 
 <br>
 
-![Version](https://img.shields.io/badge/version-3.4--beta.5-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-3.4--beta.5-blue.svg?cacheSeconds=2592000) <br>
 **Update Log GetOne And Accounts GetOne Can Receive Email Strings** 💫
 
 > Pada versi ini aku menambahkan fiture dimana getOne pada controller log bisa menerima email atau id, jika memasukan email maka dia akan mencari di repository melalui query email dan jika id dia akan mencari dengan find by id
 
 <br>
 
-![Version](https://img.shields.io/badge/version-3.5--beta.5-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-3.5--beta.5-blue.svg?cacheSeconds=2592000) <br>
 **Fixed Accounts GetOne Outputting Logs** 💫
 
 > Pada versi kali ini aku melakukan perbaikan dimana pada versi sebelumnya terdapat bug log ikut terpanggil padahal yang harus di kembalikan ke pada user hanyalah account dan personal data tanpa log
 
 <br>
 
-![Version](https://img.shields.io/badge/version-3.6--beta.5-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-3.6--beta.5-blue.svg?cacheSeconds=2592000) <br>
 **update range log if one of the between params is deleted will display all logs** 💫
 
 > pada versi ini aku menambahkan fiture dimana jika salah satu param start atau end di endpoint log range maka data log akan di kembalikan ke user semua, sehingga bisa tahu user tersebut selama ini sudah login berapa kali
 
 <br>
 
-![Version](https://img.shields.io/badge/version-3.7--beta.5-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-3.7--beta.5-blue.svg?cacheSeconds=2592000) <br>
 **Deleting the model to DTO converter and changing it to a constructor** 💫
 
 > pada versi ini aku melakukan penghapusan dan perubahan total terhadap penggunaan model Mapper untuk mengconvert DTO ke model entity dan sebaliknya , dan aku hanya menyisakan untuk merubah list DTO ke List Model Entity saja
 
 <br>
 
-![Version](https://img.shields.io/badge/version-3.8--beta.5-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-3.8--beta.5-blue.svg?cacheSeconds=2592000) <br>
 **change to 1 controller 1 service** 💫
 
 > di versi ini aku memperbaiki package dimana yang sebelunya aku membagi service tergantung fungsinya sekarang aku mengelompokan service melalui controller yang dimana sekarang 1 controller akan memiliki 1 service
 
 <br>
 
-![Version](https://img.shields.io/badge/version-3.9--beta.5-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-3.9--beta.5-blue.svg?cacheSeconds=2592000) <br>
 **optimization** 💫
 
 > pada versi kali ini aku melakukan pembersihan total dan perapihan package serta penghapusan method yang tidak di perlukan atau tidak di gunakan lagi, aku juga menambahkan sedikit descripsi di service untuk mempermudah pengelolaan
