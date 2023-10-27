@@ -1,7 +1,7 @@
-<h1 align="center"  >Hello 👋, I'm Ryo</h1    >
-<h3 align="center"  >An independent backend developer</h3 >
+<h1 align="center" >Hello 👋, I'm Ryo</h1   >
+<h3 align="center" >An independent backend developer</h3>
 
-# Selamat Datang di Kadaijin-SDB 👋
+# Welcome To Kadaijin-SDB 🌟
 
 ![Versi](https://img.shields.io/badge/versi-4.1--beta.4-biru.svg?cacheSeconds=2592000)
 [![Twitter: Alexis11401746](https://img.shields.io/twitter/follow/Alexis11401746.svg?style=social)](https://twitter.com/dumps)
@@ -27,6 +27,14 @@ Proyek ini memiliki berbagai fitur yang sesuai dengan teknologi yang digunakan:
   **Logging**: Proyek ini menggunakan sistem
 
 ## Version
+
+- Berikut adalah file README dalam format .md:
+
+# Kadaijin-SDB
+
+![Version](https://img.shields.io/badge/version-4.1--beta.4-blue.svg?cacheSeconds=2592000)
+
+## Version History
 
 - #### v1.0-beta.1 : First Launching 💫
 
@@ -107,47 +115,131 @@ Proyek ini memiliki berbagai fitur yang sesuai dengan teknologi yang digunakan:
 
   > Pada versi sebelumnya aku melakukan perubahan pada database yang dimana ini memberikan dampak pada model entity nya menjadi tidak sesuai, dan di versi kali ini aku melakukan perbaikan untuk menyesuaikan antara database dan model entity nya
 
-- #### v2.1-beta.3 : perubahan jpa repository builder 💫
+- #### v2.1-beta.3 💫
 
-- #### v2.2-beta.3 : perbaikan convert model to dto 💫
+  **jpa repository builder changes**
 
-- #### v2.3-beta.3 : Optimization 💫
+  > DI versi kali aku melakukan perbaikan pada Repository karena tidak dapat membuat query seperti yang aku harapkan, Dimana sebelumnya aku menggunakan fiture JPA builder untuk membuat query secara otomatis sekarang aku membuat Query manual di repository dengan menggunakan annotation **@Query** kelebihan pembuatan query manual adalah pengelolaan nya menjadi lebih mudah
 
-- #### v2.4-beta.3 : penambahan data baru personal data 💫
+- #### v2.2-beta.3 💫
 
-- #### v2.5-beta.3 : update personal data model entity dan personal data DTO 💫
+  **repair convert model to dto**
 
-- #### v2.6-beta.3 : update endpoint login hanya membutuhkan body email dan password 💫
+  > DI versi sebelumnya tepatnya pada versi **v1.3-beta.1** aku merubah converter menjadi menggunakan ModelMapper, tapi ternyata methode itu kurang effisien dikarenakan data dari model entity langsung di rubah dan di return kembali ke user tanpa bisa merubah apapun, dan hal ini menyulitkan untuk me ngeset data yang tidak ada di dalam model Entity
 
-- #### v2.7-beta.3 : penambahan endpoint baru rangeLog 💫
+  > seperti pada versi ini aku sedang membuat fiture total login dan aku menambahkan field baru di dalam Accoutns DTO tetapi karena sebelumnya aku menggunakan model Mapper aku jadi tidak bisa mengisi field total login karena field itu tidak ada di dalam model entity accountsModel sehingga aku harus menjalankan 2 query untuk mengembalikan total login dan data yang dari model entity yang di ambil dari repository
 
-- #### v2.8-beta.3 : penambahan fitur log range 💫
+- #### v2.3-beta.3 💫
 
-- #### v2.9-beta.3 : merubah cara kerja range 💫
+  **Optimization**
 
-- #### v3.0-beta.3 : menambah keluaran email dan log login secara bersamaan 💫
+  > Versi ini merupakan kelanjutan dari versi sebelumnya, pada versi ini aku merubah yang sebelumnya converter ku menggunakan model Mapper sekarang aku menggunakan construktor di dto nya, dimana construktor DTO ku menerima 2 paramater yaitu modelEntity dan juga list Modelentity lalu untuk mengeset totalLogin dan logs nya aku mengambil dari paramater List modelEnityt tersebut
 
-- #### v3.1-beta.4 : perubahan dari request body ke request param untuk rangeLog 💫
+- #### v2.4-beta.4 💫
 
-- #### v3.2-beta.4 : penambahan fitur between di range log 💫
+  **adding new personal data**
 
-- #### v3.3-beta.4 : menghapus log range controller 💫
+  > Setelah melaporkan project versi sebelumnya aku mendapatkan arahan untuk berlatih join pada Sql dan juga Jpa, lalu untuk menambah menu latihan dan juga tantangan aku menambahkan data baru yaitu personal data pada table di sql dan aku membuat personal data model entity dan juga repositorynya
 
-- #### v3.4-beta.4 : perbaikan rangeLog between yang tidak bekerja dengan benar 💫
+- #### v2.5-beta.4 💫
 
-- #### v3.5-beta.4 : update log getOne dan accounts getOne bisa menerima string email 💫
+  **update personal data model entity dan personal data DTO**
 
-- #### v3.6-beta.4 : update range log jika salah satu param between dihapus akan menampilkan semua log 💫
+  > pada versi ini aku hanya menambahkan contruktor untuk merubah Personal data DTO ke model entity dan juga sebaliknya, serta menambahkan sedikit configurasi pada model entity yang utama di mana aku menambakkan field baru dan **@OneToMany** pada model entity utama supaya table saling terhubung menggunakan foreign key
 
-- #### v3.7-beta.4 : perbaikan di mana getOne account mengeluarkan log 💫
+- #### v2.6-beta.4 💫
 
-- #### v3.8-beta.4 : penghapusan converter model to DTO dan merubah menjadi konstruktor 💫
+  **update endpoint login hanya membutuhkan body email dan password**
 
-- #### v3.9-beta.4 : perubah menjadi 1 controller 1 service 💫
+  > Pada versi ini aku merubah endpoint login menjadi menerima requestBody email dan password, kaena pada versi sebelumnya aku mempunyai 2 endpoint login, yang satu untuk menerima reuqest dari sisi frontend dan yang satunya utnuk alternative login, tetapi membuat 2 endpoint dengan fungsi yang sama kurang effisien dan pada akhirnya aku menghapus salah satu endpoint dan aku merubah menjadi hanya bisa menerima dalam bentuk json dan di terima oleh request body
 
-- #### v4.0-beta.4 : optimasi 💫
+- #### v2.7-beta.4 💫
 
-- #### v4.1-beta.4 : 💫
+  **Added new controller rangeLog**
+
+  > setelah melakukan configurasi untuk log range akhirnya pada versi ini aku menambahkan controller untuk range log tersebut, dimana pada controller ini aku berencana menambahkan 3 endpoint dimana user bisa mengatur ingin mencari logs suatu user melalui rentang tahun, bulan, hari tertentu dan juga bisa custom pada tanggal berapa sampai berapa user tersebut sudah logib berapa kali
+
+- #### v2.8-beta.4 💫
+
+  **Added log range feature**
+
+  > versi ini merupakan kelanjutan dari versi sebelumnya di mana aku berencana menambahkan log range dengan beberapa fiture dan fiture tersebut telah aku tambahkan pada versi kali ini
+
+- #### v2.9-beta.5 💫
+
+  **changed the way the range works**
+
+  > setelah melaporkan project pada versi sebelumnya aku mendapatkan arahan lagi dari leaderku kenapa harus menjadi 3 endpoint kenapa tidak menjadi 1 saja di customs, dengan alasan ke effisienan karena semua endpoint tersebut bisa di handle oleh 1 endpoint customs saja
+
+  > dan pada versi kali ini aku sudah menggabung ke 3 endpoint tersebut menjadi 1 endpoint rangeLog dimana membutuhkan 3 paramater yaitu email, start, dan end
+
+- #### v3.0-beta.5 : Added Output Emails And Login Logs ⚡
+
+  **Fixed The Missing Login Logs**
+
+  > Pada versi ini aku melakukan perbaikan di mana terdapat bug log dari login tidak mengeluarkan hasil apapun pada saat user mengakses melalui email, dan data yang di kembalikan ke user hanya data account dan personal data tanpa log
+
+- #### v3.1-beta.5 💫
+
+  **Changed From Request Body To Request Param**
+
+  > Pada versi ini aku melakukan perubahan karena rangeDTO tidak mau menerima data Request body dari user dan data dari DTO tetap null, sehingga pada versi kali ini aku merubah yang sebelumnya method post aku rubah menjadi get dan hanya menerima reuqest melalui request param
+
+- #### v3.2-beta.5 💫
+
+  **rangeLog between bug that doesn't work correctly**
+
+  > Pada versi ini terdapat bug yang sangat menjengkelkan dimana query between yang aku buat tidak mereturn hasil sesuai dengan yang aku minta dan pada versi ini aku belum menemukan cara memperbaikinya
+
+- #### v3.3-beta.5 💫
+
+  **Added Filter Between In Range Log**
+
+  > Versi ini merupakan lanjutan dari versi sebelunya yang dimana terdapat bug fiture beetwwen yang aku buat di dalam repository tidak bekerja dan pada versi ini aku menambahkan fiture filter untuk mengambil semua data log dan aku filter untuk mengambil data mulai dari tanggal start dan sebelum tanggal end
+
+- #### v3.4-beta.5 💫
+
+  **Clearing Range Controller Logs**
+
+  > Pada versi kali ini aku menghapus range controller dan menggabungkan nya ke log controller, karena dinilai kurang effisien dan terlalu banyak controller padahal fiture nya sama
+
+- #### v3.5-beta.5 💫
+
+  **Update Log GetOne And Accounts GetOne Can Receive Email Strings**
+
+  > Pada versi ini aku menambahkan fiture dimana getOne pada controller log bisa menerima email atau id, jika memasukan email maka dia akan mencari di repository melalui query email dan jika id dia akan mencari dengan find by id
+
+- #### v3.6-beta.5 💫
+
+  **Fixed Accounts GetOne Outputting Logs**
+
+  > Pada versi kali ini aku melakukan perbaikan dimana pada versi sebelumnya terdapat bug log ikut terpanggil padahal yang harus di kembalikan ke pada user hanyalah account dan personal data tanpa log
+
+- #### v3.6-beta.5 💫
+
+  **update range log if one of the between params is deleted will display all logs**
+
+  > pada versi ini aku menambahkan fiture dimana jika salah satu param start atau end di endpoint log range maka data log akan di kembalikan ke user semua, sehingga bisa tahu user tersebut selama ini sudah login berapa kali
+
+- #### v3.7-beta.5 💫
+
+  **Deleting the model to DTO converter and changing it to a constructor**
+
+  > pada versi ini aku melakukan penghapusan dan perubahan total terhadap penggunaan model Mapper untuk mengconvert DTO ke model entity dan sebaliknya , dan aku hanya menyisakan untuk merubah list DTO ke List Model Entity saja
+
+- #### v3.8-beta.5 💫
+
+  **change to 1 controller 1 service**
+
+  > di versi ini aku memperbaiki package dimana yang sebelunya aku membagi service tergantung fungsinya sekarang aku mengelompokan service melalui controller yang dimana sekarang 1 controller akan memiliki 1 service
+
+- #### v3.9-beta.5 💫
+
+  **optimization**
+
+  > pada versi kali ini aku melakukan pembersihan total dan perapihan package serta penghapusan method yang tidak di perlukan atau tidak di gunakan lagi, aku juga menambahkan sedikit descripsi di service untuk mempermudah pengelolaan
+
+- #### v4.0-beta.5 : 💫
 
 ## Struktur
 
