@@ -85,15 +85,27 @@ Proyek ini memiliki berbagai fitur yang sesuai dengan teknologi yang digunakan:
 
 - #### v1.7-beta.2 💫
 
-  **Perbaikan Bug Total Login yang Tidak Terisi Pada Waktu yang Tepat**
+  **Bug Fix Total Logins Not Filled In At The Right Timet**
 
   > Pada versi ini, aku telah mengatasi masalah yang mengakibatkan total login terisi meskipun tidak ada aktivitas login yang sebenarnya pada bulan/waktu tertentu. Bug ini sekarang telah diperbaiki sehingga total login akan akurat merefleksikan aktivitas login yang sesungguhnya
 
-- #### v1.8-beta.2 : penghapusan table database account 💫
+- #### v1.8-beta.2 💫
 
-- #### v1.9-beta.2 : merubah table database kadaijin ke table accounts 💫
+  **Penghapusan Table Database Account**
 
-- #### v2.0-beta.2 : Optimization model entity baru 💫
+  > Di versi kali ini saya aku menghapus table account di database karena dinilai tidak optimal dan tidak berguna, karena pada versi sebelumnya aku mempunyai 3 table yaitu table user untuk menyimpan data user yang sudah melakukan registrasi, lalu table account untuk menyimpan data user yang berhasil login, dan table logs untuk menyimpan waktu user login, tapi penggunaan table account terlalu tidak berguna karena bisa langsung menggunakan table user untuk menyimpan data total login dan karena user merupakan table utama
+
+- #### v1.9-beta.2 💫
+
+  **change the kadaijin database table to the accounts table**
+
+  > Pada versi ini aku hanya melakukan perubahan kecil pada pengelolaan database nya, yaitu seperti merubah table user menjadi table accounts serta merubah beberapa nama column di dalamnya supaya bisa menjadi lebih mudah pengelolaan data nya
+
+- #### v2.0-beta.2 💫
+
+  **Optimization model entity baru**
+
+  > Pada versi sebelumnya aku melakukan perubahan pada database yang dimana ini memberikan dampak pada model entity nya menjadi tidak sesuai, dan di versi kali ini aku melakukan perbaikan untuk menyesuaikan antara database dan model entity nya
 
 - #### v2.1-beta.3 : perubahan jpa repository builder 💫
 
@@ -133,7 +145,7 @@ Proyek ini memiliki berbagai fitur yang sesuai dengan teknologi yang digunakan:
 
 - #### v3.9-beta.4 : perubah menjadi 1 controller 1 service 💫
 
-- #### v3.0-beta.4 : optimasi 💫
+- #### v4.0-beta.4 : optimasi 💫
 
 - #### v4.1-beta.4 : 💫
 
