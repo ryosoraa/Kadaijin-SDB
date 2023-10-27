@@ -51,13 +51,13 @@ Proyek ini memiliki berbagai fitur yang sesuai dengan teknologi yang digunakan:
 
   > Kombinasi dari teknologi-teknologi ini memungkinkan proyek ini untuk berjalan dengan baik dan efisien, memberikan solusi yang andal dan tangguh. Selamat datang di proyek saya, dan kami berharap proyek ini dapat memberikan manfaat bagi pengguna dan pengembang!
 
-- ![Version](https://img.shields.io/badge/version-1.1--beta.1-blue.svg?cacheSeconds=2592000) 💫
+### ![Version](https://img.shields.io/badge/version-1.1--beta.1-blue.svg?cacheSeconds=2592000) 💫
 
-  **The received data is filtered through DTO before being stored in the model**
+**The received data is filtered through DTO before being stored in the model**
 
-  > pada versi ini aku melakukan kesalahan karena Request yang dikirimkan oleh user tidak seharusnya langsung di terima oleh Model Enity tetapi harus melalui DTO terlebih dahulu, keuntungan menggunakan DTO adalah
+> pada versi ini aku melakukan kesalahan karena Request yang dikirimkan oleh user tidak seharusnya langsung di terima oleh Model Enity tetapi harus melalui DTO terlebih dahulu, keuntungan menggunakan DTO adalah
 
-  > Menghindari "Overposting": Jika mengizinkan klien untuk mengirim data langsung ke model entitas, ini bisa membuka celah keamanan yang disebut "overposting". Overposting terjadi ketika klien dapat mengirimkan lebih banyak data daripada yang seharusnya, yang dapat menyebabkan masalah keamanan atau kegagalan validasi.
+> Menghindari "Overposting": Jika mengizinkan klien untuk mengirim data langsung ke model entitas, ini bisa membuka celah keamanan yang disebut "overposting". Overposting terjadi ketika klien dapat mengirimkan lebih banyak data daripada yang seharusnya, yang dapat menyebabkan masalah keamanan atau kegagalan validasi.
 
 - ![Version](https://img.shields.io/badge/version-1.2--beta.1-blue.svg?cacheSeconds=2592000) 💫
 
