@@ -85,7 +85,7 @@ public class AccountsService {
     public List<AccountsDTO> getPages(Integer page, Integer size) {
         List<AccountsModel> accountsModels = new ArrayList<>();
         Pageable pageable = PageRequest.of(page, size); // sistem untuk membaut paging
-        Page<AccountsModel> pageResult = accountsRepository.findEmailAndPersonalDataBypage(pageable);
+        Page<AccountsModel> pageResult = accountsRepository.findByPage(pageable);
 
         for (AccountsModel accountsModel : pageResult) {
             accountsModel.setLogs(null);

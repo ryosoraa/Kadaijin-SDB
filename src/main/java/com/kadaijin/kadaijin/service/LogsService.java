@@ -64,7 +64,7 @@ public class LogsService {
     // GET ACCOUNTS AND LOG WITH PAGE
     public List<AccountsDTO> getPage(Integer page, Integer size) {
         Pageable pageable = PageRequest.of(page, size);
-        Page<AccountsModel> pageResult = accountsRepository.findAll(pageable);
+        Page<AccountsModel> pageResult = accountsRepository.findByPage(pageable);
         return convertDTO.listEntityToDto(pageResult);
     }
 
@@ -82,7 +82,7 @@ public class LogsService {
             for (LogModel logModel : accountsModel.getLogs()) {
                 if (logModel.getLogin().after(rangeCustomDTO.getStart())
                         &&
-                        logModel.getLogin().before(rangeCustomDTO.getEnd())) {
+                    logModel.getLogin().before(rangeCustomDTO.getEnd())) {
                     logModels.add(logModel);
                 }
             }

@@ -39,19 +39,13 @@ public class Logs {
 
     }
 
-    @Operation(summary = "Restore All Data", description = "restore all saved data")
-    @GetMapping("/all")
-    private List<AccountsDTO> getDataLog() {
-        return this.logService.getLog();
-    }
-
     @Operation(summary = "Returns data by page", description = "restore email data and login logs with page")
     @GetMapping("/page")
     private ResponseEntity<List<AccountsDTO>> getPage(
-            @RequestParam(defaultValue = "0") Integer page,
+            @RequestParam(defaultValue = "1") Integer page,
             @RequestParam(defaultValue = "10") Integer size) {
-        return ResponseEntity.ok()
-                .body(logService.getPage(page, size));
+        return ResponseEntity.badRequest()
+                .body(logService.getPage(page - 1, size));
     }
 
     @Operation(summary = "Restore Data Customize", description = "returns data by Customize date")
