@@ -44,24 +44,33 @@ Proyek ini memiliki berbagai fitur yang sesuai dengan teknologi yang digunakan:
 
 > Kombinasi dari teknologi-teknologi ini memungkinkan proyek ini untuk berjalan dengan baik dan efisien, memberikan solusi yang andal dan tangguh. Selamat datang di proyek saya, dan kami berharap proyek ini dapat memberikan manfaat bagi pengguna dan pengembang!
 
-- #### v1.1-beta.1 : data yang diterima tidak langsung diterima oleh model tpi ke dto dulu 💫
+- #### v1.1-beta.1 💫
+
+  **data yang diterima tidak langsung diterima oleh model tpi ke dto dulu**
 
 > pada versi ini aku melakukan kesalahan karena Request yang dikirimkan oleh user tidak seharusnya langsung di terima oleh Model Enity tetapi harus melalui DTO terlebih dahulu, keuntungan menggunakan DTO adalah
 
 > Menghindari "Overposting": Jika mengizinkan klien untuk mengirim data langsung ke model entitas, ini bisa membuka celah keamanan yang disebut "overposting". Overposting terjadi ketika klien dapat mengirimkan lebih banyak data daripada yang seharusnya, yang dapat menyebabkan masalah keamanan atau kegagalan validasi.
 
-- #### v1.2-beta.1 : optimasi converter 💫
+- #### v1.2-beta.1 💫
 
-Pada versi ini aku membuat Class baru yang di khusukan untuk Merubah data Model Enity menjadi DTO dan sebaliknya, serta Membuat converter List Model Entity menjadi List Model DTO, Dan berlaku juga untuk Page dan Optional
+  **optimasi converter**
 
-- #### v1.3-beta.1 : update DTO converter To ModelMapper 💫
+  > Pada versi ini aku membuat Class baru yang di khusukan untuk Merubah data Model Enity menjadi DTO dan sebaliknya, serta Membuat converter List Model Entity menjadi List Model DTO, Dan berlaku juga untuk Page dan Optional
 
-Pada Versi ini aku merubah yang sebelumnya menggunakan DTO converter selama manual menjadi menggunakan ModelMapper dari Library **org.modelmapper.ModelMapper**,
-Tapi model ini memiliki kekurangan karena antara DTO dan Model Entity field nya harus sama
+- #### v1.3-beta.1 💫
 
-- #### v1.4-beta.1 : optimasi RangeDTO dan AccountsDTO 💫
+**update DTO converter To ModelMapper**
 
-- #### v1.5-beta.1 : Rilis fitur Range 💫
+> Pada Versi ini aku merubah yang sebelumnya menggunakan DTO converter selama manual menjadi menggunakan ModelMapper dari Library **org.modelmapper.ModelMapper**,
+> Tapi model ini memiliki kekurangan karena antara DTO dan Model Entity field nya harus sama
+
+- #### v1.4-beta.1 💫
+  **Rilis fitur Range**
+
+> Pada Versi ini aku mendapatkan arahan dari leader ku untuk menambahkan fiture dimana user bisa mengatur paging secara manual atau setiap page nya ingin memunculkan berapa banyak data, karena load dari database akan lambat jika harus me load semua data sekalihus
+
+- #### v1.5-beta.1 : optimasi RangeDTO dan AccountsDTO 💫
 
 - #### v1.6-beta.2 : menambahkan keterangan total login 💫
 
