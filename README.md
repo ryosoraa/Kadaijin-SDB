@@ -4,7 +4,7 @@
 # Welcome To Kadaijin-SDB 🌟
 
 ![Versi](https://img.shields.io/badge/versi-4.1--beta.4-biru.svg?cacheSeconds=2592000)
-[![Twitter: Alexis11401746](https://img.shields.io/twitter/follow/Alexis11401746.svg?style=social)](https://twitter.com/dumps)
+[![Twitter: ryosora12](https://img.shields.io/twitter/follow/ryosora12.svg?style=social)](https://twitter.com/dumps)
 
 > Proyek ini merupakan tugas yang saya dapatkan selama magang di PT Indonesia Indicator dan merupakan perjalanan saya selama belajar bahasa pemrograman Java dan penggunaan framework Spring Boot
 
@@ -34,7 +34,8 @@ Proyek ini memiliki berbagai fitur yang sesuai dengan teknologi yang digunakan:
 
 ## Version History
 
-- ![Version](https://img.shields.io/badge/version-1.0--beta.1-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-1.0--beta.1-blue.svg?cacheSeconds=2592000)
+
 - #### v1.0-beta.1 : First Launching 💫
 
   **Release: 13 Oktober 2023**
@@ -51,17 +52,17 @@ Proyek ini memiliki berbagai fitur yang sesuai dengan teknologi yang digunakan:
 
   > Kombinasi dari teknologi-teknologi ini memungkinkan proyek ini untuk berjalan dengan baik dan efisien, memberikan solusi yang andal dan tangguh. Selamat datang di proyek saya, dan kami berharap proyek ini dapat memberikan manfaat bagi pengguna dan pengembang!
 
-### ![Version](https://img.shields.io/badge/version-1.1--beta.1-blue.svg?cacheSeconds=2592000) 💫
+## ![Version](https://img.shields.io/badge/version-1.1--beta.1-blue.svg?cacheSeconds=2592000)
 
-**The received data is filtered through DTO before being stored in the model**
+**The received data is filtered through DTO before being stored in the model** 💫
 
 > pada versi ini aku melakukan kesalahan karena Request yang dikirimkan oleh user tidak seharusnya langsung di terima oleh Model Enity tetapi harus melalui DTO terlebih dahulu, keuntungan menggunakan DTO adalah
 
 > Menghindari "Overposting": Jika mengizinkan klien untuk mengirim data langsung ke model entitas, ini bisa membuka celah keamanan yang disebut "overposting". Overposting terjadi ketika klien dapat mengirimkan lebih banyak data daripada yang seharusnya, yang dapat menyebabkan masalah keamanan atau kegagalan validasi.
 
-- ![Version](https://img.shields.io/badge/version-1.2--beta.1-blue.svg?cacheSeconds=2592000) 💫
+- ![Version](https://img.shields.io/badge/version-1.2--beta.1-blue.svg?cacheSeconds=2592000)
 
-  **Optimization Converter**
+  **Optimization Converter** 💫
 
   > Pada versi ini aku membuat Class baru yang di khusukan untuk Merubah data Model Enity menjadi DTO dan sebaliknya, serta Membuat converter List Model Entity menjadi List Model DTO, Dan berlaku juga untuk Page dan Optional
 
