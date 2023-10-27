@@ -385,13 +385,13 @@ MIT
 
 - 🔭 Saat ini saya bekerja pada **Kadaijin-SDB**
 
-- 👨‍💻 Semua proyek saya tersedia di [https://github.com/ryosoraa](GitHub)
+- 👨‍💻 Semua proyek saya tersedia di [https://github.com/ryosoraa](https://github.com/ryosoraa)
 
 - 💬 Tanya saya tentang **java, python, C#**
 
 - 📫 Hubungi saya di **riodwi12174@gmail.com**
 
-- 📄 Tahu tentang pengalaman saya [https://ryosoraa.github.io/](Portofolio)
+- 📄 Tahu tentang pengalaman saya [https://ryosoraa.github.io/](https://ryosoraa.github.io/)
 
 - ⚡ Fakta menarik **Saya ingin menjadi pribadi yang lebih baik**
 
