@@ -18,7 +18,21 @@
 
 ## Versi
 
-#### v1.0-beta.1 : launching pertama
+#### v1.0-beta.1 : first launching 💫
+
+> Rilis: 13 Oktober 2023
+
+> Pada tanggal ini, proyek saya resmi diluncurkan! Proyek ini dibangun dengan menggunakan teknologi-teknologi canggih, termasuk Spring Boot, Maven, dan Swagger. Di bawah ini adalah penjelasan singkat tentang masing-masing teknologi dan komponen yang digunakan dalam proyek ini:
+
+> Spring Boot: Spring Boot adalah framework yang kuat untuk pengembangan aplikasi Java. Ini menyederhanakan pengembangan aplikasi dengan menyediakan banyak konvensi dan konfigurasi otomatis. Spring Boot memungkinkan pengembang untuk dengan cepat membangun aplikasi berkinerja tinggi tanpa harus menghabiskan banyak waktu dalam konfigurasi manual.
+
+> Maven: Maven adalah alat manajemen proyek yang digunakan untuk mengelola dependensi, mengelola proses pembangunan, dan mengotomatisasi banyak tugas pengembangan. Ini memudahkan pengembang dalam mengelola proyek dan bergantung pada pustaka-pustaka eksternal yang diperlukan.
+
+> Swagger: Swagger digunakan dalam proyek ini untuk menciptakan dokumentasi API yang otomatis. Ini membuat pengembang dan pengguna API dapat dengan mudah memahami dan menguji endpoints API yang ada.
+
+> Selain itu, proyek ini menggunakan REST API untuk berkomunikasi antara berbagai komponen. REST (Representational State Transfer) adalah gaya arsitektur perangkat lunak yang digunakan untuk merancang jaringan aplikasi web yang bersifat stateless. Proyek ini juga mengandalkan MySQL sebagai basis data utama. MySQL adalah sistem manajemen basis data relasional (RDBMS) yang kuat, yang digunakan untuk menyimpan dan mengelola data aplikasi.
+
+> Kombinasi dari teknologi-teknologi ini memungkinkan proyek ini untuk berjalan dengan baik dan efisien, memberikan solusi yang andal dan tangguh. Selamat datang di proyek saya, dan kami berharap proyek ini dapat memberikan manfaat bagi pengguna dan pengembang!
 
 #### v1.2-beta.1 : update dto converter ke mapper
 
