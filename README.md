@@ -44,70 +44,70 @@ Selain itu, proyek ini menggunakan REST API untuk berkomunikasi antara berbagai 
 
 Kombinasi dari teknologi-teknologi ini memungkinkan proyek ini untuk berjalan dengan baik dan efisien, memberikan solusi yang andal dan tangguh. Selamat datang di proyek saya, dan kami berharap proyek ini dapat memberikan manfaat bagi pengguna dan pengembang!
 
-#### v1.2-beta.1 : update dto converter ke mapper 💫
+- #### v1.2-beta.1 : update dto converter ke mapper 💫
 
 Pada Versi ini aku merubah yang sebelumnya menggunakan DTO converter selama manual menjadi menggunakan ModelMapper dari Library **org.modelmapper.ModelMapper**
 Tapi model ini memiliki kekurangan karena antara DTO dan Model Entity field nya harus sama
 
-#### v1.3-beta.1 : data yang diterima tidak langsung diterima oleh model tpi ke dto dulu 💫
+- #### v1.3-beta.1 : data yang diterima tidak langsung diterima oleh model tpi ke dto dulu 💫
 
-#### v1.3-beta.1 : optimasi converter 💫
+- #### v1.3-beta.1 : optimasi converter 💫
 
-#### v1.4-beta.1 : optimasi RangeDTO dan AccountsDTO 💫
+- #### v1.4-beta.1 : optimasi RangeDTO dan AccountsDTO 💫
 
-#### v1.5-beta.1 : Rilis fitur Range 💫
+- #### v1.5-beta.1 : Rilis fitur Range 💫
 
-#### v1.6-beta.2 : menambahkan keterangan total login 💫
+- #### v1.6-beta.2 : menambahkan keterangan total login 💫
 
-#### v1.7-beta.2 : penghapusan bug total login terisi padahal pada bulan/waktu itu tidak login 💫
+- #### v1.7-beta.2 : penghapusan bug total login terisi padahal pada bulan/waktu itu tidak login 💫
 
-#### v1.8-beta.2 : penghapusan table database account 💫
+- #### v1.8-beta.2 : penghapusan table database account 💫
 
-#### v1.9-beta.2 : merubah table database kadaijin ke table accounts 💫
+- #### v1.9-beta.2 : merubah table database kadaijin ke table accounts 💫
 
-#### v2.0-beta.2 : optimasi model entity baru 💫
+- #### v2.0-beta.2 : optimasi model entity baru 💫
 
-#### v2.1-beta.3 : perubahan jpa repository builder 💫
+- #### v2.1-beta.3 : perubahan jpa repository builder 💫
 
-#### v2.2-beta.3 : perbaikan convert model to dto 💫
+- #### v2.2-beta.3 : perbaikan convert model to dto 💫
 
-#### v2.3-beta.3 : optimasi 💫
+- #### v2.3-beta.3 : optimasi 💫
 
-#### v2.4-beta.3 : penambahan data baru personal data 💫
+- #### v2.4-beta.3 : penambahan data baru personal data 💫
 
-#### v2.5-beta.3 : update personal data model entity dan personal data DTO 💫
+- #### v2.5-beta.3 : update personal data model entity dan personal data DTO 💫
 
-#### v2.6-beta.3 : update endpoint login hanya membutuhkan body email dan password 💫
+- #### v2.6-beta.3 : update endpoint login hanya membutuhkan body email dan password 💫
 
-#### v2.7-beta.3 : penambahan endpoint baru rangeLog 💫
+- #### v2.7-beta.3 : penambahan endpoint baru rangeLog 💫
 
-#### v2.8-beta.3 : penambahan fitur log range 💫
+- #### v2.8-beta.3 : penambahan fitur log range 💫
 
-#### v2.9-beta.3 : merubah cara kerja range 💫
+- #### v2.9-beta.3 : merubah cara kerja range 💫
 
-#### v3.0-beta.3 : menambah keluaran email dan log login secara bersamaan 💫
+- #### v3.0-beta.3 : menambah keluaran email dan log login secara bersamaan 💫
 
-#### v3.1-beta.4 : perubahan dari request body ke request param untuk rangeLog 💫
+- #### v3.1-beta.4 : perubahan dari request body ke request param untuk rangeLog 💫
 
-#### v3.2-beta.4 : penambahan fitur between di range log 💫
+- #### v3.2-beta.4 : penambahan fitur between di range log 💫
 
-#### v3.3-beta.4 : menghapus log range controller 💫
+- #### v3.3-beta.4 : menghapus log range controller 💫
 
-#### v3.4-beta.4 : perbaikan rangeLog between yang tidak bekerja dengan benar 💫
+- #### v3.4-beta.4 : perbaikan rangeLog between yang tidak bekerja dengan benar 💫
 
-#### v3.5-beta.4 : update log getOne dan accounts getOne bisa menerima string email 💫
+- #### v3.5-beta.4 : update log getOne dan accounts getOne bisa menerima string email 💫
 
-#### v3.6-beta.4 : update range log jika salah satu param between dihapus akan menampilkan semua log 💫
+- #### v3.6-beta.4 : update range log jika salah satu param between dihapus akan menampilkan semua log 💫
 
-#### v3.7-beta.4 : perbaikan di mana getOne account mengeluarkan log 💫
+- #### v3.7-beta.4 : perbaikan di mana getOne account mengeluarkan log 💫
 
-#### v3.8-beta.4 : penghapusan converter model to DTO dan merubah menjadi konstruktor 💫
+- #### v3.8-beta.4 : penghapusan converter model to DTO dan merubah menjadi konstruktor 💫
 
-#### v3.9-beta.4 : perubah menjadi 1 controller 1 service 💫
+- #### v3.9-beta.4 : perubah menjadi 1 controller 1 service 💫
 
-#### v3.0-beta.4 : optimasi 💫
+- #### v3.0-beta.4 : optimasi 💫
 
-#### v4.1-beta.4 : 💫
+- #### v4.1-beta.4 : 💫
 
 ## Struktur
 
