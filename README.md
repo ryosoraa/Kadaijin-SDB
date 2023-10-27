@@ -28,8 +28,6 @@ Proyek ini memiliki berbagai fitur yang sesuai dengan teknologi yang digunakan:
 
 ## Version
 
-- Berikut adalah file README dalam format .md:
-
 # Kadaijin-SDB
 
 ![Version](https://img.shields.io/badge/version-4.1--beta.4-blue.svg?cacheSeconds=2592000)
