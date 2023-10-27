@@ -30,10 +30,11 @@ Proyek ini memiliki berbagai fitur yang sesuai dengan teknologi yang digunakan:
 
 # Kadaijin-SDB
 
-![Version](https://img.shields.io/badge/version-4.1--beta.4-blue.svg?cacheSeconds=2592000)
+<!-- ![Version](https://img.shields.io/badge/version-4.1--beta.4-blue.svg?cacheSeconds=2592000) -->
 
 ## Version History
 
+- ![Version](https://img.shields.io/badge/version-1.0--beta.1-blue.svg?cacheSeconds=2592000)
 - #### v1.0-beta.1 : First Launching 💫
 
   **Release: 13 Oktober 2023**
@@ -50,7 +51,7 @@ Proyek ini memiliki berbagai fitur yang sesuai dengan teknologi yang digunakan:
 
   > Kombinasi dari teknologi-teknologi ini memungkinkan proyek ini untuk berjalan dengan baik dan efisien, memberikan solusi yang andal dan tangguh. Selamat datang di proyek saya, dan kami berharap proyek ini dapat memberikan manfaat bagi pengguna dan pengembang!
 
-- #### v1.1-beta.1 💫
+- ![Version](https://img.shields.io/badge/version-1.1--beta.1-blue.svg?cacheSeconds=2592000) 💫
 
   **The received data is filtered through DTO before being stored in the model**
 
@@ -58,7 +59,7 @@ Proyek ini memiliki berbagai fitur yang sesuai dengan teknologi yang digunakan:
 
   > Menghindari "Overposting": Jika mengizinkan klien untuk mengirim data langsung ke model entitas, ini bisa membuka celah keamanan yang disebut "overposting". Overposting terjadi ketika klien dapat mengirimkan lebih banyak data daripada yang seharusnya, yang dapat menyebabkan masalah keamanan atau kegagalan validasi.
 
-- #### v1.2-beta.1 💫
+- ![Version](https://img.shields.io/badge/version-1.2--beta.1-blue.svg?cacheSeconds=2592000) 💫
 
   **Optimization Converter**
 
