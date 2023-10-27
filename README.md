@@ -51,7 +51,7 @@ Proyek ini memiliki berbagai fitur yang sesuai dengan teknologi yang digunakan:
 
 <br>
 
-![Version](https://img.shields.io/badge/version-1.1--beta.1-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-1.1--beta.1-blue.svg?cacheSeconds=2592000)<br>
 **The received data is filtered through DTO before being stored in the model** 💫
 
 > pada versi ini aku melakukan kesalahan karena Request yang dikirimkan oleh user tidak seharusnya langsung di terima oleh Model Enity tetapi harus melalui DTO terlebih dahulu, keuntungan menggunakan DTO adalah
