@@ -32,10 +32,11 @@ Proyek ini memiliki berbagai fitur yang sesuai dengan teknologi yang digunakan:
 
 > **Rilis: 13 Oktober 2023**
 
-Pada tanggal ini, proyek saya resmi diluncurkan! Proyek ini dibangun dengan menggunakan teknologi-teknologi canggih, termasuk Spring Boot, Maven, dan Swagger. Di bawah ini adalah penjelasan singkat tentang masing-masing teknologi dan komponen yang digunakan dalam proyek ini:
+<p>Pada tanggal ini, proyek saya resmi diluncurkan! Proyek ini dibangun dengan menggunakan teknologi-teknologi canggih, termasuk Spring Boot, Maven, dan Swagger. Di bawah ini adalah penjelasan singkat tentang masing-masing teknologi dan komponen yang digunakan dalam proyek ini:</br>
 
 Spring Boot: Spring Boot adalah framework yang kuat untuk pengembangan aplikasi Java. Ini menyederhanakan pengembangan aplikasi dengan menyediakan banyak konvensi dan konfigurasi otomatis. Spring Boot memungkinkan pengembang untuk dengan cepat membangun aplikasi berkinerja tinggi tanpa harus menghabiskan banyak waktu dalam konfigurasi manual.
 
+</p>
 > Maven: Maven adalah alat manajemen proyek yang digunakan untuk mengelola dependensi, mengelola proses pembangunan, dan mengotomatisasi banyak tugas pengembangan. Ini memudahkan pengembang dalam mengelola proyek dan bergantung pada pustaka-pustaka eksternal yang diperlukan.
 
 > Swagger: Swagger digunakan dalam proyek ini untuk menciptakan dokumentasi API yang otomatis. Ini membuat pengembang dan pengguna API dapat dengan mudah memahami dan menguji endpoints API yang ada.
