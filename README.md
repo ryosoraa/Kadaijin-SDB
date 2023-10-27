@@ -28,7 +28,7 @@ Proyek ini memiliki berbagai fitur yang sesuai dengan teknologi yang digunakan:
 
 ## Version
 
-- #### v1.0-beta.1 : first launching 💫
+- #### v1.0-beta.1 : First Launching 💫
 
   **Release: 13 Oktober 2023**
 
@@ -46,7 +46,7 @@ Proyek ini memiliki berbagai fitur yang sesuai dengan teknologi yang digunakan:
 
 - #### v1.1-beta.1 💫
 
-  **data yang diterima tidak langsung diterima oleh model tpi ke dto dulu**
+  **The received data is filtered through DTO before being stored in the model**
 
   > pada versi ini aku melakukan kesalahan karena Request yang dikirimkan oleh user tidak seharusnya langsung di terima oleh Model Enity tetapi harus melalui DTO terlebih dahulu, keuntungan menggunakan DTO adalah
 
@@ -54,40 +54,52 @@ Proyek ini memiliki berbagai fitur yang sesuai dengan teknologi yang digunakan:
 
 - #### v1.2-beta.1 💫
 
-  **optimasi converter**
+  **Optimization Converter**
 
   > Pada versi ini aku membuat Class baru yang di khusukan untuk Merubah data Model Enity menjadi DTO dan sebaliknya, serta Membuat converter List Model Entity menjadi List Model DTO, Dan berlaku juga untuk Page dan Optional
 
 - #### v1.3-beta.1 💫
 
-  **update DTO converter To ModelMapper**
+  **Update DTO Converter To ModelMapper**
 
   > Pada Versi ini aku merubah yang sebelumnya menggunakan DTO converter selama manual menjadi menggunakan ModelMapper dari Library **org.modelmapper.ModelMapper**,
   > Tapi model ini memiliki kekurangan karena antara DTO dan Model Entity field nya harus sama
 
 - #### v1.4-beta.1 💫
 
-  **Rilis fitur Range**
+  **Range Feature Release**
 
-  > Pada Versi ini aku mendapatkan arahan dari leader ku untuk menambahkan fiture dimana user bisa mengatur paging secara manual atau setiap page nya ingin memunculkan berapa banyak data, karena load dari database akan lambat jika harus me load semua data sekalihus
+  > Di Versi ini aku mendapatkan arahan dari leader ku untuk menambahkan fiture dimana user bisa mengatur paging secara manual atau setiap page nya ingin memunculkan berapa banyak data, karena load dari database akan lambat jika harus me load semua data sekalihus
 
-- #### v1.5-beta.1 : optimasi RangeDTO dan AccountsDTO 💫
+- #### v1.5-beta.1 💫
 
-- #### v1.6-beta.2 : menambahkan keterangan total login 💫
+  **Optimization RangeDTO dan AccountsDTO**
 
-- #### v1.7-beta.2 : penghapusan bug total login terisi padahal pada bulan/waktu itu tidak login 💫
+  > DI versi sebelumnya penggunaan RangeDTO dan AccountDTO aku buat dengan Inherintence karena kedua Class memiliki kemiripan tetapi hasil return yang di hasikan tidak Rapi, Karena itu pada versi kali ini saya merubah menjadi 2 Class yang berbeda meski kedua model memiliki kemiripan
+
+- #### v1.6-beta.2 💫
+
+  **Add total login information**
+
+  > Setelah melaporkan hasil project pada versi sebelumnya aku mendapatkan arahan lagi untuk menambahkan fiture untuk melihat user tertentu itu sudah login berapa kali, lalu pada update versi kali ini aku menambahkan field baru dimana untuk menyimpan total Login user
+
+- #### v1.7-beta.2 💫
+
+  **Perbaikan Bug Total Login yang Tidak Terisi Pada Waktu yang Tepat**
+
+  > Pada versi ini, aku telah mengatasi masalah yang mengakibatkan total login terisi meskipun tidak ada aktivitas login yang sebenarnya pada bulan/waktu tertentu. Bug ini sekarang telah diperbaiki sehingga total login akan akurat merefleksikan aktivitas login yang sesungguhnya
 
 - #### v1.8-beta.2 : penghapusan table database account 💫
 
 - #### v1.9-beta.2 : merubah table database kadaijin ke table accounts 💫
 
-- #### v2.0-beta.2 : optimasi model entity baru 💫
+- #### v2.0-beta.2 : Optimization model entity baru 💫
 
 - #### v2.1-beta.3 : perubahan jpa repository builder 💫
 
 - #### v2.2-beta.3 : perbaikan convert model to dto 💫
 
-- #### v2.3-beta.3 : optimasi 💫
+- #### v2.3-beta.3 : Optimization 💫
 
 - #### v2.4-beta.3 : penambahan data baru personal data 💫
 
@@ -251,25 +263,25 @@ MIT
 
 - ⚡ Fakta menarik **Saya ingin menjadi pribadi yang lebih baik**
 
-<h3 align="left"    >Hubungi saya:</h3  >
-<p align="left" >
-<a href="https://codepen.io/ryosoraa" target="blank"    ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codepen.svg" alt="ryosoraa" height="30" width="40" / ></a >
-<a href="https://dev.to/ryosoraa" target="blank"    ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/devto.svg" alt="ryosoraa" height="30" width="40" /   ></a   >
-<a href="https://twitter.com/ryosora12" target="blank"  ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="ryosora12" height="30" width="40" /  ></a  >
-<a href="https://linkedin.com/in/rio-dwi-23560b287" target="blank"  ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="rio-dwi-23560b287" height="30" width="40" /    ></a    >
-<a href="https://stackoverflow.com/users/ryosoraa" target="blank"   ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/stack-overflow.svg" alt="ryosoraa" height="30" width="40" / ></a >
-<a href="https://codesandbox.com/ryosoraa" target="blank"   ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codesandbox.svg" alt="ryosoraa" height="30" width="40" /    ></a    >
-<a href="https://kaggle.com/ryosoraa" target="blank"    ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/kaggle.svg" alt="ryosoraa" height="30" width="40" /  ></a  >
-<a href="https://fb.com/ryosoraa" target="blank"    ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="ryosoraa" height="30" width="40" /    ></a    >
-<a href="https://instagram.com/ryosoraa" target="blank" ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="ryosoraa" height="30" width="40" /    ></a    >
-<a href="https://www.behance.net/ryosoraa" target="blank"   ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/behance.svg" alt="ryosoraa" height="30" width="40" /    ></a    >  
-<a href="https://hashnode.com/@ryosora" target="blank"  ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/hashnode.svg" alt="@ryosora" height="30" width="40" /  ></a  >
-<a href="https://medium.com/@ryosoraa" target="blank"   ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/medium.svg" alt="@ryosoraa" height="30" width="40" /    ></a    >
-<a href="https://www.youtube.com/c/ryosoraa" target="blank" ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/youtube.svg" alt="ryosoraa" height="30" width="40" /  ></a  >
-<a href="https://www.codechef.com/users/ryosoraa" target="blank"    ><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.1.0/icons/codechef.svg" alt="ryosoraa" height="30" width="40" /   ></a   >
-<a href="https://www.hackerrank.com/@ryosora" target="blank"    ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/hackerrank.svg" alt="@ryosora" height="30" width="40" /  ></a  >
-<a href="https://codeforces.com/profile/ryosoraa" target="blank"    ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codeforces.svg" alt="ryosoraa" height="30" width="40" /  ></a  >
-<a href="https://www.leetcode.com/ryosora" target="blank"   ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/leet-code.svg" alt="ryosora" height="30" width="40" /   ></a   >
-<a href="https://www.hackerearth.com/@ryosora" target="blank"   ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/hackerearth.svg" alt="@ryosora" height="30" width="40" /    ></a    >
-<a href="https://auth.geeksforgeeks.org/user/ryosoraa" target="blank"   ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/geeks-for-geeks.svg" alt="ryosoraa" height="30" width="40" /    ></a    >
-<a href="https://www.topcoder.com/members/ryosoraa" target="blank"  ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-
+<h3 align="left"   >Hubungi saya:</h3 >
+<p align="left">
+<a href="https://codepen.io/ryosoraa" target="blank"   ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codepen.svg" alt="ryosoraa" height="30" width="40" /></a>
+<a href="https://dev.to/ryosoraa" target="blank"   ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/devto.svg" alt="ryosoraa" height="30" width="40" /  ></a  >
+<a href="https://twitter.com/ryosora12" target="blank" ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="ryosora12" height="30" width="40" / ></a >
+<a href="https://linkedin.com/in/rio-dwi-23560b287" target="blank" ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="rio-dwi-23560b287" height="30" width="40" /   ></a   >
+<a href="https://stackoverflow.com/users/ryosoraa" target="blank"  ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/stack-overflow.svg" alt="ryosoraa" height="30" width="40" /></a>
+<a href="https://codesandbox.com/ryosoraa" target="blank"  ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codesandbox.svg" alt="ryosoraa" height="30" width="40" /   ></a   >
+<a href="https://kaggle.com/ryosoraa" target="blank"   ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/kaggle.svg" alt="ryosoraa" height="30" width="40" / ></a >
+<a href="https://fb.com/ryosoraa" target="blank"   ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="ryosoraa" height="30" width="40" /   ></a   >
+<a href="https://instagram.com/ryosoraa" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="ryosoraa" height="30" width="40" /   ></a   >
+<a href="https://www.behance.net/ryosoraa" target="blank"  ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/behance.svg" alt="ryosoraa" height="30" width="40" /   ></a   >  
+<a href="https://hashnode.com/@ryosora" target="blank" ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/hashnode.svg" alt="@ryosora" height="30" width="40" / ></a >
+<a href="https://medium.com/@ryosoraa" target="blank"  ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/medium.svg" alt="@ryosoraa" height="30" width="40" /   ></a   >
+<a href="https://www.youtube.com/c/ryosoraa" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/youtube.svg" alt="ryosoraa" height="30" width="40" / ></a >
+<a href="https://www.codechef.com/users/ryosoraa" target="blank"   ><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.1.0/icons/codechef.svg" alt="ryosoraa" height="30" width="40" /  ></a  >
+<a href="https://www.hackerrank.com/@ryosora" target="blank"   ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/hackerrank.svg" alt="@ryosora" height="30" width="40" / ></a >
+<a href="https://codeforces.com/profile/ryosoraa" target="blank"   ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codeforces.svg" alt="ryosoraa" height="30" width="40" / ></a >
+<a href="https://www.leetcode.com/ryosora" target="blank"  ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/leet-code.svg" alt="ryosora" height="30" width="40" /  ></a  >
+<a href="https://www.hackerearth.com/@ryosora" target="blank"  ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/hackerearth.svg" alt="@ryosora" height="30" width="40" /   ></a   >
+<a href="https://auth.geeksforgeeks.org/user/ryosoraa" target="blank"  ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/geeks-for-geeks.svg" alt="ryosoraa" height="30" width="40" /   ></a   >
+<a href="https://www.topcoder.com/members/ryosoraa" target="blank" ><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-
