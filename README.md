@@ -34,7 +34,7 @@ Proyek ini memiliki berbagai fitur yang sesuai dengan teknologi yang digunakan:
 
 ![Version](https://img.shields.io/badge/version-1.0--beta.1-blue.svg?cacheSeconds=2592000)
 
-**First Launching 💫** <brs>
+**First Launching 💫** <br>
 **Release: 13 Oktober 2023**
 
 > Pada tanggal ini, proyek saya resmi diluncurkan! Proyek ini dibangun dengan menggunakan teknologi-teknologi canggih, termasuk Spring Boot, Maven, dan Swagger. Di bawah ini adalah penjelasan singkat tentang masing-masing teknologi dan komponen yang digunakan dalam proyek ini:
