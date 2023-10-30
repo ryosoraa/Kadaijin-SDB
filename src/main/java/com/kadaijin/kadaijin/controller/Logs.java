@@ -1,5 +1,6 @@
 package com.kadaijin.kadaijin.controller;
 
+import java.security.PublicKey;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import com.kadaijin.kadaijin.service.AccountsService;
 import com.kadaijin.kadaijin.service.LogsService;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
 @RestController
 @RequestMapping("/logs")
@@ -57,6 +59,15 @@ public class Logs {
             @RequestParam(name = "page", defaultValue = "1") Integer page,
             @RequestParam(name = "size", defaultValue = "10") Integer size) {
         return logService.customsize(new RangeCustomDTO(email, start, end, page - 1, size));
+
+    }
+
+    @GetMapping("/customize")
+    private ResponseEntity<AccountsDTO> experiment(@RequestBody RangeCustomDTO rangeCustomDTO) {
+        System.out.println(rangeCustomDTO.getEmail());
+
+        return ResponseEntity.ok()
+                .body(logService.customsize(rangeCustomDTO));
 
     }
 
