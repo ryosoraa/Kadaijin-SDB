@@ -6,6 +6,7 @@ import java.util.List;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.springframework.core.annotation.Order;
 
 import lombok.Data;
 import jakarta.persistence.Id;
@@ -21,6 +22,11 @@ import jakarta.persistence.GenerationType;
 @Entity
 @Table(name = "accounts")
 public class AccountsModel {
+
+    @Order(1)
+    @OneToMany(mappedBy = "accounts")
+    @Fetch(FetchMode.JOIN)
+    private List<LogModel> logs;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // untuk menghasilkan nilai id
@@ -39,10 +45,6 @@ public class AccountsModel {
     @OneToMany(mappedBy = "accounts_id")
     @Fetch(FetchMode.JOIN)
     private List<PersonalDataModel> personalDataModels;
-
-    @OneToMany(mappedBy = "accounts")
-    @Fetch(FetchMode.JOIN)
-    private List<LogModel> logs;
 
     public AccountsModel(Integer no) {
         this.id = no;

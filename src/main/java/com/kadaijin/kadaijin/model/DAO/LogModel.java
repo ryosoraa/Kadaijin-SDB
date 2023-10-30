@@ -9,9 +9,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import lombok.Data;
 
 import java.sql.Timestamp;
+
+// import org.springframework.data.jpa.repository.Temporal;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -22,8 +26,10 @@ public class LogModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @Column(name = "logs_id")
+    private Integer logs_id;
 
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "login", nullable = true)
     private Timestamp login;
 

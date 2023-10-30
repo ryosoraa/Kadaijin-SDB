@@ -26,6 +26,11 @@ public interface AccountsRepository extends JpaRepository<AccountsModel, Integer
                         @Param("start") Timestamp start,
                         @Param("end") Timestamp end);
 
+        @Query(value = "SELECT a.id , a.email, a.password, a.register, l.logs_id, l.login FROM accounts a LEFT JOIN logs l ON a.id = l.accounts_id AND l.login BETWEEN :start AND :end WHERE a.email = :email", nativeQuery = true)
+        AccountsModel findByEmailAndLogBetweenDates(@Param("email") String email,
+                        @Param("start") Timestamp start,
+                        @Param("end") Timestamp end);
+
         @Query("SELECT a FROM AccountsModel a LEFT JOIN a.personalDataModels")
         Page<AccountsModel> findByPage(Pageable pageable);
 

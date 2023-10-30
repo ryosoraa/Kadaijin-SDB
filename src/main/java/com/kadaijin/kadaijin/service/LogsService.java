@@ -71,29 +71,43 @@ public class LogsService {
     // GET ACCOUNTS WITH LOGS CUSTOMIZE
     public AccountsDTO customsize(RangeCustomDTO rangeCustomDTO) {
         List<LogModel> logModels = new ArrayList<>();
-        AccountsModel accountsModel = accountsRepository.findByEmailAndLog(
+        AccountsModel accountsModel = accountsRepository.findByEmailAndLogBetweenDates(
                 rangeCustomDTO.getEmail(),
                 rangeCustomDTO.getStart(),
                 rangeCustomDTO.getEnd());
 
-        return new AccountsDTO(accountsModel);
+        System.out.println(accountsModel.getLogs().size());
 
-        // if (accountsModel == null) {
-        // return new
-        // AccountsDTO(accountsRepository.findByEmails(rangeCustomDTO.getEmail()),
-        // Collections.EMPTY_LIST);
-        // } else {
-        // for (LogModel logModel : accountsModel.getLogs()) {
-        // if (logModel.getLogin().after(rangeCustomDTO.getStart())
-        // &&
-        // logModel.getLogin().before(rangeCustomDTO.getEnd())) {
-        // logModels.add(logModel);
-        // }
-        // }
+        // return new AccountsDTO(accountsModel);
 
-        // return new AccountsDTO(accountsModel, logModels);
-        // }
+        try {
+            for (LogModel logModel : accountsModel.getLogs()) {
+                if (logModel.getLogin().after(rangeCustomDTO.getStart())
+                        &&
+                        logModel.getLogin().before(rangeCustomDTO.getEnd())) {
+                    logModels.add(logModel);
+                }
+            }
+            {
+                int size = rangeCustomDTO.getSize();
+                int page = rangeCustomDTO.getPage() * size;
+                List<LogModel> subList = logModels.subList(page, page + size);
+                return new AccountsDTO(accountsModel, new ArrayList<>(subList));
+            }
+        } catch (Exception e) {
+            return new AccountsDTO(accountsRepository.findByEmails(rangeCustomDTO.getEmail()),
+                    Collections.EMPTY_LIST);
+        }
 
     }
 
 }
+
+/*
+ * int size = rangeCustomDTO.getSize();
+ * int page = rangeCustomDTO.getPage() * rangeCustomDTO.getSize();
+ * for (int i = 0; i < size; i++) {
+ * results.add(logModels.get(page + i));
+ * }
+ * return new AccountsDTO(accountsModel, results)
+ */

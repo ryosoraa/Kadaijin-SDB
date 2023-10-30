@@ -53,8 +53,10 @@ public class Logs {
     public AccountsDTO customs(
             @RequestParam(name = "email", defaultValue = "ryo@gmail.com") String email,
             @RequestParam(name = "start", defaultValue = "2023-10-23 23:59:59") String start,
-            @RequestParam(name = "end", defaultValue = "2023-10-24 23:59:59") String end) {
-        return logService.customsize(new RangeCustomDTO(email, start, end));
+            @RequestParam(name = "end", defaultValue = "2023-10-24 23:59:59") String end,
+            @RequestParam(name = "page", defaultValue = "1") Integer page,
+            @RequestParam(name = "size", defaultValue = "10") Integer size) {
+        return logService.customsize(new RangeCustomDTO(email, start, end, page - 1, size));
 
     }
 
