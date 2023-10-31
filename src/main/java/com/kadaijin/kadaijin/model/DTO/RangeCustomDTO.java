@@ -17,8 +17,10 @@ public class RangeCustomDTO {
     @Schema(name = "end", example = "2023-10-23 18:50:13")
     private Timestamp end;
 
+    @Schema(name = "page", example = "1")
     private Integer page;
 
+    @Schema(name = "size", example = "10")
     private Integer size;
 
     public RangeCustomDTO(String email, String start, String end, Integer page, Integer size) {

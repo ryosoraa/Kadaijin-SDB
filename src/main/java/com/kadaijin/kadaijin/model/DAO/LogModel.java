@@ -15,6 +15,8 @@ import lombok.Data;
 
 import java.sql.Timestamp;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 // import org.springframework.data.jpa.repository.Temporal;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -29,8 +31,8 @@ public class LogModel {
     @Column(name = "logs_id")
     private Integer logs_id;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "login", nullable = true)
+    @CreationTimestamp
+    @Column(name = "login")
     private Timestamp login;
 
     @JsonIgnore
