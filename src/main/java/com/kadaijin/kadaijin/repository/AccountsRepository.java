@@ -34,4 +34,11 @@ public interface AccountsRepository extends JpaRepository<AccountsModel, Integer
         @Query("SELECT a FROM AccountsModel a LEFT JOIN a.personalDataModels")
         Page<AccountsModel> findByPage(Pageable pageable);
 
+        // @Query(value = "select from accounts as a join logs as l on a.id =
+        // l.accounts_id and l.login between :start and :end where a.email = :email",
+        // nativeQuery = true)
+        // AccountsModel findByEmailAndLogBetween(@Param("email") String email,
+        // @Param("start") Timestamp start,
+        // @Param("end") Timestamp end);
+
 }

@@ -76,29 +76,44 @@ public class LogsService {
                 rangeCustomDTO.getStart(),
                 rangeCustomDTO.getEnd());
 
-        System.out.println(accountsModel.getLogs().size());
-
-        // return new AccountsDTO(accountsModel);
-
-        try {
-            for (LogModel logModel : accountsModel.getLogs()) {
-                if (logModel.getLogin().after(rangeCustomDTO.getStart())
-                        &&
-                        logModel.getLogin().before(rangeCustomDTO.getEnd())) {
-                    logModels.add(logModel);
-                }
-            }
-            {
-                int size = rangeCustomDTO.getSize();
-                int page = rangeCustomDTO.getPage() * size;
-                List<LogModel> subList = logModels.subList(page, page + size);
-                return new AccountsDTO(accountsModel, new ArrayList<>(subList));
-            }
-        } catch (Exception e) {
-            return new AccountsDTO(accountsRepository.findByEmails(rangeCustomDTO.getEmail()),
-                    Collections.EMPTY_LIST);
+        { // BISA SEBAGIAN
+          // return new AccountsDTO(accountsModel);
         }
 
+        {
+            try {
+
+                int size = rangeCustomDTO.getSize();
+                int page = (rangeCustomDTO.getPage() - 1) * size;
+
+                { // FILTER
+                    for (LogModel logModel : accountsModel.getLogs()) {
+                        if (logModel.getLogin().after(rangeCustomDTO.getStart())
+                                &&
+                                logModel.getLogin().before(rangeCustomDTO.getEnd())) {
+                            logModels.add(logModel);
+                        }
+                    }
+                }
+
+                { // RETURN LOG PAGGING
+                    System.out.println("paging");
+                    int endIndex = Math.min(page + size, logModels.size());
+                    System.out.println(endIndex);
+                    return new AccountsDTO(accountsModel, new ArrayList<>(logModels.subList(page,
+                            endIndex)));
+
+                    /*
+                     * subList itu tidak memberikan value nya kedalam List baru. tapi hanya
+                     * memberikan tampilan (view)
+                     */
+                }
+            } catch (Exception e) { // HANDLE JIKA PADA SUATU TANGGAL TIDAK PERNAH LOGIN
+                System.out.println("exc");
+                return new AccountsDTO(accountsRepository.findByEmails(rangeCustomDTO.getEmail()),
+                        Collections.emptyList());
+            }
+        }
     }
 
 }

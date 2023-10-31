@@ -15,7 +15,6 @@ public class KadaijinApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(KadaijinApplication.class, args);
-		TimeZone.setDefault(TimeZone.getTimeZone("Asia/Jakarta"));
 	}
 
 }

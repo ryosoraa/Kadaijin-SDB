@@ -67,10 +67,10 @@ public class AccountsService {
         try {
             Integer id = Integer.parseInt(req);
             Optional<AccountsModel> optional = accountsRepository.findById(id);
-            AccountsDTO dto = new AccountsDTO(optional.get(), Collections.EMPTY_LIST);
+            AccountsDTO dto = new AccountsDTO(optional.get(), Collections.emptyList());
             return dto;
         } catch (Exception e) {
-            AccountsDTO accountsDTO = new AccountsDTO(accountsRepository.findByEmails(req), Collections.EMPTY_LIST);
+            AccountsDTO accountsDTO = new AccountsDTO(accountsRepository.findByEmails(req), Collections.emptyList());
             return accountsDTO;
         }
     }

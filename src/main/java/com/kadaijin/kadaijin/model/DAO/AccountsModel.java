@@ -23,11 +23,6 @@ import jakarta.persistence.GenerationType;
 @Table(name = "accounts")
 public class AccountsModel {
 
-    @Order(1)
-    @OneToMany(mappedBy = "accounts")
-    @Fetch(FetchMode.JOIN)
-    private List<LogModel> logs;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // untuk menghasilkan nilai id
     private Integer id;
@@ -41,6 +36,11 @@ public class AccountsModel {
     @Column(name = "register", columnDefinition = "TIMESTAMP")
     @CreationTimestamp
     private Timestamp register;
+
+    @Order(1)
+    @OneToMany(mappedBy = "accounts")
+    @Fetch(FetchMode.JOIN)
+    private List<LogModel> logs;
 
     @OneToMany(mappedBy = "accounts_id")
     @Fetch(FetchMode.JOIN)
