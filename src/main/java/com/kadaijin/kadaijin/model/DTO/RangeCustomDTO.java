@@ -8,7 +8,7 @@ import lombok.Data;
 @Data
 public class RangeCustomDTO {
 
-    @Schema(name = "email", example = "elda@gmail.com")
+    @Schema(name = "email", example = "ryo@gmail.com")
     private String email;
 
     @Schema(name = "start", example = "2023-10-23 18:50:13")

@@ -33,17 +33,14 @@ public class AccountsModel {
     @Column(name = "password")
     private String password;
 
-    @Column(name = "register", columnDefinition = "TIMESTAMP")
+    @Column(name = "register")
     @CreationTimestamp
     private Timestamp register;
 
-    @Order(1)
     @OneToMany(mappedBy = "accounts")
-    @Fetch(FetchMode.JOIN)
     private List<LogModel> logs;
 
     @OneToMany(mappedBy = "accounts_id")
-    @Fetch(FetchMode.JOIN)
     private List<PersonalDataModel> personalDataModels;
 
     public AccountsModel(Integer no) {

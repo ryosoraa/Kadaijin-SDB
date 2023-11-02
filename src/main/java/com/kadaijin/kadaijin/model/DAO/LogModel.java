@@ -17,8 +17,6 @@ import java.sql.Timestamp;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-// import org.springframework.data.jpa.repository.Temporal;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Data
@@ -36,7 +34,7 @@ public class LogModel {
     private Timestamp login;
 
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "accounts_id", nullable = false)
     private AccountsModel accounts;
 

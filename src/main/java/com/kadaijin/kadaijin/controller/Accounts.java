@@ -1,8 +1,8 @@
 package com.kadaijin.kadaijin.controller;
 
-import java.util.List;
-
+import com.kadaijin.kadaijin.payload.ResponseHandler;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -44,29 +44,42 @@ public class Accounts {
 
     @Operation(summary = "Restore One Data", description = "You can search for data via ID or email")
     @GetMapping("/get")
-    private ResponseEntity<AccountsDTO> getDataOne(@RequestParam(name = "Request", defaultValue = "1") String request) {
+    private ResponseEntity<Object> getDataOne(@RequestParam(name = "Request", defaultValue = "1") String request) {
 
-        return ResponseEntity.ok()
-                .body(accountsService.getOne(request));
+        try {
+            return ResponseHandler.generateResponse("Successfully return data!", HttpStatus.OK, accountsService.getOne(request));
+
+        } catch (Exception e) {
+
+            return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+
 
     }
 
     @Operation(summary = "Restore All Data", description = "restore all saved data")
     @GetMapping("/get/all")
-    private ResponseEntity<List<AccountsDTO>> getAllData() {
+    private ResponseEntity<Object> getAllData() {
 
-        return ResponseEntity.ok()
-                .body(accountsService.getData());
+        try {
+            return ResponseHandler.generateResponse("Successfully return data!", HttpStatus.OK, accountsService.getData());
+        } catch (Exception e) {
+            return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+
     }
 
     @Operation(summary = "Returns data by page", description = "returns the desired amount of data")
     @GetMapping("/get/page")
-    private ResponseEntity<List<AccountsDTO>> paging(
+    private ResponseEntity<Object> paging(
             @RequestParam(defaultValue = "1") Integer page,
             @RequestParam(defaultValue = "10") Integer size) {
 
-        return ResponseEntity.ok()
-                .body(accountsService.getPages(page - 1, size));
+        try {
+            return ResponseHandler.generateResponse("Successfully return data!", HttpStatus.OK, accountsService.getPages(page, size));
+        } catch (Exception e) {
+            return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
     }
 
 }

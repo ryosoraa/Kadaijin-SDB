@@ -22,10 +22,10 @@ public class AccountsDTO extends ConvertDTO {
     @Schema(name = "ID", example = "1", required = false)
     public Integer id;
 
-    @Schema(name = "email", example = "elda@gmail.com", required = true)
+    @Schema(name = "email", example = "ryo@gmail.com", required = true)
     public String email;
 
-    @Schema(name = "password", example = "elda", required = true)
+    @Schema(name = "password", example = "ryo", required = true)
     public String password;
 
     @Schema(name = "register", example = "2023-10-16T04:09:09", required = false)

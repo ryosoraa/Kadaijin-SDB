@@ -76,15 +76,15 @@ public class LogsService {
                 rangeCustomDTO.getStart(),
                 rangeCustomDTO.getEnd());
 
-        { // BISA SEBAGIAN
-          // return new AccountsDTO(accountsModel);
-        }
+        // { // BISA SEBAGIAN
+        // return new AccountsDTO(accountsModel);
+        // }
 
         {
             try {
 
                 int size = rangeCustomDTO.getSize();
-                int page = (rangeCustomDTO.getPage() - 1) * size;
+                int startPage = (rangeCustomDTO.getPage() - 1) * size;
 
                 { // FILTER
                     for (LogModel logModel : accountsModel.getLogs()) {
@@ -98,17 +98,13 @@ public class LogsService {
 
                 { // RETURN LOG PAGGING
                     System.out.println("paging");
-                    int endIndex = Math.min(page + size, logModels.size());
+                    int endIndex = Math.min(startPage + size, logModels.size());
                     System.out.println(endIndex);
-                    return new AccountsDTO(accountsModel, new ArrayList<>(logModels.subList(page,
-                            endIndex)));
+                    return new AccountsDTO(accountsModel,
+                            new ArrayList<>(logModels.subList(startPage, endIndex)));
 
-                    /*
-                     * subList itu tidak memberikan value nya kedalam List baru. tapi hanya
-                     * memberikan tampilan (view)
-                     */
                 }
-            } catch (Exception e) { // HANDLE JIKA PADA SUATU TANGGAL TIDAK PERNAH LOGIN
+            } catch (Exception e) { // HANDLE 
                 System.out.println("exc");
                 return new AccountsDTO(accountsRepository.findByEmails(rangeCustomDTO.getEmail()),
                         Collections.emptyList());
@@ -119,10 +115,6 @@ public class LogsService {
 }
 
 /*
- * int size = rangeCustomDTO.getSize();
- * int page = rangeCustomDTO.getPage() * rangeCustomDTO.getSize();
- * for (int i = 0; i < size; i++) {
- * results.add(logModels.get(page + i));
- * }
- * return new AccountsDTO(accountsModel, results)
+ * subList itu tidak memberikan value nya kedalam List baru. tapi hanya
+ * memberikan tampilan (view)
  */
