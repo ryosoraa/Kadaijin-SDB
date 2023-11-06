@@ -46,7 +46,7 @@ public class AccountsService {
     AccountsDTO accountsDTO;
 
      // REGISTER
-    public void insert(RegisterDTO registerDTO) {
+    public void register(RegisterDTO registerDTO) {
         if (accountsRepository.findByEmails(registerDTO.getEmail()) != null) {
             System.out.println("Email udah ada bang!!");
         } else {
@@ -73,7 +73,7 @@ public class AccountsService {
     }
 
     // LOGIN
-    public void logInsert(LoginDTO loginDTO) {
+    public void login(LoginDTO loginDTO) {
         if (accountsRepository.existsByEmailAndPassword(loginDTO.getEmail(), loginDTO.getPassword())) {
             System.out.println(accountsRepository.findIdByEmail(loginDTO.getEmail()));
             LogModel logModel = new LogModel(accountsRepository.findIdByEmail(loginDTO.getEmail()));

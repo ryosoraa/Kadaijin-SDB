@@ -3,6 +3,7 @@ package com.kadaijin.kadaijin.model.DTO;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
@@ -63,6 +64,8 @@ public class AccountsDTO extends ConvertDTO {
         this.dataModels = accountsModel.getPersonalDataModels();
 
     }
+
+
 
     public AccountsDTO() {
 

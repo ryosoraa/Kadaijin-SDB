@@ -3,9 +3,11 @@ package com.kadaijin.kadaijin.model.DTO;
 import java.sql.Timestamp;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
 public class RangeCustomDTO {
 
     @Schema(name = "email", example = "ryo@gmail.com")
@@ -23,12 +25,12 @@ public class RangeCustomDTO {
     @Schema(name = "size", example = "10")
     private Integer size;
 
-    public RangeCustomDTO(String email, String start, String end, Integer page, Integer size) {
-        this.email = email;
-        this.start = Timestamp.valueOf(start);
-        this.end = Timestamp.valueOf(end);
-        this.page = page;
-        this.size = size;
-    }
+//    public RangeCustomDTO(String email, String start, String end, Integer page, Integer size) {
+//        this.email = email;
+//        this.start = Timestamp.valueOf(start);
+//        this.end = Timestamp.valueOf(end);
+//        this.page = page;
+//        this.size = size;
+//    }
 
 }

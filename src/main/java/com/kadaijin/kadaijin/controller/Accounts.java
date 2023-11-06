@@ -34,13 +34,13 @@ public class Accounts {
     @PostMapping("/Register")
     public void register(@RequestBody RegisterDTO registerDTO){
         System.out.println(registerDTO.getEmail());
-        this.accountsService.insert(registerDTO);
+        this.accountsService.register(registerDTO);
     }
 
     @Operation(summary = "Login", description = "Login user")
     @PostMapping("/Login")
     public void login(@RequestBody LoginDTO loginDTO) {
-        this.accountsService.logInsert(loginDTO);
+        this.accountsService.login(loginDTO);
 
     }
 
@@ -85,22 +85,3 @@ public class Accounts {
     }
 
 }
-
-/*
- *** ALTERNATIVE REGISTER**
- * 
- * @Operation(summary = "Alternative Register", description =
- * "Insert UserName And Password")
- * 
- * @PostMapping("/Register")
- * private void register(
- * 
- * @RequestParam String email,
- * 
- * @RequestParam String password) {
- * AccountsDTO accountsDTO = new AccountsDTO();
- * accountsDTO.setEmail(email);
- * accountsDTO.setPassword(password);
- * this.registerService.insert(accountsDTO);
- * }
- */

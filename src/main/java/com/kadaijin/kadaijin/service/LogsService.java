@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+import com.kadaijin.kadaijin.repository.LogRepository;
+import com.kadaijin.kadaijin.utils.Paging;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +30,12 @@ public class LogsService {
 
     @Autowired
     private AccountsRepository accountsRepository;
+
+    @Autowired
+    private LogRepository logRepository;
+
+    @Autowired
+    private Paging paging;
 
     @Autowired
     PersonalDataRepository personalDataRepository;
@@ -76,45 +84,32 @@ public class LogsService {
                 rangeCustomDTO.getStart(),
                 rangeCustomDTO.getEnd());
 
-//        { // BISA SEBAGIAN
-            return new AccountsDTO(accountsModel);
-//        }
+//            return new AccountsDTO(accountsModel);
 
-//        {
-//            try {
-//
-//                int size = rangeCustomDTO.getSize();
-//                int startPage = (rangeCustomDTO.getPage() - 1) * size;
-//
-//                { // FILTER
-//                    for (LogModel logModel : accountsModel.getLogs()) {
-//                        if (logModel.getLogin().after(rangeCustomDTO.getStart())
-//                                &&
-//                                logModel.getLogin().before(rangeCustomDTO.getEnd())) {
-//                            logModels.add(logModel);
-//                        }
-//                    }
-//                }
-//
-//                { // RETURN LOG PAGGING
-//                    System.out.println("paging");
-//                    int endIndex = Math.min(startPage + size, logModels.size());
-//                    System.out.println(endIndex);
-//                    return new AccountsDTO(accountsModel,
-//                            new ArrayList<>(logModels.subList(startPage, endIndex)));
-//
-//                }
-//            } catch (Exception e) { // HANDLE
-//                System.out.println("exc");
-//                return new AccountsDTO(accountsRepository.findByEmails(rangeCustomDTO.getEmail()),
-//                        Collections.emptyList());
-//            }
-//        }
+        {
+            for (LogModel logModel : accountsModel.getLogs()) {
+                if (logModel.getLogin().after(rangeCustomDTO.getStart())
+                        &&
+                        logModel.getLogin().before(rangeCustomDTO.getEnd())) {
+                    logModels.add(logModel);
+                }
+            }
+            return new AccountsDTO(accountsModel, paging.page(rangeCustomDTO, logModels));
+        }
+    }
+
+    public AccountsDTO logsBetween(RangeCustomDTO rangeCustomDTO){
+
+        AccountsModel accountsModel = accountsRepository.findByEmails(rangeCustomDTO.getEmail());
+        List<LogModel> logModels = logRepository.findByLoginBetweenAndAccounts_Id(
+                rangeCustomDTO.getStart(),
+                rangeCustomDTO.getEnd(),
+                accountsModel.getId()
+        );
+
+        return new AccountsDTO(
+                accountsModel,
+                paging.page(rangeCustomDTO, logModels));
     }
 
 }
-
-/*
- * subList itu tidak memberikan value nya kedalam List baru. tapi hanya
- * memberikan tampilan (view)
- */
