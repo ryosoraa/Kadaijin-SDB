@@ -20,7 +20,8 @@ public interface AccountsRepository extends JpaRepository<AccountsModel, Integer
         @Query("SELECT u.id FROM AccountsModel u WHERE u.email = :email")
         Integer findIdByEmail(@Param("email") String email);
 
-        @Query("SELECT a FROM AccountsModel a JOIN a.logs l JOIN a.personalDataModels pd WHERE a.email = :email AND l.login BETWEEN :start AND :end")
+        @Query("SELECT a FROM AccountsModel a JOIN a." +
+                " logs l JOIN a.personalDataModels pd WHERE a.email = :email AND l.login BETWEEN :start AND :end")
         AccountsModel findByEmailAndLog(
                         @Param("email") String email,
                         @Param("start") Timestamp start,
@@ -34,7 +35,7 @@ public interface AccountsRepository extends JpaRepository<AccountsModel, Integer
         @Query("SELECT a FROM AccountsModel a LEFT JOIN a.personalDataModels")
         Page<AccountsModel> findByPage(Pageable pageable);
 
-
+        // AccountsModel findAccountsAndLogsAndPersonalDataByEmailAndLogsLoginBetweenAndWithoutJoiningColumnsAndJustTakeTheAppropriateLogsInBetween(String email, Timestamp start, Timestamp end);
 
 
         // @Query(value = "select * from accounts as a join logs as l on a.id =

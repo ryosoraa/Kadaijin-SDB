@@ -3,6 +3,7 @@ package com.kadaijin.kadaijin.model.DAO;
 import java.sql.Timestamp;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -37,14 +38,21 @@ public class AccountsModel {
     @CreationTimestamp
     private Timestamp register;
 
-    @OneToMany(mappedBy = "accounts")
+    @OneToMany(mappedBy = "accounts", fetch = FetchType.LAZY)
+    @JsonIgnoreProperties("accounts")
     private List<LogModel> logs;
 
     @OneToMany(mappedBy = "accounts_id")
+    @JsonIgnoreProperties("accounts")
     private List<PersonalDataModel> personalDataModels;
 
     public AccountsModel(Integer no) {
         this.id = no;
+    }
+
+    public AccountsModel(String email, String password) {
+        this.email = email;
+        this.password = password;
     }
 
     public AccountsModel() {

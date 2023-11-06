@@ -2,6 +2,7 @@ package com.kadaijin.kadaijin;
 
 import java.util.TimeZone;
 
+import jakarta.annotation.PostConstruct;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -15,7 +16,7 @@ public class KadaijinApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(KadaijinApplication.class, args);
-		TimeZone.setDefault(TimeZone.getTimeZone("Asia/Jakarta"));
+//		TimeZone.setDefault(TimeZone.getTimeZone("Asia/Jakarta"));
 	}
 
 }

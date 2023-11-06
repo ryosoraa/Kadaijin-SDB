@@ -34,8 +34,8 @@ public class LogModel {
     private Timestamp login;
 
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "accounts_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "accounts_id", nullable = false, updatable = false)
     private AccountsModel accounts;
 
     public LogModel() {

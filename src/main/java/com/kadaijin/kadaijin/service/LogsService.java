@@ -76,40 +76,40 @@ public class LogsService {
                 rangeCustomDTO.getStart(),
                 rangeCustomDTO.getEnd());
 
-        // { // BISA SEBAGIAN
-        // return new AccountsDTO(accountsModel);
-        // }
+//        { // BISA SEBAGIAN
+            return new AccountsDTO(accountsModel);
+//        }
 
-        {
-            try {
-
-                int size = rangeCustomDTO.getSize();
-                int startPage = (rangeCustomDTO.getPage() - 1) * size;
-
-                { // FILTER
-                    for (LogModel logModel : accountsModel.getLogs()) {
-                        if (logModel.getLogin().after(rangeCustomDTO.getStart())
-                                &&
-                                logModel.getLogin().before(rangeCustomDTO.getEnd())) {
-                            logModels.add(logModel);
-                        }
-                    }
-                }
-
-                { // RETURN LOG PAGGING
-                    System.out.println("paging");
-                    int endIndex = Math.min(startPage + size, logModels.size());
-                    System.out.println(endIndex);
-                    return new AccountsDTO(accountsModel,
-                            new ArrayList<>(logModels.subList(startPage, endIndex)));
-
-                }
-            } catch (Exception e) { // HANDLE 
-                System.out.println("exc");
-                return new AccountsDTO(accountsRepository.findByEmails(rangeCustomDTO.getEmail()),
-                        Collections.emptyList());
-            }
-        }
+//        {
+//            try {
+//
+//                int size = rangeCustomDTO.getSize();
+//                int startPage = (rangeCustomDTO.getPage() - 1) * size;
+//
+//                { // FILTER
+//                    for (LogModel logModel : accountsModel.getLogs()) {
+//                        if (logModel.getLogin().after(rangeCustomDTO.getStart())
+//                                &&
+//                                logModel.getLogin().before(rangeCustomDTO.getEnd())) {
+//                            logModels.add(logModel);
+//                        }
+//                    }
+//                }
+//
+//                { // RETURN LOG PAGGING
+//                    System.out.println("paging");
+//                    int endIndex = Math.min(startPage + size, logModels.size());
+//                    System.out.println(endIndex);
+//                    return new AccountsDTO(accountsModel,
+//                            new ArrayList<>(logModels.subList(startPage, endIndex)));
+//
+//                }
+//            } catch (Exception e) { // HANDLE
+//                System.out.println("exc");
+//                return new AccountsDTO(accountsRepository.findByEmails(rangeCustomDTO.getEmail()),
+//                        Collections.emptyList());
+//            }
+//        }
     }
 
 }

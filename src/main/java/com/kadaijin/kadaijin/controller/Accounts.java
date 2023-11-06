@@ -1,9 +1,12 @@
 package com.kadaijin.kadaijin.controller;
 
+import com.kadaijin.kadaijin.model.DTO.RegisterDTO;
 import com.kadaijin.kadaijin.payload.ResponseHandler;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,11 +31,10 @@ public class Accounts {
     @Autowired
     AccountsService accountsService;
 
-    @Operation(summary = "Register", description = "Register new user")
     @PostMapping("/Register")
-    private void apiTest(@RequestBody AccountsDTO accountsDTO) {
-        this.accountsService.insert(accountsDTO);
-
+    public void register(@RequestBody RegisterDTO registerDTO){
+        System.out.println(registerDTO.getEmail());
+        this.accountsService.insert(registerDTO);
     }
 
     @Operation(summary = "Login", description = "Login user")

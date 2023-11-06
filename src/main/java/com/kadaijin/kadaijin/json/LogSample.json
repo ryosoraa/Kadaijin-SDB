@@ -1,33 +1,34 @@
-[
-  {
-    "userID": 0,
-    "userName": "Elda@gmail.com",
-    "log": [
-      { "logID": 1, "timestamp": "2023-10-15 00:00:00", "user_id": 1 },
-      { "logID": 2, "timestamp": "2023-10-15 00:00:00", "user_id": 1 },
-      { "logID": 3, "timestamp": "2023-10-15 00:00:00", "user_id": 1 }
-    ],
-    "totalLogin": 3
-  },
-  {
-    "userID": 0,
-    "userName": "Ryo@gmail.com",
-    "log": [
-      { "logID": 1, "timestamp": "2023-10-15 00:00:00" },
-      { "logID": 2, "timestamp": "2023-10-15 00:00:00" },
-      { "logID": 3, "timestamp": "2023-10-15 00:00:00" },
-      { "logID": 4, "timestamp": "2023-10-15 00:00:00" }
-    ],
-    "totalLogin": 4
-  },
-  {
-    "Email": "example@gmail.com",
-    "Log": [
+{
+  "data": {
+    "id": 1,
+    "email": "elda@gmail.com",
+    "password": "elda",
+    "register": "2023-10-27T09:07:05.000+00:00",
+    "totalLogin": 0,
+    "dataModels": [
       {
-        "times": "2023-10-18T18:18:35.369Z",
-        "id": 0
+        "personalId": 1,
+        "name": "Elda",
+        "age": 17,
+        "phone": 7836472,
+        "country": "heart",
+        "city": "brain"
       }
-    ],
-    "id": 1
-  }
-]
+    ]
+  },
+  "message": "Successfully return data!",
+  "status": 200
+},
+{
+"Login": {
+"email": "reyna@gmail.com",
+"password": "reyna"
+},
+" personal_data": {
+"name": "reyna",
+"age": 17,
+"phone": 328479,
+"country": "japan",
+"city": "tokyo"
+}
+}

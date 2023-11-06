@@ -5,6 +5,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+import com.kadaijin.kadaijin.model.DAO.PersonalDataModel;
+import com.kadaijin.kadaijin.model.DTO.RegisterDTO;
+import com.kadaijin.kadaijin.repository.PersonalDataRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -28,6 +31,9 @@ public class AccountsService {
     AccountsRepository accountsRepository;
 
     @Autowired
+    PersonalDataRepository personalDataRepository;
+
+    @Autowired
     private LogRepository logRepository;
 
     @Autowired
@@ -39,13 +45,30 @@ public class AccountsService {
     @Autowired
     AccountsDTO accountsDTO;
 
-    // REGISTER
-    public void insert(AccountsDTO accountsDTO) {
-        if (accountsRepository.findByEmails(accountsDTO.getEmail()) != null) {
+     // REGISTER
+    public void insert(RegisterDTO registerDTO) {
+        if (accountsRepository.findByEmails(registerDTO.getEmail()) != null) {
             System.out.println("Email udah ada bang!!");
         } else {
-            AccountsModel model = modelMapper.map(accountsDTO, AccountsModel.class);
-            this.accountsRepository.save(model);
+
+            AccountsModel accountsModel = new AccountsModel(
+                    registerDTO.getEmail(),
+                    registerDTO.getPassword());
+            this.accountsRepository.save(accountsModel);
+
+            int accounts_id = accountsRepository.findIdByEmail(registerDTO.getEmail());
+
+            LogModel logModel = new LogModel(accounts_id);
+            this.logRepository.save(logModel);
+
+            PersonalDataModel personalDataModel = new PersonalDataModel(
+                    registerDTO.getName(),
+                    registerDTO.getAge(),
+                    registerDTO.getPhone(),
+                    registerDTO.getCountry(),
+                    registerDTO.getCity(),
+                    accounts_id);
+            this.personalDataRepository.save(personalDataModel);
         }
     }
 

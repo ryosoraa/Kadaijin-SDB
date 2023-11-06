@@ -1,5 +1,7 @@
 package com.kadaijin.kadaijin.model.DTO;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.kadaijin.kadaijin.model.DAO.AccountsModel;
 import com.kadaijin.kadaijin.model.DAO.PersonalDataModel;
 import jakarta.persistence.Id;
@@ -7,7 +9,8 @@ import lombok.Data;
 
 @Data
 public class PersonalDataDTO {
-    @Id
+
+    @JsonIgnore
     private Integer personalId;
 
     private String name;
@@ -20,6 +23,7 @@ public class PersonalDataDTO {
 
     private String city;
 
+    @JsonIgnore
     AccountsModel accounts_id;
 
     public PersonalDataDTO(PersonalDataModel personalDataModel, Integer id) {
@@ -30,5 +34,9 @@ public class PersonalDataDTO {
         this.country = personalDataModel.getCountry();
         this.city = personalDataModel.getCity();
         this.accounts_id = new AccountsModel(id);
+    }
+
+    public  PersonalDataDTO(){
+
     }
 }

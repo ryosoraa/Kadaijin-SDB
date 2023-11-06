@@ -51,7 +51,7 @@ public class Logs {
             @RequestParam(defaultValue = "10") Integer size) {
 
         try {
-            return ResponseHandler.generateResponse("Succesfully return data", HttpStatus.OK, logService.getPage(page -1, size));
+            return ResponseHandler.generateResponse("Successfully return data", HttpStatus.OK, logService.getPage(page -1, size));
         } catch (Exception e) {
             return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
@@ -64,7 +64,7 @@ public class Logs {
         System.out.println(rangeCustomDTO.getEmail());
 
         try {
-            return ResponseHandler.generateResponse("Succesfully return data", HttpStatus.OK, logService.customsize(rangeCustomDTO));
+            return ResponseHandler.generateResponse("Successfully return data", HttpStatus.OK, logService.customsize(rangeCustomDTO));
         } catch (Exception e) {
             return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
