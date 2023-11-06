@@ -367,7 +367,7 @@ mvn install
 mvn spring-boot:run
 ```
 
-## Penulis
+## Author
 
 👤 **Rio Dwi Saputra**
 
