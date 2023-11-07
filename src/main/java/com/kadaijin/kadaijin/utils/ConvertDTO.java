@@ -1,4 +1,4 @@
-package com.kadaijin.kadaijin.model.converter;
+package com.kadaijin.kadaijin.utils;
 
 import java.util.ArrayList;
 import java.util.List;

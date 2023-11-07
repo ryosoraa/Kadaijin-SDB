@@ -41,7 +41,6 @@ public class Logs {
         } catch (Exception e) {
             return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
-
     }
 
     @Operation(summary = "Returns data by page", description = "restore email data and login logs with page")
@@ -64,7 +63,7 @@ public class Logs {
         System.out.println(rangeCustomDTO.getEmail());
 
         try {
-            return ResponseHandler.generateResponse("Successfully return data", HttpStatus.OK, logService.customsize(rangeCustomDTO));
+            return ResponseHandler.generateResponse("Successfully return data", HttpStatus.OK, logService.customize(rangeCustomDTO));
         } catch (Exception e) {
             return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.BAD_REQUEST);
         }

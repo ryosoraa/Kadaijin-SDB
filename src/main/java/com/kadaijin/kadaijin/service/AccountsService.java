@@ -34,10 +34,11 @@ public class AccountsService {
     PersonalDataRepository personalDataRepository;
 
     @Autowired
-    private LogRepository logRepository;
+    LogRepository logRepository;
 
     @Autowired
     EntityManager entityManager;
+    
 
     @Autowired
     ModelMapper modelMapper;
@@ -107,7 +108,7 @@ public class AccountsService {
     // GET ACCOUNT WITH PAGGING
     public List<AccountsDTO> getPages(Integer page, Integer size) {
         List<AccountsModel> accountsModels = new ArrayList<>();
-        Pageable pageable = PageRequest.of(page, size); // sistem untuk membaut paging
+        Pageable pageable = PageRequest.of(page, size);
         Page<AccountsModel> pageResult = accountsRepository.findByPage(pageable);
 
         for (AccountsModel accountsModel : pageResult) {

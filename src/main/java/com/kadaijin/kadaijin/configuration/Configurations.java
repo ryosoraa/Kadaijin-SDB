@@ -1,14 +1,13 @@
 package com.kadaijin.kadaijin.configuration;
 
-import com.kadaijin.kadaijin.model.DAO.LogModel;
 import com.kadaijin.kadaijin.utils.Paging;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
-import java.util.List;
 
-@org.springframework.context.annotation.Configuration
-public class Configuration {
+@Configuration
+public class Configurations {
 
     @Bean
     public ModelMapper modelMapper() {

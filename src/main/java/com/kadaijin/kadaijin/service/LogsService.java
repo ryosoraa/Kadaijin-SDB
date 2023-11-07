@@ -1,7 +1,6 @@
 package com.kadaijin.kadaijin.service;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,7 +14,7 @@ import com.kadaijin.kadaijin.model.DAO.AccountsModel;
 import com.kadaijin.kadaijin.model.DAO.LogModel;
 import com.kadaijin.kadaijin.model.DTO.AccountsDTO;
 import com.kadaijin.kadaijin.model.DTO.RangeCustomDTO;
-import com.kadaijin.kadaijin.model.converter.ConvertDTO;
+import com.kadaijin.kadaijin.utils.ConvertDTO;
 import com.kadaijin.kadaijin.repository.AccountsRepository;
 import com.kadaijin.kadaijin.repository.PersonalDataRepository;
 
@@ -60,11 +59,9 @@ public class LogsService {
         try {
             Integer id = Integer.parseInt(request);
             Optional<AccountsModel> optional = accountsRepository.findById(id);
-            AccountsDTO dto = new AccountsDTO(optional.get());
-            return dto;
+            return new AccountsDTO(optional.get());
         } catch (Exception e) {
-            AccountsDTO accountsDTO = new AccountsDTO(accountsRepository.findByEmails(request));
-            return accountsDTO;
+            return new AccountsDTO(accountsRepository.findByEmails(request));
         }
 
     }
@@ -77,39 +74,15 @@ public class LogsService {
     }
 
     // GET ACCOUNTS WITH LOGS CUSTOMIZE
-    public AccountsDTO customsize(RangeCustomDTO rangeCustomDTO) {
+    public AccountsDTO customize(RangeCustomDTO rangeCustomDTO) {
         List<LogModel> logModels = new ArrayList<>();
         AccountsModel accountsModel = accountsRepository.findByEmailAndLogBetweenDates(
                 rangeCustomDTO.getEmail(),
                 rangeCustomDTO.getStart(),
                 rangeCustomDTO.getEnd());
 
-//            return new AccountsDTO(accountsModel);
+            return new AccountsDTO(accountsModel, paging.page(rangeCustomDTO, accountsModel.getLogs()));
 
-        {
-            for (LogModel logModel : accountsModel.getLogs()) {
-                if (logModel.getLogin().after(rangeCustomDTO.getStart())
-                        &&
-                        logModel.getLogin().before(rangeCustomDTO.getEnd())) {
-                    logModels.add(logModel);
-                }
-            }
-            return new AccountsDTO(accountsModel, paging.page(rangeCustomDTO, logModels));
-        }
-    }
-
-    public AccountsDTO logsBetween(RangeCustomDTO rangeCustomDTO){
-
-        AccountsModel accountsModel = accountsRepository.findByEmails(rangeCustomDTO.getEmail());
-        List<LogModel> logModels = logRepository.findByLoginBetweenAndAccounts_Id(
-                rangeCustomDTO.getStart(),
-                rangeCustomDTO.getEnd(),
-                accountsModel.getId()
-        );
-
-        return new AccountsDTO(
-                accountsModel,
-                paging.page(rangeCustomDTO, logModels));
     }
 
 }

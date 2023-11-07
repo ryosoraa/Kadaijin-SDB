@@ -8,5 +8,5 @@ import java.sql.Timestamp;
 import java.util.List;
 
 public interface LogRepository extends JpaRepository<LogModel, Integer> {
-    List<LogModel> findByLoginBetweenAndAccounts_Id(Timestamp login, Timestamp login2, Integer accounts_id);
+
 }

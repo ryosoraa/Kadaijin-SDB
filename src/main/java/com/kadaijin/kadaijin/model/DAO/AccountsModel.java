@@ -43,7 +43,7 @@ public class AccountsModel {
     private List<LogModel> logs;
 
     @OneToMany(mappedBy = "accounts_id")
-    @JsonIgnoreProperties("accounts")
+    @JsonIgnoreProperties("accounts_id")
     private List<PersonalDataModel> personalDataModels;
 
     public AccountsModel(Integer no) {

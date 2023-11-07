@@ -20,29 +20,23 @@ public interface AccountsRepository extends JpaRepository<AccountsModel, Integer
         @Query("SELECT u.id FROM AccountsModel u WHERE u.email = :email")
         Integer findIdByEmail(@Param("email") String email);
 
-        @Query("SELECT a FROM AccountsModel a JOIN a." +
-                " logs l JOIN a.personalDataModels pd WHERE a.email = :email AND l.login BETWEEN :start AND :end")
-        AccountsModel findByEmailAndLog(
-                        @Param("email") String email,
-                        @Param("start") Timestamp start,
-                        @Param("end") Timestamp end);
 
-        @Query(value = "SELECT a.id , a.email, a.password, a.register, l.logs_id, l.login FROM accounts a LEFT JOIN logs l ON a.id = l.accounts_id AND l.login BETWEEN :start AND :end WHERE a.email = :email", nativeQuery = true)
+
+  /*      @Query(value = "SELECT a.id , a.email, a.password, a.register, l.logs_id, l.login FROM accounts a LEFT JOIN logs l ON a.id = l.accounts_id AND l.login BETWEEN :start AND :end WHERE a.email = :email", nativeQuery = true)
         AccountsModel findByEmailAndLogBetweenDates(@Param("email") String email,
                         @Param("start") Timestamp start,
-                        @Param("end") Timestamp end);
+                        @Param("end") Timestamp end);*/
+
+        @Query("SELECT a FROM AccountsModel a INNER JOIN FETCH a.logs l WHERE a.email = :email AND l.login BETWEEN :start AND :end")
+        AccountsModel findByEmailAndLogBetweenDates(@Param("email") String email,
+                                                   @Param("start") Timestamp start,
+                                                   @Param("end") Timestamp end);
 
         @Query("SELECT a FROM AccountsModel a LEFT JOIN a.personalDataModels")
         Page<AccountsModel> findByPage(Pageable pageable);
 
-        // AccountsModel findAccountsAndLogsAndPersonalDataByEmailAndLogsLoginBetweenAndWithoutJoiningColumnsAndJustTakeTheAppropriateLogsInBetween(String email, Timestamp start, Timestamp end);
+//         AccountsModel findAccountsByEmailAndLogsLoginBetween(String email, Timestamp start, Timestamp end);
 
 
-        // @Query(value = "select * from accounts as a join logs as l on a.id =
-        // l.accounts_id and l.login between:start and:end where a.email=:email",
-        // nativeQuery = true)
-        // AccountsModel findByEmailAndLogBetween(@Param("email") String email,
-        // @Param("start") Timestamp start,
-        // @Param("end") Timestamp end);
 
 }
